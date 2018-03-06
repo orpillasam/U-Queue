@@ -23,12 +23,16 @@ const userSchema = new Schema({
     unique: true
   },
   seated: { type: Boolean, default: false },
-  date: { type: Date, default: Date.now },
+  date: { type: Date, default: Date.now, unique: true },
   email: {
     type: String,
     match: [/.+\@.+\..+/, 'Please enter a valid e-mail address']
   },
-  notes: { type: String, maxlength: 280 }
+  checkIns: {
+    type: Number
+  },
+  notes: { type: String, maxlength: 280 },
+  rewardPoints: { type: Number, default: 0 }
 });
 
 const User = mongoose.model('User', userSchema);
