@@ -1,6 +1,6 @@
 {
   "name": "u-queue",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "",
   "main": "server.js",
   "scripts": {
@@ -12,8 +12,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "installDeps": "yarn && cd client && yarn"
   },
-  "author":
-    "Lauren Spinazze Sam Orpilla Brendan Kim, Elle Bong, Laurentius Tirtarahardja",
+  "author": "Lauren Spinazze Sam Orpilla Brendan Kim, Elle Bang, Laurentius Tirtarahardja",
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^3.5.0",
@@ -23,6 +22,7 @@
     "axios": "^0.16.2",
     "body-parser": "^1.17.2",
     "express": "^4.15.4",
-    "mongoose": "^4.11.7"
+    "mongoose": "^4.11.7",
+    "react-bootstrap": "^0.32.1"
   }
 }
