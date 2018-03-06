@@ -2,6 +2,9 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const guestSchema = new Schema({
+  queuePosition: {
+    type: Number
+  },
   firstName: {
     type: String,
     required: 'Please enter your first name',
