@@ -37,7 +37,8 @@ const guestSchema = new Schema({
   email: {
     type: String,
     match: [/.+\@.+\..+/, 'Please enter a valid e-mail address']
-  }
+  },
+  notes: { type: String, maxlength: 280 }
 });
 
 const Guest = mongoose.model('Guest', guestSchema);
