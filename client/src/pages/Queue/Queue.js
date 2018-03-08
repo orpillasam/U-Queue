@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import DeleteBtn from '../../components/DeleteBtn';
-import Jumbotron from '../../components/Jumbotron';
+import { Jumbotron, Panel } from 'react-bootstrap';
 import API from '../../utils/API';
 import { Link } from 'react-router-dom';
 import { Col, Row, Container } from '../../components/Grid';
 import { List, ListItem } from '../../components/List';
 import { Input, TextArea, FormBtn } from '../../components/Form';
 
-class Books extends Component {
+class Queue extends Component {
   state = {
     books: [],
     title: '',
@@ -68,4 +68,4 @@ class Books extends Component {
   }
 }
 
-export default Books;
+export default Queue;

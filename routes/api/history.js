@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const queueController = require('../../controllers/queueController');
+const queueController = require('../../controllers/historyController');
 
 // Matches with "/api/history"
 router
