@@ -1,3 +1,5 @@
 module.exports = {
-  Guest: require('./guest')
+  Guest: require('./guest'),
+  Account: require('./account'),
+  User:require('./user')
 };
