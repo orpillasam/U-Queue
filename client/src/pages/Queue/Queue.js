@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import DeleteBtn from '../../components/DeleteBtn';
-import { Jumbotron, Panel } from 'react-bootstrap';
+import { Jumbotron, Table } from 'react-bootstrap';
 import API from '../../utils/API';
 import { Link } from 'react-router-dom';
 import { Col, Row, Container } from '../../components/Grid';
 import { List, ListItem } from '../../components/List';
-import { Input, TextArea, FormBtn } from '../../components/Form';
+import { Input, FormBtn } from '../../components/Form';
 
 class Queue extends Component {
   state = {
@@ -74,14 +74,10 @@ class Queue extends Component {
     return (
       <Container fluid>
         <Row>
-          <Col size="md-12">
+          <Col size="md-6">
             <Jumbotron>
-              <h1 className="text-center">U-Queue</h1>
+              <h2 className="text-center">U-Queue</h2>
             </Jumbotron>
-          </Col>
-        </Row>
-        <Row>
-          <Col size="md-6 sm-12">
             <form>
               <Input
                 value={this.state.firstName}
@@ -127,25 +123,10 @@ class Queue extends Component {
               </FormBtn>
             </form>
           </Col>
-          <Col size="md-5 sm-12">
-            <h1>Current Queue</h1>
-            {this.state.queue.length ? (
-              <List>
-                {this.state.queue.map(guest => (
-                  <ListItem key={guest._id}>
-                    <Link to={'/queue/' + guest._id}>
-                      <strong>
-                        {guest.firstName} {guest.lastName} {guest.partySize}{' '}
-                        {guest.seated} {guest.notes}
-                      </strong>
-                    </Link>
-                    <DeleteBtn onClick={() => this.deleteGuest(guest._id)} />
-                  </ListItem>
-                ))}
-              </List>
-            ) : (
-              <h3>No Results to Display</h3>
-            )}
+          <Col size="md-6 sm-12">
+            <Jumbotron>
+              <h2>Current Queue</h2>
+            </Jumbotron>
           </Col>
         </Row>
       </Container>
