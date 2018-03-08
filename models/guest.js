@@ -12,7 +12,6 @@ const guestSchema = new Schema({
   },
   lastName: {
     type: String,
-    required: 'Please enter your last name',
     trim: true
   },
   phoneNumber: {
