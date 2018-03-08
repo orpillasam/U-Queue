@@ -3,7 +3,7 @@ const queueRoutes = require('./queue');
 const accountRoutes = require('./account');
 const historyRoutes = require('./history');
 
-// Book routes
+// Queue routes
 router.use('/queue', queueRoutes);
 
 module.exports = router;

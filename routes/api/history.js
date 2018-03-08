@@ -1,15 +1,15 @@
 const router = require('express').Router();
 const queueController = require('../../controllers/queueController');
 
-// Matches with "/api/queue"
+// Matches with "/api/history"
 router
-  .route('/')
+  .route('/history')
   .get(queueController.findAll)
   .post(queueController.create);
 
-// Matches with "/api/queue/:id"
+// Matches with "/api/history/:id"
 router
-  .route('/:id')
+  .route('/history/:id')
   .get(queueController.findById)
   .put(queueController.update)
   .delete(queueController.remove);
