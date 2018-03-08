@@ -2,9 +2,6 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const accountSchema = new Schema({
-  queuePosition: {
-    type: Number
-  },
   businessName: {
     type: String,
     required: 'Please enter your first name',
@@ -19,11 +16,6 @@ const accountSchema = new Schema({
       'Please enter a valid phone number'
     ],
     unique: true
-  },
-  partySize: {
-    type: Number,
-    required: 'Please enter your party size',
-    trim: true
   },
   email: {
     type: String,
