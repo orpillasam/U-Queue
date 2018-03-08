@@ -18,10 +18,6 @@ const guestSchema = new Schema({
     type: String,
     required: 'Please enter your phone number',
     trim: true,
-    match: [
-      '^([0-9]{3}-[0-9]{3}-[0-9]{4}$',
-      'Please enter a valid phone number'
-    ],
     unique: true
   },
   partySize: {
