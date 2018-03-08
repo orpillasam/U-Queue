@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const guestSchema = new Schema({
+const historySchema = new Schema({
   queuePosition: {
     type: Number
   },
@@ -16,7 +16,6 @@ const guestSchema = new Schema({
   },
   phoneNumber: {
     type: String,
-    required: 'Please enter your phone number',
     trim: true,
     match: [
       '^([0-9]{3}-[0-9]{3}-[0-9]{4}$',
@@ -37,9 +36,12 @@ const guestSchema = new Schema({
     type: String,
     match: [/.+\@.+\..+/, 'Please enter a valid e-mail address']
   },
-  notes: { type: String, maxlength: 280 }
+  notes: { type: String, maxlength: 280 },
+  waitTime: { type: Number },
+  time: { type: Date },
+  reason: { type: String }
 });
 
-const Guest = mongoose.model('Guest', guestSchema);
+const History = mongoose.model('History', historySchema);
 
-module.exports = Guest;
+module.exports = History;
