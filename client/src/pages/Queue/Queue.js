@@ -25,7 +25,7 @@ class Queue extends Component {
     API.getQueue()
       .then(res =>
         this.setState({
-          guest: res.data,
+          queue: res.data,
           firstName: '',
           lastName: '',
           phoneNumber: '',
@@ -63,7 +63,8 @@ class Queue extends Component {
         firstName: this.state.firstName,
         lastName: this.state.lastName,
         phoneNumber: this.state.phoneNumber,
-        partySize: this.state.partySize
+        partySize: this.state.partySize,
+        notes: this.state.notes
       })
         .then(res => this.loadQueue())
         .catch(err => console.log(err));
@@ -127,6 +128,22 @@ class Queue extends Component {
             <Jumbotron>
               <h2>Current Queue</h2>
             </Jumbotron>
+            {this.state.queue.length ? (
+              <List>
+                {this.state.queue.map(guest => (
+                  <ListItem key={guest._id}>
+                    <strong>
+                      {guest.firstName} {guest.lastName} Party of{' '}
+                      {guest.partySize}, {guest.notes}
+                    </strong>
+
+                    <DeleteBtn onClick={() => this.deleteGuest(guest._id)} />
+                  </ListItem>
+                ))}
+              </List>
+            ) : (
+              <h3>No Results to Display</h3>
+            )}
           </Col>
         </Row>
       </Container>
