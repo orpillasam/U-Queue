@@ -3,9 +3,10 @@ const authToken = process.env.TWLIO_AUTH_TOKEN;
 
 const client = require('twlio')(accountSid, authToken);
 
-client.messages.create({
-	to: process.env.MY_PHONE_NUMBER,
-	from: '+19495369535',
-	body: 'You-Queue test'
-})
-.then((message) => console.log(message.sid));
+client.messages
+  .create({
+    to: process.env.MY_PHONE_NUMBER,
+    from: '+19495369535',
+    body: 'U-Queue test'
+  })
+  .then(message => console.log(message.sid));
