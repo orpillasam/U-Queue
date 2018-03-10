@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import DeleteBtn from '../../components/DeleteBtn';
-import { Jumbotron, Table } from 'react-bootstrap';
+import { Jumbotron, Table, ListGroup, ListGroupItem } from 'react-bootstrap';
 import API from '../../utils/API';
-import { Link } from 'react-router-dom';
 import { Col, Row, Container } from '../../components/Grid';
-import { List, ListItem } from '../../components/List';
 import { Input, FormBtn } from '../../components/Form';
 
 class Queue extends Component {
@@ -14,7 +12,8 @@ class Queue extends Component {
     lastName: '',
     phoneNumber: '',
     partySize: '',
-    notes: ''
+    notes: '',
+    queuePosition: ''
   };
 
   componentDidMount() {
@@ -33,7 +32,8 @@ class Queue extends Component {
           partySize: '',
           seated: Boolean,
           moveUp: Boolean,
-          moveDown: Boolean
+          moveDown: Boolean,
+          queuePosition: ''
         })
       )
       .catch(err => console.log(err));
@@ -75,9 +75,12 @@ class Queue extends Component {
     return (
       <Container fluid>
         <Row>
+          <h1 className="text-center">Host/Hostess View</h1>
+        </Row>
+        <Row>
           <Col size="md-6">
             <Jumbotron>
-              <h2 className="text-center">U-Queue</h2>
+              <h2 className="text-center">Reserve a Table</h2>
             </Jumbotron>
             <form>
               <Input
@@ -125,22 +128,21 @@ class Queue extends Component {
             </form>
           </Col>
           <Col size="md-6 sm-12">
-            <Jumbotron>
+            <Jumbotron className="text-center">
               <h2>Current Queue</h2>
             </Jumbotron>
             {this.state.queue.length ? (
-              <List>
+              <ListGroup>
                 {this.state.queue.map(guest => (
-                  <ListItem key={guest._id}>
+                  <ListGroupItem key={guest._id}>
                     <strong>
                       {guest.firstName} {guest.lastName} Party of{' '}
                       {guest.partySize}, {guest.notes}
                     </strong>
-
                     <DeleteBtn onClick={() => this.deleteGuest(guest._id)} />
-                  </ListItem>
+                  </ListGroupItem>
                 ))}
-              </List>
+              </ListGroup>
             ) : (
               <h3>No Results to Display</h3>
             )}
