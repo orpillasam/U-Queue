@@ -18,10 +18,6 @@ const guestSchema = new Schema({
     type: String,
     required: 'Please enter your phone number',
     trim: true,
-    match: [
-      '^([0-9]{3}-[0-9]{3}-[0-9]{4}$',
-      'Please enter a valid phone number'
-    ],
     unique: true
   },
   partySize: {
@@ -31,13 +27,13 @@ const guestSchema = new Schema({
   },
   moveUp: { type: Boolean, default: false },
   moveDown: { type: Boolean, default: false },
+  notes: { type: String, maxlength: 280 },
   seated: { type: Boolean, default: false },
   date: { type: Date, default: Date.now },
   email: {
     type: String,
     match: [/.+\@.+\..+/, 'Please enter a valid e-mail address']
-  },
-  notes: { type: String, maxlength: 280 }
+  }
 });
 
 const Guest = mongoose.model('Guest', guestSchema);

@@ -3,13 +3,13 @@ const accountController = require('../../controllers/accountController');
 
 // Matches with "/api/books"
 router
-  .route('/')
+  .route('/account')
   .get(accountController.findAll)
   .post(accountController.create);
 
 // Matches with "/api/books/:id"
 router
-  .route('/:id')
+  .route('/account/:id')
   .get(accountController.findById)
   .put(accountController.update)
   .delete(accountController.remove);
