@@ -6,9 +6,6 @@ import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
 import Account from "./pages/Account";
 
-import React from 'react';
-
-
 const App = () => (
   <Router>
     <div>
