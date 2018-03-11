@@ -5,6 +5,7 @@ import Queue from './pages/Queue';
 import Detail from './pages/Detail';
 import Account from './pages/Account';
 import AccountEdit from './pages/Account';
+import Login from './pages/Login';
 import NoMatch from './pages/NoMatch';
 import Nav from './components/Nav';
 
@@ -18,6 +19,7 @@ const App = () => (
         <Route exact path="/queue/:id" component={Detail} />
         <Route exact path ="/account" component ={AccountEdit} />
         <Route exact path ="/newaccount" component ={Account} />
+        <Route exact path ="/login" component ={Login} />
         <Route component={NoMatch} />
       </Switch>
     </div>

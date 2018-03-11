@@ -11,6 +11,7 @@ class Account extends Component {
         website: '',
         ownerName: '',
         email: '',
+        password: '',
         phoneNumber: '',
         address: '',
         city: '',
@@ -19,6 +20,7 @@ class Account extends Component {
         logo: ''
 
     };
+    
     
     
   componentDidMount() {
@@ -33,6 +35,7 @@ class Account extends Component {
           website: '',
           ownerName: '',
           email: '',
+          password: '',
           phoneNumber: '',
           address: '',
           city: '',
@@ -59,6 +62,7 @@ class Account extends Component {
             website: this.state.website,
             ownerName: this.state.ownerName,
             email: this.state.email,
+            password: this.state.password,
             address: this.state.address,
             city: this.state.city,
             stateName: this.state.stateName,
@@ -75,7 +79,7 @@ class Account extends Component {
           return (
             <Container fluid>
               <Row>
-                <h1>Enter Account</h1>
+                <h1>Edit Account</h1>
               </Row>
                <Row>
                  <Col size="md-12">
@@ -97,6 +101,18 @@ class Account extends Component {
                         onChange={this.handleInputChange}
                         name="phoneNumber"
                         placeholder="Phone Number (required)"
+                      />
+                      <Input
+                        value={this.state.email}
+                        onChange={this.handleInputChange}
+                        name="email"
+                        placeholder="Email (required)"
+                      />
+                      <Input
+                        value={this.state.password}
+                        onChange={this.handleInputChange}
+                        name="password"
+                        placeholder="8 characters (required)"
                       />
                      <Input
                         value={this.state.address}

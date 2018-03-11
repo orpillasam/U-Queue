@@ -21,6 +21,11 @@ const accountSchema = new Schema({
     type: String,
     match: [/.+\@.+\..+/, 'Please enter a valid e-mail address']
   },
+  password: {
+    type: String,
+    required: 'Please enter your password',
+    trim: true
+  },
   phoneNumber: {
     type: String,
     required: 'Please enter your phone number',

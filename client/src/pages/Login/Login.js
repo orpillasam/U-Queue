@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import DeleteBtn from '../../components/DeleteBtn';
 import { Jumbotron, Table, ListGroup, ListGroupItem } from 'react-bootstrap';
 import API from '../../utils/API';
 import { Col, Row, Container } from '../../components/Grid';
@@ -11,7 +10,6 @@ class Account extends Component {
         website: '',
         ownerName: '',
         email: '',
-        password: '',
         phoneNumber: '',
         address: '',
         city: '',
@@ -20,6 +18,30 @@ class Account extends Component {
         logo: ''
 
     };
+
+    
+  componentDidMount() {
+    this.loadQueue();
+  }
+
+  loadQueue = () => {
+    API.getQueue()
+      .then(res =>
+        this.setState({
+          businessName: '',
+          website: '',
+          ownerName: '',
+          email: '',
+          phoneNumber: '',
+          address: '',
+          city: '',
+          stateName: '',
+          zipCode: '',
+          logo: ''
+        })
+      )
+      .catch(err => console.log(err));
+  };
 
     handleInputChange = event => {
         const { name, value } = event.target;
@@ -36,7 +58,6 @@ class Account extends Component {
             website: this.state.website,
             ownerName: this.state.ownerName,
             email: this.state.email,
-            password: this.state.password,
             address: this.state.address,
             city: this.state.city,
             stateName: this.state.stateName,
@@ -48,11 +69,12 @@ class Account extends Component {
         }
       };
 
+
       render () {
           return (
             <Container fluid>
               <Row>
-                <h1>Enter Account</h1>
+                <h1>Login</h1>
               </Row>
                <Row>
                  <Col size="md-12">
@@ -63,60 +85,25 @@ class Account extends Component {
                         name="businessName"
                         placeholder="Business Name (required)"
                       />
-                      <Input
-                        value={this.state.website}
-                        onChange={this.handleInputChange}
-                        name="website"
-                        placeholder="Website (required)"
-                      />
-                     <Input
-                        value={this.state.phoneNumber}
-                        onChange={this.handleInputChange}
-                        name="phoneNumber"
-                        placeholder="Phone Number (required)"
-                      />
-                      <Input
+                    <Input
                         value={this.state.email}
                         onChange={this.handleInputChange}
                         name="email"
                         placeholder="Email (required)"
                       />
-                      <Input
+                    <Input
                         value={this.state.password}
                         onChange={this.handleInputChange}
                         name="password"
                         placeholder="8 characters (required)"
-                      />
-                     <Input
-                        value={this.state.address}
+                    />
+                    <Input
+                        value={this.state.password}
                         onChange={this.handleInputChange}
-                        name="address"
-                        placeholder="address (required)"
-                      />
-                      <Input
-                        value={this.state.city}
-                        onChange={this.handleInputChange}
-                        name="businessName"
-                        placeholder="City (required)"
-                      />
-                     <Input
-                        value={this.state.stateName}
-                        onChange={this.handleInputChange}
-                        name="stateName"
-                        placeholder="State(required)"
-                      />
-                     <Input
-                        value={this.state.zipCode}
-                        onChange={this.handleInputChange}
-                        name="zipCode"
-                        placeholder="Zip Code (required)"
-                      />
-                      <Input
-                        value={this.state.logo}
-                        onChange={this.handleInputChange}
-                        name="logo"
-                        placeholder="Logo"
-                      />
+                        name="password"
+                        placeholder="8 characters (required)"
+                    />
+                    
                       <FormBtn
                         disabled={
                           !(
@@ -152,3 +139,4 @@ class Account extends Component {
 }
 
 export default Account;
+

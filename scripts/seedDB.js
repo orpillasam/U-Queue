@@ -93,6 +93,7 @@ const accountSeed = [
   ownerName: 'Bells',
   email: 'bellseatery@gmail.com',
   phoneNumber: '9495559867',
+  password: '12345678',
   address: '123 Bell Street',
   city: 'Irvine',
   stateName: 'CA',
