@@ -19,6 +19,30 @@ class Account extends Component {
         logo: ''
 
     };
+    
+    
+  componentDidMount() {
+    this.loadQueue();
+  }
+
+  loadQueue = () => {
+    API.getQueue()
+      .then(res =>
+        this.setState({
+          businessName: '',
+          website: '',
+          ownerName: '',
+          email: '',
+          phoneNumber: '',
+          address: '',
+          city: '',
+          stateName: '',
+          zipCode: '',
+          logo: ''
+        })
+      )
+      .catch(err => console.log(err));
+  };
 
     handleInputChange = event => {
         const { name, value } = event.target;
@@ -139,3 +163,4 @@ class Account extends Component {
 }
 
 export default Account;
+
