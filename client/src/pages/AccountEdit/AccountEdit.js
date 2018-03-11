@@ -5,7 +5,7 @@ import API from '../../utils/API';
 import { Col, Row, Container } from '../../components/Grid';
 import { Input, FormBtn } from '../../components/Form';
 
-class Account extends Component {
+class AccountEdit extends Component {
     state = {
         businessName: '',
         website: '',
@@ -178,5 +178,5 @@ class Account extends Component {
     
 }
 
-export default Account;
+export default AccountEdit;
 

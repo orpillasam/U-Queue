@@ -13,13 +13,19 @@ export default {
   deleteGuest: function(id) {
     return axios.delete('/api/queue/' + id);
   },
-  // Saves a book to the database
-
-  // saveAccount: function(accountData) {
-  //   return axios.post("/api/account", accountData);
-
   saveGuest: function(guestData) {
     return axios.post('/api/queue', guestData);
-
-  }
+  },
+  saveAccount: function(accountData) {
+    return axios.post("/api/account", accountData);
+  },
+  saveSignup: function(accountData) {
+    return axios.post("/api/signup", accountData);
+  },
+  saveAccountEdit: function(accountData) {
+    return axios.post("/api/accountedit", accountData);
+  },
+  saveAccount: function(accountData) {
+    return axios.post("/api/account", accountData);
+  },
 };

@@ -1,25 +1,36 @@
 import React, { Component } from 'react';
-import DeleteBtn from '../../components/DeleteBtn';
 import { Jumbotron, Table, ListGroup, ListGroupItem } from 'react-bootstrap';
 import API from '../../utils/API';
 import { Col, Row, Container } from '../../components/Grid';
 import { Input, FormBtn } from '../../components/Form';
 
-class Account extends Component {
+class Signup extends Component {
     state = {
         businessName: '',
         website: '',
         ownerName: '',
         email: '',
-        password: '',
-        phoneNumber: '',
-        address: '',
-        city: '',
-        stateName: '',
-        zipCode: '',
-        logo: ''
-
+        password: ''
     };
+
+    
+  componentDidMount() {
+    this.loadQueue();
+  }
+
+  loadQueue = () => {
+    API.getQueue()
+      .then(res =>
+        this.setState({
+            businessName: '',
+            website: '',
+            ownerName: '',
+            email: '',
+            password: ''
+        })
+      )
+      .catch(err => console.log(err));
+  };
 
     handleInputChange = event => {
         const { name, value } = event.target;
@@ -30,93 +41,56 @@ class Account extends Component {
 
     handleFormSubmit = event => {
         event.preventDefault();
-        if (this.state.businessName && this.state.phoneNumber && this.state.email && this.state.password) {
+        if (this.state.businessName && this.state.email && this.state.password) {
           API.saveAccount({
             businessName: this.state.businessName,
-            website: this.state.website,
-            ownerName: this.state.ownerName,
             email: this.state.email,
-            password: this.state.password,
-            address: this.state.address,
-            city: this.state.city,
-            stateName: this.state.stateName,
-            zipCode: this.state.zipCode,
-            logo: this.state.logo
+            password: this.state.password
           })
             .then(res => this.loadAccount())
             .catch(err => console.log(err));
         }
       };
 
+
       render () {
           return (
             <Container fluid>
               <Row>
-                <h1>Enter Account</h1>
+                <h1>Signup</h1>
               </Row>
                <Row>
                  <Col size="md-12">
                   <form>
+                    <h4>*Business Name:</h4>
                     <Input
                         value={this.state.businessName}
                         onChange={this.handleInputChange}
                         name="businessName"
                         placeholder="Business Name (required)"
                       />
-                      <Input
-                        value={this.state.website}
-                        onChange={this.handleInputChange}
-                        name="website"
-                        placeholder="Website (required)"
-                      />
-                     <Input
-                        value={this.state.phoneNumber}
-                        onChange={this.handleInputChange}
-                        name="phoneNumber"
-                        placeholder="Phone Number (required)"
-                      />
-                      <Input
+                    <h4>*Email:</h4>
+                    <Input
                         value={this.state.email}
                         onChange={this.handleInputChange}
                         name="email"
                         placeholder="Email (required)"
                       />
-                      <Input
+                    <h4>*Password:</h4>
+                    <Input
                         value={this.state.password}
                         onChange={this.handleInputChange}
                         name="password"
                         placeholder="8 characters (required)"
-                      />
-                     <Input
-                        value={this.state.address}
+                    />
+                    <h4>*re-type Password:</h4>
+                    <Input
+                        value={this.state.password}
                         onChange={this.handleInputChange}
-                        name="address"
-                        placeholder="address (required)"
-                      />
-                      <Input
-                        value={this.state.city}
-                        onChange={this.handleInputChange}
-                        name="businessName"
-                        placeholder="City (required)"
-                      />
-                     <Input
-                        value={this.state.stateName}
-                        onChange={this.handleInputChange}
-                        name="stateName"
-                        placeholder="State(required)"
-                      />
-                     <Input
-                        value={this.state.zipCode}
-                        onChange={this.handleInputChange}
-                        name="zipCode"
-                        placeholder="Zip Code (required)"
-                      />
-                      <Input
-                        value={this.state.logo}
-                        onChange={this.handleInputChange}
-                        name="logo"
-                        placeholder="Logo"
-                      />
+                        name="password"
+                        placeholder="8 characters (required)"
+                    />
+                    
                       <FormBtn
                         disabled={
                           !(
@@ -139,7 +113,7 @@ class Account extends Component {
                         }
                         onClick={this.handleFormSubmit}
                       >
-                        Save
+                        Sign up
                       </FormBtn>
 
                   </form>
@@ -151,4 +125,5 @@ class Account extends Component {
     
 }
 
-export default Account;
+export default Signup;
+
