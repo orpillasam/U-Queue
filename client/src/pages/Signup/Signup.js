@@ -7,10 +7,10 @@ import { Input, FormBtn } from '../../components/Form';
 class Signup extends Component {
     state = {
         businessName: '',
-        website: '',
-        ownerName: '',
         email: '',
-        password: ''
+        password: '',
+        retypePassword: '',
+        agree: false
     };
 
     
@@ -23,10 +23,9 @@ class Signup extends Component {
       .then(res =>
         this.setState({
             businessName: '',
-            website: '',
-            ownerName: '',
             email: '',
-            password: ''
+            password: '',
+            retypePassword: ''
         })
       )
       .catch(err => console.log(err));
@@ -41,7 +40,7 @@ class Signup extends Component {
 
     handleFormSubmit = event => {
         event.preventDefault();
-        if (this.state.businessName && this.state.email && this.state.password) {
+        if ((this.state.businessName && this.state.email && this.state.password && this.state.reTypePassword) && (this.state.password === this.state.retypePassword) &&(this.state.agree === true)) {
           API.saveAccount({
             businessName: this.state.businessName,
             email: this.state.email,
@@ -60,7 +59,7 @@ class Signup extends Component {
                 <h1>Signup</h1>
               </Row>
                <Row>
-                 <Col size="md-12">
+                 <Col size="md-6">
                   <form>
                     <h4>*Business Name:</h4>
                     <Input
@@ -85,20 +84,27 @@ class Signup extends Component {
                     />
                     <h4>*re-type Password:</h4>
                     <Input
-                        value={this.state.password}
+                        value={this.state.retyePassword}
                         onChange={this.handleInputChange}
-                        name="password"
+                        name="retypePassword"
                         placeholder="8 characters (required)"
                     />
+                    <Row>
+                        <Col size = 'md-1'>
+                            <Input 
+                            name="checkbox-agree"
+                            type="checkbox"
+                            check={this.state.agree}
+                            onChange={this.handleInputChange}
+                            />
+                        </Col>
+                        <Col size = 'md-11'>
+                        I agree to the <a href='url'>Terms of Use</a> and <a href='url'>Privacy Policy</a>
+                        
+                        </Col>
+                    </Row>
                     
                       <FormBtn
-                        disabled={
-                          !(
-                            this.state.businessName &&
-                            this.state.phoneNumber &&
-                            this.state.email
-                          )
-                        }
                         onClick={this.handleFormSubmit}
                       >
                         Cancel
@@ -107,8 +113,8 @@ class Signup extends Component {
                         disabled={
                           !(
                             this.state.businessName &&
-                            this.state.phoneNumber &&
-                            this.state.email
+                            this.state.email &&
+                            this.state.password
                           )
                         }
                         onClick={this.handleFormSubmit}
