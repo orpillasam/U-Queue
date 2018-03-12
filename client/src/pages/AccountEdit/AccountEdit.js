@@ -5,7 +5,7 @@ import API from '../../utils/API';
 import { Col, Row, Container } from '../../components/Grid';
 import { Input, FormBtn } from '../../components/Form';
 
-class Account extends Component {
+class AccountEdit extends Component {
     state = {
         businessName: '',
         website: '',
@@ -20,6 +20,32 @@ class Account extends Component {
         logo: ''
 
     };
+    
+    
+    
+  componentDidMount() {
+    this.loadQueue();
+  }
+
+  loadQueue = () => {
+    API.getQueue()
+      .then(res =>
+        this.setState({
+          businessName: '',
+          website: '',
+          ownerName: '',
+          email: '',
+          password: '',
+          phoneNumber: '',
+          address: '',
+          city: '',
+          stateName: '',
+          zipCode: '',
+          logo: ''
+        })
+      )
+      .catch(err => console.log(err));
+  };
 
     handleInputChange = event => {
         const { name, value } = event.target;
@@ -30,7 +56,7 @@ class Account extends Component {
 
     handleFormSubmit = event => {
         event.preventDefault();
-        if (this.state.businessName && this.state.phoneNumber && this.state.email && this.state.password) {
+        if (this.state.businessName && this.state.phoneNumber && this.state.email) {
           API.saveAccount({
             businessName: this.state.businessName,
             website: this.state.website,
@@ -48,11 +74,12 @@ class Account extends Component {
         }
       };
 
+
       render () {
           return (
             <Container fluid>
               <Row>
-                <h1>Enter Account</h1>
+                <h1>Edit Account</h1>
               </Row>
                <Row>
                  <Col size="md-12">
@@ -151,4 +178,5 @@ class Account extends Component {
     
 }
 
-export default Account;
+export default AccountEdit;
+

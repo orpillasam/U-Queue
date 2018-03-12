@@ -84,3 +84,31 @@ db.Guest.remove({})
     console.error(err);
     process.exit(1);
   });
+
+
+const accountSeed = [
+  {
+  businessName: 'Bells Eatery',
+  website: 'Bellseatery.com',
+  ownerName: 'Bells',
+  email: 'bellseatery@gmail.com',
+  phoneNumber: '9495559867',
+  password: '12345678',
+  address: '123 Bell Street',
+  city: 'Irvine',
+  stateName: 'CA',
+  zipCode: '94865',
+  logo: 'n/a'
+  }
+];
+
+db.Account.remove({})
+  .then(() => db.Account.collection.insertMany(accountSeed))
+  .then(data => {
+    console.log(data.insertedIds.length + ' records inserted!');
+    process.exit(0);
+  })
+  .catch(err => {
+    console.error(err);
+    process.exit(1);
+  });
