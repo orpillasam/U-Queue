@@ -1,12 +1,14 @@
-const accountSid = process.env.TWLIIO_ACCOUNT_SID;
-const authToken = process.env.TWLIO_AUTH_TOKEN;
+// Twilio Credentials
+const accountSid = 'AC2a7cd8e1c9740fb5ccf6930b089f114e';
+const authToken = 'c6af2a5f553616ba251cc70cdc5d093d';
 
-const client = require('twlio')(accountSid, authToken);
+// require the Twilio module and create a REST client
+const client = require('twilio')(accountSid, authToken);
 
 client.messages
   .create({
-    to: process.env.MY_PHONE_NUMBER,
-    from: '+19495369535',
-    body: 'U-Queue test'
+    to: '+19494138859',
+    from: '+19495367823',
+    body: 'Thank you for joining our waitlist! We will be notifying you shortly.',
   })
   .then(message => console.log(message.sid));
