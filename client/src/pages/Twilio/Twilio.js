@@ -5,8 +5,9 @@ import API from '../../utils/API';
 import { Col, Row, Container } from '../../components/Grid';
 import { Input, FormBtn } from '../../components/Form';
 
-class QueueHistory extends Component {
+class Twilio extends Component {
   state = {
+    queue: [],
     firstName: '',
     lastName: '',
     phoneNumber: '',
@@ -38,11 +39,6 @@ class QueueHistory extends Component {
       .catch(err => console.log(err));
   };
 
-  moveToQueue = id => {
-      API.moveGuest(id)
-      .then(res => this.loadQueueHistory())
-      .catch(err => console.log(err));
-  }
   deleteGuest = id => {
     API.deleteGuest(id)
       .then(res => this.loadQueue())
@@ -157,4 +153,4 @@ class QueueHistory extends Component {
   }
 }
 
-export default QueueHistory;
+export default Twilio;
