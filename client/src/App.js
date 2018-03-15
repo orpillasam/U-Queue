@@ -10,6 +10,7 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import NoMatch from './pages/NoMatch';
 import QueueHistory from './pages/QueueHistory';
+import Twilio from './pages/Twilio';
 import Nav from './components/Nav';
 
 const App = () => (
@@ -26,6 +27,7 @@ const App = () => (
         <Route exact path ="/signup" component ={Signup} />
         <Route exact path ="/guestedit" component = {GuestEdit} />
         <Route exact path ="/queuehistory" component = {QueueHistory} />
+        <Route exact path ="/twilio" component = {Twilio} />
         <Route component={NoMatch} />
       </Switch>
     </div>

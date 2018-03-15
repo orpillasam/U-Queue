@@ -5,10 +5,17 @@ const authToken = 'c6af2a5f553616ba251cc70cdc5d093d';
 // require the Twilio module and create a REST client
 const client = require('twilio')(accountSid, authToken);
 
-client.messages
+let clientPhoneNumber = '19494138559';
+
+
+function sendPhone() {
+  client.messages
   .create({
-    to: '+19494138859',
+    to: clientPhoneNumber,
     from: '+19495367823',
     body: 'Thank you for joining our waitlist! We will be notifying you shortly.',
   })
   .then(message => console.log(message.sid));
+}
+
+
