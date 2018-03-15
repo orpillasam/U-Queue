@@ -5,9 +5,11 @@ import Queue from './pages/Queue';
 import Detail from './pages/Detail';
 import Account from './pages/Account';
 import AccountEdit from './pages/AccountEdit';
+import GuestEdit from './pages/GuestEdit';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import NoMatch from './pages/NoMatch';
+import QueueHistory from './pages/QueueHistory';
 import Nav from './components/Nav';
 
 const App = () => (
@@ -22,6 +24,8 @@ const App = () => (
         <Route exact path ="/newaccount" component ={Account} />
         <Route exact path ="/login" component ={Login} />
         <Route exact path ="/signup" component ={Signup} />
+        <Route exact path ="/guestedit" component = {GuestEdit} />
+        <Route exact path ="/queuehistory" component = {QueueHistory} />
         <Route component={NoMatch} />
       </Switch>
     </div>

@@ -28,4 +28,5 @@ export default {
   saveAccount: function(accountData) {
     return axios.post("/api/account", accountData);
   },
+
 };
