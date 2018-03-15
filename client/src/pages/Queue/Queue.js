@@ -64,7 +64,8 @@ class Queue extends Component {
         lastName: this.state.lastName,
         phoneNumber: this.state.phoneNumber,
         partySize: this.state.partySize,
-        notes: this.state.notes
+        notes: this.state.notes,
+        queuePosition: this.state.queue.length + 1
       })
         .then(res => this.loadQueue())
         .catch(err => console.log(err));
@@ -75,12 +76,12 @@ class Queue extends Component {
     return (
       <Container fluid>
         <Row>
-          <h1 className="text-center">Host/Hostess View</h1>
+          <h1 className="text-center host-head">Host/Hostess View</h1>
         </Row>
         <Row>
           <Col size="md-6">
             <Jumbotron>
-              <h2 className="text-center">Reserve a Table</h2>
+              <h2 className="text-center host-head">Reserve a Table</h2>
             </Jumbotron>
             <form>
               <Input
@@ -129,7 +130,9 @@ class Queue extends Component {
           </Col>
           <Col size="md-6 sm-12">
             <Jumbotron className="text-center">
-              <h2>Current Queue</h2>
+              <h2 className="host-head">
+                Current Queue: {this.state.queue.length}
+              </h2>
             </Jumbotron>
             {this.state.queue.length ? (
               <ListGroup>
