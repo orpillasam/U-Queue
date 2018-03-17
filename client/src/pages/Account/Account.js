@@ -9,10 +9,9 @@ class Account extends Component {
     state = {
         businessName: '',
         website: '',
-        ownerName: '',
+        phoneNumber: '',
         email: '',
         password: '',
-        phoneNumber: '',
         address: '',
         city: '',
         stateName: '',
@@ -30,11 +29,12 @@ class Account extends Component {
 
     handleFormSubmit = event => {
         event.preventDefault();
+        console.log(event);
         if (this.state.businessName && this.state.phoneNumber && this.state.email && this.state.password) {
           API.saveAccount({
             businessName: this.state.businessName,
             website: this.state.website,
-            ownerName: this.state.ownerName,
+            phoneNumber: this.state.phoneNumber,
             email: this.state.email,
             password: this.state.password,
             address: this.state.address,
@@ -43,7 +43,7 @@ class Account extends Component {
             zipCode: this.state.zipCode,
             logo: this.state.logo
           })
-            .then(res => this.loadAccount())
+            // .then(res => this.loadAccount())
             .catch(err => console.log(err));
         }
       };
@@ -67,7 +67,7 @@ class Account extends Component {
                         value={this.state.website}
                         onChange={this.handleInputChange}
                         name="website"
-                        placeholder="Website (required)"
+                        placeholder="Website (optional)"
                       />
                      <Input
                         value={this.state.phoneNumber}
@@ -96,7 +96,7 @@ class Account extends Component {
                       <Input
                         value={this.state.city}
                         onChange={this.handleInputChange}
-                        name="businessName"
+                        name="city"
                         placeholder="City (required)"
                       />
                      <Input
@@ -118,14 +118,9 @@ class Account extends Component {
                         placeholder="Logo"
                       />
                       <FormBtn
-                        disabled={
-                          !(
-                            this.state.businessName &&
-                            this.state.phoneNumber &&
-                            this.state.email
-                          )
-                        }
-                        onClick={this.handleFormSubmit}
+ 
+                      
+                       //should go to main page
                       >
                         Cancel
                       </FormBtn>
@@ -134,7 +129,11 @@ class Account extends Component {
                           !(
                             this.state.businessName &&
                             this.state.phoneNumber &&
-                            this.state.email
+                            this.state.email &&
+                            this.state.password &&
+                            this.state.address &&
+                            this.state.stateName &&
+                            this.state.zipCode
                           )
                         }
                         onClick={this.handleFormSubmit}

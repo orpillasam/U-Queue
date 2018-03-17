@@ -24,11 +24,11 @@ class AccountEdit extends Component {
     
     
   componentDidMount() {
-    this.loadQueue();
+    this.loadAccount();
   }
 
-  loadQueue = () => {
-    API.getQueue()
+  loadAccount = () => {
+    API.getAccount()
       .then(res =>
         this.setState({
           businessName: '',

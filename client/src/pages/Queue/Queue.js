@@ -54,6 +54,7 @@ class Queue extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
+    console.log(event);
     if (
       this.state.firstName &&
       this.state.phoneNumber &&

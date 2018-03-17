@@ -26,12 +26,18 @@ export default {
     return axios.post("/api/accountedit", accountData);
   },
   saveAccount: function(accountData) {
+    console.log(accountData);
     return axios.post("/api/account", accountData);
   },
+  getAccount: function(id) {
+    return axios.get('/api/account/' + id);
+  },
+  validateAccount: function(accountData) {
+    return axios.post('/api/account', accountData);
+  },
   sendTwilio: function(id) {
-    return axios.get("/api/queue/" + id);
+    return axios.get("/api/twilio/" + id);
   }
-
 };
 
 

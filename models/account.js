@@ -12,10 +12,15 @@ const accountSchema = new Schema({
     required: 'Please enter your website',
     trim: true
   },
-  ownerName: {
+  phoneNumber: {
     type: String,
-    required: 'Please enter your name',
-    trim: true
+    required: 'Please enter your phone number',
+    trim: true,
+    // match: [
+    //   '^([0-9]{3}-[0-9]{3}-[0-9]{4}$',
+    //   'Please enter a valid phone number'
+    // ],
+    unique: true
   },
   email: {
     type: String,
@@ -25,16 +30,6 @@ const accountSchema = new Schema({
     type: String,
     required: 'Please enter your password',
     trim: true
-  },
-  phoneNumber: {
-    type: String,
-    required: 'Please enter your phone number',
-    trim: true,
-    match: [
-      '^([0-9]{3}-[0-9]{3}-[0-9]{4}$',
-      'Please enter a valid phone number'
-    ],
-    unique: true
   },
   address: {
     type: String,
