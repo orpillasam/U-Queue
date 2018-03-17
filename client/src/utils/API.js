@@ -16,5 +16,8 @@ export default {
   // Saves a book to the database
   saveGuest: function(guestData) {
     return axios.post('/api/queue', guestData);
+  },
+  pushToHistory: function(guestData) {
+    return axios.post('/api/history', guestData);
   }
 };
