@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import DeleteBtn from '../../components/DeleteBtn';
+import SwapBtn from '../../components/SwapBtn';
 import { Jumbotron, Table, ListGroup, ListGroupItem } from 'react-bootstrap';
 import API from '../../utils/API';
 import { Col, Row, Container } from '../../components/Grid';
@@ -60,6 +61,7 @@ class Queue extends Component {
       this.state.phoneNumber &&
       this.state.partySize
     ) {
+      console.log('first request');
       API.saveGuest({
         firstName: this.state.firstName,
         lastName: this.state.lastName,
@@ -140,10 +142,15 @@ class Queue extends Component {
                 {this.state.queue.map(guest => (
                   <ListGroupItem key={guest._id}>
                     <strong>
-                      {guest.firstName} {guest.lastName} Party of{' '}
+                      {guest.firstName} {guest.lastName}, Party of{' '}
                       {guest.partySize}, {guest.notes}
                     </strong>
-                    <DeleteBtn onClick={() => this.deleteGuest(guest._id)} />
+                    <SwapBtn />
+                    <DeleteBtn
+                      onClick={() => {
+                        this.deleteGuest(guest._id);
+                      }}
+                    />
                   </ListGroupItem>
                 ))}
               </ListGroup>

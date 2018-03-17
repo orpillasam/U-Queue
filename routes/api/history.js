@@ -1,17 +1,17 @@
 const router = require('express').Router();
-const queueController = require('../../controllers/historyController');
+const historyController = require('../../controllers/historyController');
 
 // Matches with "/api/history"
 router
   .route('/history')
-  .get(queueController.findAll)
-  .post(queueController.create);
+  .get(historyController.findAll)
+  .post(historyController.create);
 
 // Matches with "/api/history/:id"
 router
   .route('/history/:id')
-  .get(queueController.findById)
-  .put(queueController.update)
-  .delete(queueController.remove);
+  .get(historyController.findById)
+  .put(historyController.update)
+  .delete(historyController.remove);
 
 module.exports = router;
