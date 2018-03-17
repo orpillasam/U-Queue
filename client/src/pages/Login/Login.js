@@ -36,7 +36,7 @@ class Login extends Component {
     handleFormSubmit = event => {
         event.preventDefault();
         if (this.state.email && this.state.password) {
-          API.saveAccount({
+          API.validateAccount({
             email: this.state.email,
             password: this.state.password
           })
@@ -69,24 +69,15 @@ class Login extends Component {
                         name="password"
                         placeholder="8 characters (required)"
                     />
-                      <FormBtn
-                        disabled={
-                          !(
-                            this.state.businessName &&
-                            this.state.phoneNumber &&
-                            this.state.email
-                          )
-                        }
-                        onClick={this.handleFormSubmit}
-                      >
+                      <FormBtn>
+
                         Cancel
                       </FormBtn>
                       <FormBtn
                         disabled={
                           !(
-                            this.state.businessName &&
-                            this.state.phoneNumber &&
-                            this.state.email
+                            this.state.email &&
+                            this.state.password 
                           )
                         }
                         onClick={this.handleFormSubmit}

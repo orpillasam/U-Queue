@@ -5,5 +5,7 @@ const historyRoutes = require('./history');
 
 // Queue routes
 router.use('/', queueRoutes);
+router.use('/', accountRoutes);
+router.use('/', historyRoutes);
 
 module.exports = router;
