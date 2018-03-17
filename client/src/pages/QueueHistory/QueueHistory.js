@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import DeleteBtn from '../../components/DeleteBtn';
-import SwapBtn from '../../components/SwapBtn';
 import { Jumbotron, Table, ListGroup, ListGroupItem } from 'react-bootstrap';
 import API from '../../utils/API';
 import { Col, Row, Container } from '../../components/Grid';
 import { Input, FormBtn } from '../../components/Form';
 
-class Queue extends Component {
+class QueueHistory extends Component {
   state = {
-    queue: [],
     firstName: '',
     lastName: '',
     phoneNumber: '',
@@ -40,6 +38,11 @@ class Queue extends Component {
       .catch(err => console.log(err));
   };
 
+  moveToQueue = id => {
+      API.moveGuest(id)
+      .then(res => this.loadQueueHistory())
+      .catch(err => console.log(err));
+  }
   deleteGuest = id => {
     API.deleteGuest(id)
       .then(res => this.loadQueue())
@@ -55,20 +58,17 @@ class Queue extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    console.log(event);
     if (
       this.state.firstName &&
       this.state.phoneNumber &&
       this.state.partySize
     ) {
-      console.log('first request');
       API.saveGuest({
         firstName: this.state.firstName,
         lastName: this.state.lastName,
         phoneNumber: this.state.phoneNumber,
         partySize: this.state.partySize,
-        notes: this.state.notes,
-        queuePosition: this.state.queue.length + 1
+        notes: this.state.notes
       })
         .then(res => this.loadQueue())
         .catch(err => console.log(err));
@@ -79,12 +79,12 @@ class Queue extends Component {
     return (
       <Container fluid>
         <Row>
-          <h1 className="text-center host-head">Host/Hostess View</h1>
+          <h1 className="text-center">Host/Hostess View</h1>
         </Row>
         <Row>
           <Col size="md-6">
             <Jumbotron>
-              <h2 className="text-center host-head">Reserve a Table</h2>
+              <h2 className="text-center">Reserve a Table</h2>
             </Jumbotron>
             <form>
               <Input
@@ -133,24 +133,17 @@ class Queue extends Component {
           </Col>
           <Col size="md-6 sm-12">
             <Jumbotron className="text-center">
-              <h2 className="host-head">
-                Current Queue: {this.state.queue.length}
-              </h2>
+              <h2>Current Queue</h2>
             </Jumbotron>
             {this.state.queue.length ? (
               <ListGroup>
                 {this.state.queue.map(guest => (
                   <ListGroupItem key={guest._id}>
                     <strong>
-                      {guest.firstName} {guest.lastName}, Party of{' '}
+                      {guest.firstName} {guest.lastName} Party of{' '}
                       {guest.partySize}, {guest.notes}
                     </strong>
-                    <SwapBtn />
-                    <DeleteBtn
-                      onClick={() => {
-                        this.deleteGuest(guest._id);
-                      }}
-                    />
+                    <DeleteBtn onClick={() => this.deleteGuest(guest._id)} />
                   </ListGroupItem>
                 ))}
               </ListGroup>
@@ -164,4 +157,4 @@ class Queue extends Component {
   }
 }
 
-export default Queue;
+export default QueueHistory;
