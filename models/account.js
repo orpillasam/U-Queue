@@ -33,29 +33,27 @@ const accountSchema = new Schema({
   },
   address: {
     type: String,
-    required: "Please enter your address",
+    required: 'Please enter your address',
     trim: true
   },
   city: {
     type: String,
-    required: "Please enter your city",
+    required: 'Please enter your city',
     trim: true
   },
   stateName: {
     type: String,
-    required: "Please enter your state",
+    required: 'Please enter your state',
     trim: true
   },
   zipCode: {
     type: String,
-    required: "Please enter your zip code",
+    required: 'Please enter your zip code',
     trim: true
   },
   logo: {
     type: String
   }
-
-
 });
 
 const Account = mongoose.model('Account', accountSchema);

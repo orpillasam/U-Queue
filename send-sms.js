@@ -7,15 +7,13 @@ const client = require('twilio')(accountSid, authToken);
 
 let clientPhoneNumber = '19494138559';
 
-
 function sendPhone() {
   client.messages
-  .create({
-    to: clientPhoneNumber,
-    from: '+19495367823',
-    body: 'Thank you for joining our waitlist! We will be notifying you shortly.',
-  })
-  .then(message => console.log(message.sid));
+    .create({
+      to: clientPhoneNumber,
+      from: '+19495367823',
+      body:
+        'Thank you for joining our waitlist! We will be notifying you shortly.'
+    })
+    .then(message => console.log(message.sid));
 }
-
-

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Queue from './pages/Queue';
@@ -21,13 +20,13 @@ const App = () => (
         <Route exact path="/" component={Queue} />
         <Route exact path="/queue" component={Queue} />
         <Route exact path="/queue/:id" component={Detail} />
-        <Route exact path ="/account" component ={AccountEdit} />
-        <Route exact path ="/newaccount" component ={Account} />
-        <Route exact path ="/login" component ={Login} />
-        <Route exact path ="/signup" component ={Signup} />
-        <Route exact path ="/guestedit" component = {GuestEdit} />
-        <Route exact path ="/queuehistory" component = {QueueHistory} />
-        <Route exact path ="/twilio" component = {Twilio} />
+        <Route exact path="/account" component={AccountEdit} />
+        <Route exact path="/newaccount" component={Account} />
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/signup" component={Signup} />
+        <Route exact path="/guestedit" component={GuestEdit} />
+        <Route exact path="/queuehistory" component={QueueHistory} />
+        <Route exact path="/twilio" component={Twilio} />
         <Route component={NoMatch} />
       </Switch>
     </div>

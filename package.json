@@ -12,7 +12,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "installDeps": "yarn && cd client && yarn"
   },
-  "author": "Lauren Spinazze Sam Orpilla Brendan Kim, Elle Bang, Laurentius Tirtarahardja",
+  "author":
+    "Lauren Spinazze, Sam Orpilla, Brendan Kim, Elle Bang, Laurentius Tirtarahardja",
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^3.5.0",

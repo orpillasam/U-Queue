@@ -71,7 +71,7 @@ const guestSeed = [
     partySize: '4',
     notes: 'VIP',
     date: new Date(Date.now())
-  },
+  }
 ];
 
 db.Guest.remove({})
@@ -85,20 +85,19 @@ db.Guest.remove({})
     process.exit(1);
   });
 
-
 const accountSeed = [
   {
-  businessName: 'Bells Eatery',
-  website: 'Bellseatery.com',
-  ownerName: 'Bells',
-  email: 'bellseatery@gmail.com',
-  phoneNumber: '9495559867',
-  password: '12345678',
-  address: '123 Bell Street',
-  city: 'Irvine',
-  stateName: 'CA',
-  zipCode: '94865',
-  logo: 'n/a'
+    businessName: 'Bells Eatery',
+    website: 'Bellseatery.com',
+    ownerName: 'Bells',
+    email: 'bellseatery@gmail.com',
+    phoneNumber: '9495559867',
+    password: '12345678',
+    address: '123 Bell Street',
+    city: 'Irvine',
+    stateName: 'CA',
+    zipCode: '94865',
+    logo: 'n/a'
   }
 ];
 
