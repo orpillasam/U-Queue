@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import DeleteBtn from '../../components/DeleteBtn';
-import { Jumbotron, Table, ListGroup, ListGroupItem } from 'react-bootstrap';
+import { Jumbotron } from 'react-bootstrap';
 import API from '../../utils/API';
 import { Col, Row, Container } from '../../components/Grid';
 import { Input, FormBtn } from '../../components/Form';
@@ -133,7 +132,6 @@ class GuestEdit extends Component {
               </FormBtn>
             </form>
           </Col>
-         
         </Row>
       </Container>
     );

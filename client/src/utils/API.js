@@ -5,6 +5,9 @@ export default {
   getQueue: function() {
     return axios.get('/api/queue');
   },
+  getQueueHistory: function() {
+    return axios.get('/api/queuehistory');
+  },
   // Gets the book with the given id
   getGuest: function(id) {
     return axios.get('/api/queue/' + id);
@@ -16,9 +19,6 @@ export default {
   saveGuest: function(guestData) {
     return axios.post('/api/queue', guestData);
   },
-  pushToHistory: function(guestData) {
-    return axios.post('/api/history', guestData);
-  },
   saveAccount: function(accountData) {
     return axios.post('/api/account', accountData);
   },
@@ -27,10 +27,6 @@ export default {
   },
   saveAccountEdit: function(accountData) {
     return axios.post('/api/accountedit', accountData);
-  },
-  saveAccount: function(accountData) {
-    console.log(accountData);
-    return axios.post('/api/account', accountData);
   },
   getAccount: function(id) {
     return axios.get('/api/account/' + id);
