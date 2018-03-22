@@ -33,7 +33,8 @@ const guestSchema = new Schema({
   email: {
     type: String,
     match: [/.+\@.+\..+/, 'Please enter a valid e-mail address']
-  }
+  },
+  inQueue: { type: Boolean, default: true }
 });
 
 const Guest = mongoose.model('Guest', guestSchema);

@@ -5,7 +5,7 @@ import './SwapBtn.css';
 // That way we don't have to define them all individually
 const SwapBtn = props => (
   <span className="swap-btn" {...props}>
-    <i class="fas fa-exchange-alt" />
+    <i className="fas fa-exchange-alt" />
   </span>
 );
 
