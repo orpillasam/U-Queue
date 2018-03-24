@@ -1,25 +1,29 @@
 import styled from 'styled-components';
 
-export const SideLogo = styled.img`
+export const Container = styled.div`
     display: flex;
+    margin: 0;
+`;
+
+export const SideLogo = styled.img`
     height: 200px;
-    padding-left: 50px;
-    padding-top: 50px;
-    padding-right: 150px;
+    padding: 50px;
 `;
 
 export const SignUpSection = styled.section`
-    display: flex;
-    flex-direction: column;
-    padding-top: 190px;
-    padding-left: 50px;
+    padding-top: 50px;
+    padding-left: 100px;
     font-family: 'Assistant', sans-serif;
+    color: #708090;
+    h1 {
+        font-family: 'Julius-Sans-One', sans-serif;
+        color: #FF6347;
+        font-size: 24px;
+    }
 `;
 
 export const Label = styled.label`
-    align-items: baseline;
-    padding-right: 10px;
-    padding-bottom: 20px;
+    padding-bottom: 5px;
     border: none;
     display: block;
 `;
@@ -29,6 +33,7 @@ export const Input = styled.input`
     font-size: 18px;
     background: #EBEDEF;
     padding-left: 30px;
+    margin-bottom: 15px;
     border: none;
     width: 500px;
     height: 30px;
@@ -36,25 +41,43 @@ export const Input = styled.input`
     margin-left: 10px;
 `;
 
-// export const LogoImage = styled.div`
-//     height: 10vh;
-//     background-image: url('${require('../../assets/SVG/Asset 1.svg')}');
-//     background-repeat: no-repeat;
-//     background-size: cover;
-//     background-position: center;
+export const Button = styled.button`
+    display: block;
+    align: center;
+    border-radius: 4px;
+    height: 30px;
+    background-color: #FF6347;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 12px;
+    width: 100px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin-top: 20px;
 
-//     display: flex;
-//     flex-direction: column;
-//     align-content: center;
-//     justify-content: center;
-
-//     text-align: center;
-//     color: white;
-
-//     font-size: 2em;
-
-//     h1 {
-//         margin-bottom: 0;
-//     }
-// `;
-
+    span {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.5s;
+    }
+  
+    span:after {
+        content: '\00bb';
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        right: -20px;
+        transition: 0.5s;
+    }
+  
+    &:hover span {
+        padding-right: 25px;
+    }
+  
+    &:hover span:after {
+        opacity: 1;
+        right: 0;
+    }
+`;
