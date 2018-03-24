@@ -51,7 +51,6 @@ class NewAccount extends Component {
             .catch(err => console.log(err));
         }
       };
-
       render () {
           return ( 
            <Container>
@@ -164,7 +163,6 @@ class NewAccount extends Component {
             
     )
       }
-    
 }
 
 export default NewAccount;

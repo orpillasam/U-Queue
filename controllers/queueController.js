@@ -3,7 +3,7 @@ const db = require('../models');
 // Defining methods for the queueController
 module.exports = {
   findAll: function(req, res) {
-    db.Guest.find(req.query)
+    db.Guest.find({ inQueue: true }, req.query)
       .sort({ queuePosition: 1 })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
