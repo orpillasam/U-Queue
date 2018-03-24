@@ -9,7 +9,7 @@ import {
   Button
  } from '../../components/Styled/Styled.js';
 
-class Account extends Component {
+class NewAccount extends Component {
     state = {
         businessName: '',
         website: '',
@@ -167,4 +167,4 @@ class Account extends Component {
     
 }
 
-export default Account;
+export default NewAccount;

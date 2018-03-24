@@ -21,7 +21,7 @@ const App = () => (
         <Route exact path="/queue" component={Queue} />
         <Route exact path="/queue/:id" component={Detail} />
         <Route exact path="/account" component={AccountEdit} />
-        <Route exact path="/newaccount" component={Account} />
+        <Route exact path="/newaccount" component={NewAccount} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/signup" component={Signup} />
         <Route exact path="/guestedit" component={GuestEdit} />
