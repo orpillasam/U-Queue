@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import DeleteBtn from '../../components/DeleteBtn';
-import SwapBtn from '../../components/SwapBtn';
-import { Jumbotron, Table, ListGroup, ListGroupItem } from 'react-bootstrap';
+import { Jumbotron, ListGroup, ListGroupItem } from 'react-bootstrap';
 import API from '../../utils/API';
 import { Col, Row, Container } from '../../components/Grid';
 import { Input, FormBtn } from '../../components/Form';
@@ -145,7 +144,6 @@ class Queue extends Component {
                       {guest.firstName} {guest.lastName}, Party of{' '}
                       {guest.partySize}, {guest.notes}
                     </strong>
-                    <SwapBtn />
                     <DeleteBtn
                       onClick={() => {
                         this.deleteGuest(guest._id);
