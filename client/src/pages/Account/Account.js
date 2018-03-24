@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
 import API from '../../utils/API';
-import { Col, Row, Container } from '../../components/Grid';
-import { Input, FormBtn } from '../../components/Form';
+import { 
+  Container,
+  SideLogo,
+  SignUpSection,
+  Label,
+  Input,
+  Button
+ } from '../../components/Styled/Styled.js';
 
 class Account extends Component {
   state = {
@@ -49,104 +55,118 @@ class Account extends Component {
         .catch(err => console.log(err));
     }
   };
+      render () {
+          return ( 
+           <Container>
+                <SideLogo src={require('../../assets/SVG/Asset 1.svg')} alt="logo"/>
+                <SignUpSection>
+                 <h1>New Account</h1>
+                 <form> 
+                    <Label>Business Name:</Label>
+                    <Input
+                        onChange={this.handleInputChange}
+                        value={this.state.businessName}
+                        name="businessName"
+                      />
 
-  render() {
-    return (
-      <Container fluid>
-        <Row>
-          <h1>Enter Account</h1>
-        </Row>
-        <Row>
-          <Col size="md-12">
-            <form>
-              <Input
-                value={this.state.businessName}
-                onChange={this.handleInputChange}
-                name="businessName"
-                placeholder="Business Name (required)"
-              />
-              <Input
-                value={this.state.website}
-                onChange={this.handleInputChange}
-                name="website"
-                placeholder="Website (optional)"
-              />
-              <Input
-                value={this.state.phoneNumber}
-                onChange={this.handleInputChange}
-                name="phoneNumber"
-                placeholder="Phone Number (required)"
-              />
-              <Input
-                value={this.state.email}
-                onChange={this.handleInputChange}
-                name="email"
-                placeholder="Email (required)"
-              />
-              <Input
-                value={this.state.password}
-                onChange={this.handleInputChange}
-                name="password"
-                placeholder="8 characters (required)"
-              />
-              <Input
-                value={this.state.address}
-                onChange={this.handleInputChange}
-                name="address"
-                placeholder="address (required)"
-              />
-              <Input
-                value={this.state.city}
-                onChange={this.handleInputChange}
-                name="city"
-                placeholder="City (required)"
-              />
-              <Input
-                value={this.state.stateName}
-                onChange={this.handleInputChange}
-                name="stateName"
-                placeholder="State(required)"
-              />
-              <Input
-                value={this.state.zipCode}
-                onChange={this.handleInputChange}
-                name="zipCode"
-                placeholder="Zip Code (required)"
-              />
-              <Input
-                value={this.state.logo}
-                onChange={this.handleInputChange}
-                name="logo"
-                placeholder="Logo"
-              />
-              <FormBtn
+                    <Label>Contact Name:</Label>
+                      <Input
+                        onChange={this.handleInputChange}
+                        value={this.state.ownerName}
+                        name="ownerName"
+                      />
+              
 
-              //should go to main page
-              >
-                Cancel
-              </FormBtn>
-              <FormBtn
-                disabled={
-                  !(
-                    this.state.businessName &&
-                    this.state.phoneNumber &&
-                    this.state.email &&
-                    this.state.password &&
-                    this.state.address &&
-                    this.state.stateName &&
-                    this.state.zipCode
-                  )
-                }
-                onClick={this.handleFormSubmit}
-              >
-                Save
-              </FormBtn>
-            </form>
-          </Col>
-        </Row>
-      </Container>
-    );
-  }
+                    <Label>Street Address: </Label>
+                      <Input
+                        onChange={this.handleInputChange}
+                        value={this.state.address}
+                        name="address"
+                      />
+                  
+
+                    <Label>City:</Label>
+                      <Input
+                        onChange={this.handleInputChange}
+                        value={this.state.city}
+                        name="city"
+                      />
+                    
+
+                    <Label>State:</Label>
+                      <Input
+                        onChange={this.handleInputChange}
+                        value={this.state.stateName}
+                        name="stateName"
+                      />
+                   
+
+                    <Label>Zip Code:</Label>
+                      <Input
+                        onChange={this.handleInputChange}
+                        value={this.state.zipCode}
+                        name="zipCode"
+                      />
+      
+
+                    <Label>Website: </Label>
+                      <Input
+                        onChange={this.handleInputChange}
+                        value={this.state.website}
+                        name="website"
+                      />
+        
+
+                    <Label>Phone Number: </Label>
+                      <Input
+                        onChange={this.handleInputChange}
+                        value={this.state.phoneNumber}
+                        name="phoneNumber"
+                      />
+        
+
+                    <Label>Email: </Label>
+                      <Input
+                        onChange={this.handleInputChange}
+                        value={this.state.email}
+                        name="email"
+                      />
+  
+
+                    <Label>Logo: </Label>
+                      <Input
+                        onChange={this.handleInputChange}
+                        value={this.state.logo}
+                        name="logo"
+                      />
+    
+                  </form>
+
+                  <Button
+                        disabled={
+                          !(
+                            this.state.businessName &&
+                            this.state.phoneNumber &&
+                            this.state.email &&
+                            this.state.password &&
+                            this.state.address &&
+                            this.state.stateName &&
+                            this.state.zipCode
+                          )
+                        }
+                        onClick={this.handleFormSubmit}
+                      >
+                        <span>Submit</span>
+                  </Button>
+
+
+                </SignUpSection>
+        
+                
+            </Container>
+            
+    )
+      }
 }
 
 export default Account;
