@@ -9,52 +9,48 @@ import {
   Button
  } from '../../components/Styled/Styled.js';
 
-class Account extends Component {
-  state = {
-    businessName: '',
-    website: '',
-    phoneNumber: '',
-    email: '',
-    password: '',
-    address: '',
-    city: '',
-    stateName: '',
-    zipCode: '',
-    logo: ''
-  };
+class NewAccount extends Component {
+    state = {
+        businessName: '',
+        website: '',
+        phoneNumber: '',
+        email: '',
+        password: '',
+        address: '',
+        city: '',
+        stateName: '',
+        zipCode: '',
+        logo: ''
 
-  handleInputChange = event => {
-    const { name, value } = event.target;
-    this.setState({
-      [name]: value
-    });
-  };
+    };
 
-  handleFormSubmit = event => {
-    event.preventDefault();
-    console.log(event);
-    if (
-      this.state.businessName &&
-      this.state.phoneNumber &&
-      this.state.email &&
-      this.state.password
-    ) {
-      API.saveAccount({
-        businessName: this.state.businessName,
-        website: this.state.website,
-        phoneNumber: this.state.phoneNumber,
-        email: this.state.email,
-        password: this.state.password,
-        address: this.state.address,
-        city: this.state.city,
-        stateName: this.state.stateName,
-        zipCode: this.state.zipCode,
-        logo: this.state.logo
-      })
-        // .then(res => this.loadAccount())
-        .catch(err => console.log(err));
-    }
-  };
+    handleInputChange = event => {
+        const { name, value } = event.target;
+        this.setState({
+          [name]: value
+        });
+      };    
+
+    handleFormSubmit = event => {
+        event.preventDefault();
+        console.log(event);
+        if (this.state.businessName && this.state.phoneNumber && this.state.email && this.state.password) {
+          API.saveAccount({
+            businessName: this.state.businessName,
+            website: this.state.website,
+            phoneNumber: this.state.phoneNumber,
+            email: this.state.email,
+            password: this.state.password,
+            address: this.state.address,
+            city: this.state.city,
+            stateName: this.state.stateName,
+            zipCode: this.state.zipCode,
+            logo: this.state.logo
+          })
+            // .then(res => this.loadAccount())
+            .catch(err => console.log(err));
+        }
+      };
       render () {
           return ( 
            <Container>
@@ -169,4 +165,4 @@ class Account extends Component {
       }
 }
 
-export default Account;
+export default NewAccount;
