@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import API from '../../utils/API';
 import { 
   Container,
-  SideLogo,
+  Logo,
   SignUpSection,
   Label,
   Input,
@@ -54,7 +54,7 @@ class NewAccount extends Component {
       render () {
           return ( 
            <Container>
-                <SideLogo src={require('../../assets/SVG/Asset 1.svg')} alt="logo"/>
+           <a href="/"><Logo src={require('../../assets/SVG/Asset 1.svg')} alt="logo"/></a>
                 <SignUpSection>
                  <h1>New Account</h1>
                  <form> 
@@ -152,7 +152,7 @@ class NewAccount extends Component {
                         }
                         onClick={this.handleFormSubmit}
                       >
-                        <span>Submit</span>
+                        <span><a href="./queue">Submit</a></span>
                   </Button>
 
 

@@ -5,8 +5,8 @@ export const Container = styled.div`
     margin: 0;
 `;
 
-export const SideLogo = styled.img`
-    height: 200px;
+export const Logo = styled.img`
+    height: ${props => props.home ? '400px' : '200px'};
     padding: 50px;
 `;
 
@@ -25,7 +25,7 @@ export const SignUpSection = styled.section`
 export const Label = styled.label`
     padding-bottom: 5px;
     border: none;
-    display: block;
+    display: block;  
 `;
 
 export const Input = styled.input`
@@ -80,4 +80,47 @@ export const Button = styled.button`
         opacity: 1;
         right: 0;
     }
+
+    a:link, a:visited {
+        color: white;
+        text-decoration: none;
+    }
+    
+    a:hover, a:active {
+        background-color: none;
+    }
 `;
+
+export const LoginButton = Button.extend `
+    background-color: ${props => props.login ? '#66CDAA' : '#FF6347'};
+    color: #FFFFFF;
+    width: 150px;
+    height: 40px;
+    font-size: 16px;
+`
+
+
+export const HomeSection = styled.section`
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+`;
+
+export const Title = styled.p`
+    font-family: 'Quicksand', sans-serif;
+    font-size: 72px;
+    color: #708090;
+    letter-spacing: 20px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+`;
+
+export const SubHeader = styled.p `
+    font-family: 'Assistant', sans-serif;
+    font-size: 26px;
+    color: #708090;
+    margin-bottom: 75px;
+`
+

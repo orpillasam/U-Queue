@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
-
 import API from '../../utils/API';
-import { Col, Row, Container } from '../../components/Grid';
-import { Input, FormBtn } from '../../components/Form';
+import {  
+    Container,
+    Label,
+    Input, 
+    SubHeader,
+    Logo,
+    Button,
+    LoginButton
+   } from '../../components/Styled/Styled.js';
+  
 
 class Login extends Component {
   state = {
@@ -44,43 +51,50 @@ class Login extends Component {
     }
   };
 
-  render() {
+  render () {
     return (
-      <Container fluid>
-        <Row>
-          <h1>Login</h1>
-        </Row>
-        <Row>
-          <Col size="md-12">
+      <Container>
+        <a href="/"><Logo src={require('../../assets/SVG/Asset 1.svg')} alt="logo"/></a>
+ 
+          <SubHeader>Welcome Back! Please login.</SubHeader>
+
             <form>
-              <h4>*Email:</h4>
               <Input
-                value={this.state.email}
-                onChange={this.handleInputChange}
-                name="email"
-                placeholder="Email (required)"
-              />
-              <h4>*Password:</h4>
+                  value={this.state.email}
+                  onChange={this.handleInputChange}
+                  name="email"
+                  placeholder="Email"
+                />
               <Input
-                value={this.state.password}
-                onChange={this.handleInputChange}
-                name="password"
-                placeholder="8 characters (required)"
+                  value={this.state.password}
+                  onChange={this.handleInputChange}
+                  name="password"
+                  placeholder="Password"
               />
-              <FormBtn>Cancel</FormBtn>
-              <FormBtn
-                disabled={!(this.state.email && this.state.password)}
-                onClick={this.handleFormSubmit}
-              >
-                Login
-              </FormBtn>
-              <a href="url">Forgot password?</a>
+                {/* <FormBtn>
+
+                  Cancel
+                </FormBtn>
+                <FormBtn
+                  disabled={
+                    !(
+                      this.state.email &&
+                      this.state.password 
+                    )
+                  }
+                  onClick={this.handleFormSubmit}
+                >
+                  Login
+                </FormBtn>
+                <a href='url'>Forgot password?</a> */}
+
+                <Button><span><a href="./queue">Submit</a></span></Button>
+
             </form>
-          </Col>
-        </Row>
-      </Container>
-    );
-  }
+    </Container>
+    )
+}
+
 }
 
 export default Login;
