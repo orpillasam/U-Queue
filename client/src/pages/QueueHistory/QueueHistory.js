@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import DeleteBtn from '../../components/DeleteBtn';
-import { Jumbotron, Table, ListGroup, ListGroupItem } from 'react-bootstrap';
+import { Jumbotron, ListGroup, ListGroupItem } from 'react-bootstrap';
 import API from '../../utils/API';
 import { Col, Row, Container } from '../../components/Grid';
-import { Input, FormBtn } from '../../components/Form';
 
 class QueueHistory extends Component {
   state = {
+    queue: [],
     firstName: '',
     lastName: '',
     phoneNumber: '',
@@ -20,7 +20,7 @@ class QueueHistory extends Component {
   }
 
   loadQueue = () => {
-    API.getQueue()
+    API.getQueueHistory()
       .then(res =>
         this.setState({
           queue: res.data,
@@ -39,10 +39,10 @@ class QueueHistory extends Component {
   };
 
   moveToQueue = id => {
-      API.moveGuest(id)
+    API.moveGuest(id)
       .then(res => this.loadQueueHistory())
       .catch(err => console.log(err));
-  }
+  };
   deleteGuest = id => {
     API.deleteGuest(id)
       .then(res => this.loadQueue())
@@ -79,61 +79,12 @@ class QueueHistory extends Component {
     return (
       <Container fluid>
         <Row>
-          <h1 className="text-center">Host/Hostess View</h1>
+          <h1 className="text-center">History View</h1>
         </Row>
         <Row>
-          <Col size="md-6">
-            <Jumbotron>
-              <h2 className="text-center">Reserve a Table</h2>
-            </Jumbotron>
-            <form>
-              <Input
-                value={this.state.firstName}
-                onChange={this.handleInputChange}
-                name="firstName"
-                placeholder="First Name (required)"
-              />
-              <Input
-                value={this.state.lastName}
-                onChange={this.handleInputChange}
-                name="lastName"
-                placeholder="Last Name (optional)"
-              />
-              <Input
-                value={this.state.phoneNumber}
-                onChange={this.handleInputChange}
-                name="phoneNumber"
-                placeholder="Phone Number (required)"
-              />
-              <Input
-                value={this.state.partySize}
-                onChange={this.handleInputChange}
-                name="partySize"
-                placeholder="Party Size (required)"
-              />
-              <Input
-                value={this.state.notes}
-                onChange={this.handleInputChange}
-                name="notes"
-                placeholder="Comments (optional)"
-              />
-              <FormBtn
-                disabled={
-                  !(
-                    this.state.firstName &&
-                    this.state.phoneNumber &&
-                    this.state.partySize
-                  )
-                }
-                onClick={this.handleFormSubmit}
-              >
-                Reserve a Table
-              </FormBtn>
-            </form>
-          </Col>
-          <Col size="md-6 sm-12">
+          <Col size="sm-12">
             <Jumbotron className="text-center">
-              <h2>Current Queue</h2>
+              <h2>Queue History</h2>
             </Jumbotron>
             {this.state.queue.length ? (
               <ListGroup>

@@ -3,13 +3,13 @@ const historyController = require('../../controllers/historyController');
 
 // Matches with "/api/history"
 router
-  .route('/history')
+  .route('/queuehistory')
   .get(historyController.findAll)
   .post(historyController.create);
 
 // Matches with "/api/history/:id"
 router
-  .route('/history/:id')
+  .route('/queuehistory/:id')
   .get(historyController.findById)
   .put(historyController.update)
   .delete(historyController.remove);

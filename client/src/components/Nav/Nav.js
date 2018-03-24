@@ -12,6 +12,15 @@ const Nav = () => (
         <a href="/" className="navbar-brand">
           U-Queue
         </a>
+        <a href="/queuehistory" className="nav-link">
+          History
+        </a>
+        <a href="/signup" className="nav-link">
+          Create an Account
+        </a>
+        <a href="/login" className="nav-link">
+          Sign In
+        </a>
       </div>
     </div>
   </nav>
