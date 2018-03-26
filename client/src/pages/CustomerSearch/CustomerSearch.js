@@ -96,9 +96,6 @@ class CustomerSearch extends Component {
         </Row>
         <Row>
           <Col size="md-6">
-            <Jumbotron>
-              <h2 className="text-center host-head">Customer Search</h2>
-            </Jumbotron>
             <form>
               <Input
                 value={this.state.firstName}
@@ -118,18 +115,6 @@ class CustomerSearch extends Component {
                 name="phoneNumber"
                 placeholder="Phone Number (required)"
               />
-              <Input
-                value={this.state.partySize}
-                onChange={this.handleInputChange}
-                name="partySize"
-                placeholder="Party Size (required)"
-              />
-              <Input
-                value={this.state.notes}
-                onChange={this.handleInputChange}
-                name="notes"
-                placeholder="Comments (optional)"
-              />
               <FormBtn
                 // disabled={
                 //   !(
@@ -144,11 +129,13 @@ class CustomerSearch extends Component {
               </FormBtn>
             </form>
           </Col> 
-          <Col size="md-6 sm-12">
+          </Row>
+          {/* <Row>
+          <Col size="md- sm-12">
             <Jumbotron className="text-center">
-              {/* <h2 className="host-head">
+              <h2 className="host-head">
                 Current Queue: {this.state.queue.length}
-              </h2> */}
+              </h2>
             </Jumbotron>
              {this.state.guest.length ? (
               <ListGroup>
@@ -170,7 +157,7 @@ class CustomerSearch extends Component {
               <h3>No Results to Display</h3>
             )}
           </Col>
-        </Row>
+        </Row> */}
       </Container>
     );
   }
