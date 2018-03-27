@@ -1,8 +1,17 @@
 import React, { Component } from 'react';
-
 import API from '../../utils/API';
-import { Col, Row, Container } from '../../components/Grid';
-import { Input, FormBtn } from '../../components/Form';
+import {  
+    Container,
+    Label,
+    Input, 
+    SubHeader,
+    Logo,
+    Button,
+    LoginButton,
+    SignUpSection,
+    ButtonSection
+   } from '../../components/Styled/Styled.js';
+  
 
 class Login extends Component {
   state = {
@@ -44,43 +53,57 @@ class Login extends Component {
     }
   };
 
-  render() {
+  render () {
     return (
-      <Container fluid>
-        <Row>
-          <h1>Login</h1>
-        </Row>
-        <Row>
-          <Col size="md-12">
+      <Container>
+        <a href="/"><Logo src={require('../../assets/SVG/Asset 1.svg')} alt="logo"/></a>
+ 
+        <SignUpSection>
+
+          <h1>Welcome Back! Please login.</h1>
+
             <form>
-              <h4>*Email:</h4>
+              <Label>Email:</Label>
+                <Input
+                    value={this.state.email}
+                    onChange={this.handleInputChange}
+                    name="email"
+                  />
+
+              <Label>Password:</Label>
               <Input
-                value={this.state.email}
-                onChange={this.handleInputChange}
-                name="email"
-                placeholder="Email (required)"
+                  value={this.state.password}
+                  onChange={this.handleInputChange}
+                  name="password"
               />
-              <h4>*Password:</h4>
-              <Input
-                value={this.state.password}
-                onChange={this.handleInputChange}
-                name="password"
-                placeholder="8 characters (required)"
-              />
-              <FormBtn>Cancel</FormBtn>
-              <FormBtn
-                disabled={!(this.state.email && this.state.password)}
-                onClick={this.handleFormSubmit}
-              >
-                Login
-              </FormBtn>
-              <a href="url">Forgot password?</a>
+                {/* <FormBtn>
+
+                  Cancel
+                </FormBtn>
+                <FormBtn
+                  disabled={
+                    !(
+                      this.state.email &&
+                      this.state.password 
+                    )
+                  }
+                  onClick={this.handleFormSubmit}
+                >
+                  Login
+                </FormBtn>
+                <a href='url'>Forgot password?</a> */}
+                <ButtonSection>
+                <Button>
+                  <span><a href="./queue">Submit</a></span>
+                </Button>
+                </ButtonSection>
+
             </form>
-          </Col>
-        </Row>
-      </Container>
-    );
-  }
+            </SignUpSection>
+    </Container>
+    )
+}
+
 }
 
 export default Login;
