@@ -15,7 +15,7 @@ const Nav = () => (
         <a href="/queuehistory" className="nav-link">
           History
         </a>
-        <a href="/signup" className="nav-link">
+        <a href="/newaccount" className="nav-link">
           Create an Account
         </a>
         <a href="/login" className="nav-link">
