@@ -22,10 +22,7 @@ const App = () => (
         <Route exact path="/account" component={AccountEdit} />
         <Route exact path="/newaccount" component={NewAccount} />
         <Route exact path="/login" component={Login} />
-<<<<<<< HEAD
         <Route exact path="/newaccount" component={NewAccount} />
-=======
->>>>>>> 824036f297c12a6d6e0271c0c8f82203d35475c7
         <Route exact path="/guestedit" component={GuestEdit} />
         <Route exact path="/queuehistory" component={QueueHistoryTable} />
         <Route exact path="/twilio" component={Twilio} />

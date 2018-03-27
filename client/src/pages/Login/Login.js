@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
 import API from '../../utils/API';
-import {  
-    Container,
-    Label,
-    Input, 
-    SubHeader,
-    Logo,
-    Button,
-    LoginButton,
-    SignUpSection,
-    ButtonSection
-   } from '../../components/Styled/Styled.js';
-  
+import { Row } from '../../components/Grid';
+import {
+  Container,
+  Label,
+  Input,
+  SubHeader,
+  Logo,
+  Button,
+  LoginButton,
+  SignUpSection,
+  ButtonSection
+} from '../../components/Styled/Styled.js';
+import Nav from '../../components/Nav';
 
 class Login extends Component {
   state = {
@@ -53,30 +54,34 @@ class Login extends Component {
     }
   };
 
-  render () {
+  render() {
     return (
       <Container>
-        <a href="/"><Logo src={require('../../assets/SVG/Asset 1.svg')} alt="logo"/></a>
- 
-        <SignUpSection>
+        <Row>
+          <a href="/queue">
+            <Logo src={require('../../assets/SVG/Asset 1.svg')} alt="logo" />
+          </a>
+          <Nav />
+        </Row>
 
+        <SignUpSection>
           <h1>Welcome Back! Please login.</h1>
 
-            <form>
-              <Label>Email:</Label>
-                <Input
-                    value={this.state.email}
-                    onChange={this.handleInputChange}
-                    name="email"
-                  />
+          <form>
+            <Label>Email:</Label>
+            <Input
+              value={this.state.email}
+              onChange={this.handleInputChange}
+              name="email"
+            />
 
-              <Label>Password:</Label>
-              <Input
-                  value={this.state.password}
-                  onChange={this.handleInputChange}
-                  name="password"
-              />
-                {/* <FormBtn>
+            <Label>Password:</Label>
+            <Input
+              value={this.state.password}
+              onChange={this.handleInputChange}
+              name="password"
+            />
+            {/* <FormBtn>
 
                   Cancel
                 </FormBtn>
@@ -92,18 +97,18 @@ class Login extends Component {
                   Login
                 </FormBtn>
                 <a href='url'>Forgot password?</a> */}
-                <ButtonSection>
-                <Button>
-                  <span><a href="./queue">Submit</a></span>
-                </Button>
-                </ButtonSection>
-
-            </form>
-            </SignUpSection>
-    </Container>
-    )
-}
-
+            <ButtonSection>
+              <Button>
+                <span>
+                  <a href="./queue">Submit</a>
+                </span>
+              </Button>
+            </ButtonSection>
+          </form>
+        </SignUpSection>
+      </Container>
+    );
+  }
 }
 
 export default Login;

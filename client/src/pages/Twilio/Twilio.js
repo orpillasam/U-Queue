@@ -2,8 +2,20 @@ import React, { Component } from 'react';
 import DeleteBtn from '../../components/DeleteBtn';
 import { Jumbotron, ListGroup, ListGroupItem } from 'react-bootstrap';
 import API from '../../utils/API';
-import { Col, Row, Container } from '../../components/Grid';
-import { Input, FormBtn } from '../../components/Form';
+import { Col, Row } from '../../components/Grid';
+import { FormBtn } from '../../components/Form';
+import {
+  Container,
+  Label,
+  Input,
+  SubHeader,
+  Logo,
+  Button,
+  LoginButton,
+  SignUpSection,
+  ButtonSection
+} from '../../components/Styled/Styled.js';
+import Nav from '../../components/Nav';
 
 class Twilio extends Component {
   state = {
@@ -74,6 +86,12 @@ class Twilio extends Component {
   render() {
     return (
       <Container fluid>
+        <Row>
+          <a href="/queue">
+            <Logo src={require('../../assets/SVG/Asset 1.svg')} alt="logo" />
+          </a>
+          <Nav />
+        </Row>
         <Row>
           <h1 className="text-center">Host/Hostess View</h1>
         </Row>

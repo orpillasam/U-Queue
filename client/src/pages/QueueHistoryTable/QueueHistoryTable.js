@@ -11,7 +11,19 @@ import {
   td
 } from 'react-bootstrap';
 import API from '../../utils/API';
-import { Col, Row, Container } from '../../components/Grid';
+import { Col, Row } from '../../components/Grid';
+import {
+  Container,
+  Label,
+  Input,
+  SubHeader,
+  Logo,
+  Button,
+  LoginButton,
+  SignUpSection,
+  ButtonSection
+} from '../../components/Styled/Styled.js';
+import Nav from '../../components/Nav';
 
 class QueueHistoryTable extends Component {
   state = {
@@ -88,6 +100,12 @@ class QueueHistoryTable extends Component {
   render() {
     return (
       <Container fluid>
+        <Row>
+          <a href="/queue">
+            <Logo src={require('../../assets/SVG/Asset 1.svg')} alt="logo" />
+          </a>
+          <Nav />
+        </Row>
         <Row>
           <h1 className="text-center">History View</h1>
         </Row>
