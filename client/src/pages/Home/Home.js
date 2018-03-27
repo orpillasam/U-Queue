@@ -6,7 +6,8 @@ import {
     SubHeader,
     Logo,
     Button,
-    LoginButton
+    LoginButton,
+    ButtonSection
    } from '../../components/Styled/Styled.js';
   
 
@@ -18,8 +19,10 @@ class Home extends Component {
                 <Title>HELLO U-QUEUE</Title>
                 <SubHeader>Welcome to the Ultimate Line Management Tool</SubHeader>
                 <Logo home src={require('../../assets/SVG/Asset 1.svg')} alt="logo"/>
-                <LoginButton login><span><a href="/login">Login</a></span></LoginButton>
-                <LoginButton><span><a href="/newaccount">Join</a></span></LoginButton>
+                <ButtonSection>
+                    <LoginButton login><span><a href="/login">Login</a></span></LoginButton>
+                    <LoginButton><span><a href="/newaccount">Join</a></span></LoginButton>
+                </ButtonSection>
             </HomeSection> 
         )
     }

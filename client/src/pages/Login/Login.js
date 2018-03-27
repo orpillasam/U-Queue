@@ -7,7 +7,9 @@ import {
     SubHeader,
     Logo,
     Button,
-    LoginButton
+    LoginButton,
+    SignUpSection,
+    ButtonSection
    } from '../../components/Styled/Styled.js';
   
 
@@ -56,20 +58,23 @@ class Login extends Component {
       <Container>
         <a href="/"><Logo src={require('../../assets/SVG/Asset 1.svg')} alt="logo"/></a>
  
-          <SubHeader>Welcome Back! Please login.</SubHeader>
+        <SignUpSection>
+
+          <h1>Welcome Back! Please login.</h1>
 
             <form>
-              <Input
-                  value={this.state.email}
-                  onChange={this.handleInputChange}
-                  name="email"
-                  placeholder="Email"
-                />
+              <Label>Email:</Label>
+                <Input
+                    value={this.state.email}
+                    onChange={this.handleInputChange}
+                    name="email"
+                  />
+
+              <Label>Password:</Label>
               <Input
                   value={this.state.password}
                   onChange={this.handleInputChange}
                   name="password"
-                  placeholder="Password"
               />
                 {/* <FormBtn>
 
@@ -87,10 +92,14 @@ class Login extends Component {
                   Login
                 </FormBtn>
                 <a href='url'>Forgot password?</a> */}
-
-                <Button><span><a href="./queue">Submit</a></span></Button>
+                <ButtonSection>
+                <Button>
+                  <span><a href="./queue">Submit</a></span>
+                </Button>
+                </ButtonSection>
 
             </form>
+            </SignUpSection>
     </Container>
     )
 }

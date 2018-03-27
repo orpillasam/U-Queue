@@ -6,7 +6,8 @@ import {
   SignUpSection,
   Label,
   Input,
-  Button
+  Button,
+  ButtonSection
  } from '../../components/Styled/Styled.js';
 
 class NewAccount extends Component {
@@ -138,6 +139,7 @@ class NewAccount extends Component {
     
                   </form>
 
+                  <ButtonSection>
                   <Button
                         disabled={
                           !(
@@ -154,6 +156,7 @@ class NewAccount extends Component {
                       >
                         <span><a href="./queue">Submit</a></span>
                   </Button>
+                  </ButtonSection>
 
 
                 </SignUpSection>
