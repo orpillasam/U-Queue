@@ -39,8 +39,8 @@ class Queue extends Component {
       .catch(err => console.log(err));
   };
 
-  deleteGuest = id => {
-    API.deleteGuest(id)
+  removeGuestFromQueue = id => {
+    API.removeGuestFromQueue(id)
       .then(res => this.loadQueue())
       .catch(err => console.log(err));
   };
@@ -146,7 +146,7 @@ class Queue extends Component {
                     </strong>
                     <DeleteBtn
                       onClick={() => {
-                        this.deleteGuest(guest._id);
+                        this.removeGuestFromQueue(guest._id);
                       }}
                     />
                   </ListGroupItem>
