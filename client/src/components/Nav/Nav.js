@@ -9,18 +9,24 @@ const Nav = () => (
           <span className="icon-bar" /> <span className="icon-bar" />
           <span className="icon-bar" />
         </button>
-        <a href="/" className="navbar-brand">
-          U-Queue
-        </a>
+  
         <a href="/queuehistory" className="nav-link">
           History
         </a>
+<<<<<<< HEAD
         <a href="/newaccount" className="nav-link">
           Create an Account
+=======
+        <a href="/signup" className="nav-link">
+          Edit Account
+>>>>>>> 824036f297c12a6d6e0271c0c8f82203d35475c7
         </a>
         <a href="/login" className="nav-link">
-          Sign In
+         Logout
         </a>
+      //Add Current Time 
+      //Add Our Logo 
+      //
       </div>
     </div>
   </nav>
