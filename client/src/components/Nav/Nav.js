@@ -9,19 +9,16 @@ const Nav = () => (
           <span className="icon-bar" /> <span className="icon-bar" />
           <span className="icon-bar" />
         </button>
-  
         <a href="/queuehistory" className="nav-link">
           History
         </a>
-        <a href="/signup" className="nav-link">
-          Edit Account
+        <a href="/newaccount" className="nav-link">
+          Create an Account
         </a>
         <a href="/login" className="nav-link">
-         Logout
+          Logout
         </a>
-      //Add Current Time 
-      //Add Our Logo 
-      //
+        //Add Current Time //Add Our Logo //
       </div>
     </div>
   </nav>
