@@ -19,7 +19,7 @@ const Nav = () => (
         <a href="/login" className="nav-link">
           Logout
         </a>
-        <Clock format={'hh:mm:ss:A'} ticking={true} timezone={'US/Pacific'} />
+        <Clock format={'hh:mm:ss A'} ticking={true} timezone={'US/Pacific'} />
       </div>
     </div>
   </nav>
