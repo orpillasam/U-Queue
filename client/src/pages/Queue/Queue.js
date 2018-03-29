@@ -117,6 +117,7 @@ class Queue extends Component {
                 placeholder="Last Name (optional)"
               />
               <Input
+                type="tel"
                 value={this.state.phoneNumber}
                 onChange={this.handleInputChange}
                 name="phoneNumber"
