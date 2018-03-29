@@ -2,7 +2,6 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './pages/Home';
 import Queue from './pages/Queue';
-import Detail from './pages/Detail';
 import NewAccount from './pages/NewAccount';
 import AccountEdit from './pages/AccountEdit';
 import GuestEdit from './pages/GuestEdit';
@@ -18,7 +17,6 @@ const App = () => (
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/queue" component={Queue} />
-        <Route exact path="/queue/:id" component={Detail} />
         <Route exact path="/account" component={AccountEdit} />
         <Route exact path="/newaccount" component={NewAccount} />
         <Route exact path="/login" component={Login} />

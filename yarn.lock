@@ -955,6 +955,10 @@ execa@^0.7.0:
     signal-exit "^3.0.0"
     strip-eof "^1.0.0"
 
+exenv@^1.2.0:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/exenv/-/exenv-1.2.2.tgz#2ae78e85d9894158670b03d47bec1f03bd91bb9d"
+
 expand-brackets@^2.1.4:
   version "2.1.4"
   resolved "https://registry.yarnpkg.com/expand-brackets/-/expand-brackets-2.1.4.tgz#b77735e315ce30f6b6eff0f83b04151a22449622"
@@ -3117,6 +3121,15 @@ react-bootstrap@^0.32.1:
     uncontrollable "^4.1.0"
     warning "^3.0.0"
 
+
+react-modal@^3.3.2:
+  version "3.3.2"
+  resolved "https://registry.yarnpkg.com/react-modal/-/react-modal-3.3.2.tgz#b13da9490653a7c76bc0e9600323eb1079c620e7"
+  dependencies:
+    exenv "^1.2.0"
+    prop-types "^15.5.10"
+    warning "^3.0.0"
+
 react-live-clock@^2.0.3:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/react-live-clock/-/react-live-clock-2.0.3.tgz#4bbe51b65a779e92a6db7709e4b2ed26ebe0cc1c"
@@ -3124,6 +3137,7 @@ react-live-clock@^2.0.3:
     moment "2.19.3"
     moment-timezone "0.5.13"
     prop-types "15.5.10"
+
 
 react-overlays@^0.8.0:
   version "0.8.3"
