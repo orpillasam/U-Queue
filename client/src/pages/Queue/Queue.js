@@ -6,11 +6,20 @@ import Counter from "../../components/Counter";
 import Icons from "../../components/Icons";
 import CustomerQueue from "../../components/CustomerQueue";
 
-const Container = styled.div`
+const Wrapper = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
 `
 
+const Container1 = styled.div`
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+`
+const Container2 = styled.div`
+  display: flex;
+`
 
 
 /*const Input = styled.input`
@@ -200,12 +209,16 @@ class Queue extends Component {
 class Queue extends Component {
   render() {
     return (
-      <Container>
-          <Counter />
-          <NewReservation />
-          <Icons />
-          <CustomerQueue />
-      </Container>
+      <Wrapper>
+        <Container1>
+            <Counter />
+            <NewReservation />
+            <Icons />
+        </Container1>
+        <Container2>
+            <CustomerQueue />
+        </Container2>
+      </Wrapper>
     )
   }
 }

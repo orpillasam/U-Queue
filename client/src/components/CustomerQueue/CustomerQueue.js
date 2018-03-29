@@ -5,7 +5,8 @@ import styled from 'styled-components';
 
 const Container = styled.section`
   display: flex;
-  flex-wrap: nowrap;
+  flex-direction: column;
+  flex-wrap: wrap;
 `
 const Header = styled.h2`
 font-family: Assistant;

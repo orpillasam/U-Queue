@@ -39,8 +39,8 @@ const Button = styled.button`
     width: 100px;
     transition: all 0.5s;
     cursor: pointer;
-    margin-top: 20px;
-    margin-left: 50px;
+    margin-top: 10px;
+    margin-left: 20px;
 `;
 
 const Add = styled.button`
@@ -49,7 +49,7 @@ const Add = styled.button`
   border: none;
   width: 42px;
   height: 42px;
-`
+`;
  
 class NewReservation extends Component {
   state = {
@@ -142,6 +142,21 @@ class NewReservation extends Component {
         <Modal
           isOpen={this.state.modalIsOpen}
           onRequestClose={this.closeModal}
+          style={{
+            content: {
+            position: 'absolute',
+            height: '300px',
+            width: '550px',
+            top: '30px',
+            left: '30px',
+            right: '30px',
+            bottom: '30px',
+            border: '5px solid #ccc',
+            borderRadius: '4px',
+            outline: 'none',
+            padding: '20px'
+            }
+          }}
           contentLabel="Example Modal"
         >
  
