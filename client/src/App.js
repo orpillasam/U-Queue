@@ -11,6 +11,7 @@ import NoMatch from './pages/NoMatch';
 import QueueHistoryTable from './pages/QueueHistoryTable';
 import Twilio from './pages/Twilio';
 import Nav from './components/Nav';
+import CustomerSearch from './pages/CustomerSearch';
 
 const App = () => (
   <Router>
@@ -26,6 +27,7 @@ const App = () => (
         <Route exact path="/guestedit" component={GuestEdit} />
         <Route exact path="/queuehistory" component={QueueHistoryTable} />
         <Route exact path="/twilio" component={Twilio} />
+        <Route exact path="/customersearch" component={CustomerSearch} />
         <Route component={NoMatch} />
       </Switch>
     </div>
