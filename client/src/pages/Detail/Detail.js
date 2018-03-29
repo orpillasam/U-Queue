@@ -3,17 +3,7 @@ import { Link } from 'react-router-dom';
 import { Col, Row } from '../../components/Grid';
 import Jumbotron from '../../components/Jumbotron';
 import API from '../../utils/API';
-import {
-  Container,
-  Label,
-  Input,
-  SubHeader,
-  Logo,
-  Button,
-  LoginButton,
-  SignUpSection,
-  ButtonSection
-} from '../../components/Styled/Styled.js';
+import { Container, Logo } from '../../components/Styled/Styled.js';
 import Nav from '../../components/Nav';
 
 class Detail extends Component {
