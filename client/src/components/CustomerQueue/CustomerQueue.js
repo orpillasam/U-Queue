@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import API from '../../utils/API';
 import styled from 'styled-components';
 
@@ -7,13 +6,13 @@ const Container = styled.section`
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-`
+`;
 const Header = styled.h2`
-font-family: Assistant;
-`
+  font-family: Assistant;
+`;
 
 const Delete = styled.button`
-  background: url("https://s3-us-west-1.amazonaws.com/uqueue/assets/delete-1.png");
+  background: url('https://s3-us-west-1.amazonaws.com/uqueue/assets/delete-1.png');
   background-repeat: no-repeat;
   border: none;
   width: 29px;
@@ -25,9 +24,8 @@ const List = styled.li`
   font-family: Assistant;
   font-weight: bold;
   list-style-type: none;
-`
-const ListGroup = styled.div`
-`
+`;
+const ListGroup = styled.div``;
 
 class CustomerQueue extends Component {
   state = {
@@ -98,31 +96,30 @@ class CustomerQueue extends Component {
     }
   };
 
-
   render() {
     return (
-        <Container>
-          <Header>Current Queue: </Header>
-            {this.state.queue.length ? (
-                <ListGroup>
-                  {this.state.queue.map(guest => (
-                    <List key={guest._id}>
-                      <strong>
-                        {guest.firstName} {guest.lastName}, Party of{' '}
-                        {guest.partySize}, {guest.notes}
-                      </strong>
-                      <Delete
-                        onClick={() => {
-                          this.deleteGuest(guest._id);
-                        }}
-                      />
-                    </List>
-                  ))}
-                </ListGroup>
-              ) : (
-                <Header> No Results to Display</Header>
-              )}
-        </Container>
+      <Container>
+        <Header>Current Queue: {this.state.queue.length} </Header>
+        {this.state.queue.length ? (
+          <ListGroup>
+            {this.state.queue.map(guest => (
+              <List key={guest._id}>
+                <strong>
+                  {guest.firstName} {guest.lastName}, Party of {guest.partySize},{' '}
+                  {guest.notes}
+                </strong>
+                <Delete
+                  onClick={() => {
+                    this.deleteGuest(guest._id);
+                  }}
+                />
+              </List>
+            ))}
+          </ListGroup>
+        ) : (
+          <Header> No Results to Display</Header>
+        )}
+      </Container>
     );
   }
 }

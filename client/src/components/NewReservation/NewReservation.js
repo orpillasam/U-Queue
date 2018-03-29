@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
 import API from '../../utils/API';
 import styled from 'styled-components';
@@ -10,47 +9,45 @@ import styled from 'styled-components';
 const Container = styled.section`
   display: flex;
   flex-direction: column;
-`
-const Reservation = styled.div`
-`
+`;
 
 const Input = styled.input`
-    color: #8FBC8B;
-    font-size: 18px;
-    background: #EBEDEF;
-    padding-left: 30px;
-    margin-bottom: 15px;
-    border: none;
-    width: 500px;
-    height: 30px;
-    display: inline;
-    margin-left: 10px;
+  color: #8fbc8b;
+  font-size: 18px;
+  background: #ebedef;
+  padding-left: 30px;
+  margin-bottom: 15px;
+  border: none;
+  width: 500px;
+  height: 30px;
+  display: inline;
+  margin-left: 10px;
 `;
 
 const Button = styled.button`
-    align: center;
-    border-radius: 4px;
-    height: 30px;
-    background-color: #FF6347;
-    border: none;
-    color: #FFFFFF;
-    text-align: center;
-    font-size: 12px;
-    width: 100px;
-    transition: all 0.5s;
-    cursor: pointer;
-    margin-top: 10px;
-    margin-left: 20px;
+  align: center;
+  border-radius: 4px;
+  height: 30px;
+  background-color: #ff6347;
+  border: none;
+  color: #ffffff;
+  text-align: center;
+  font-size: 12px;
+  width: 100px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-left: 20px;
 `;
 
 const Add = styled.button`
-  background: url("https://s3-us-west-1.amazonaws.com/uqueue/assets/AddBtn.png");
+  background: url('https://s3-us-west-1.amazonaws.com/uqueue/assets/AddBtn.png');
   background-repeat: no-repeat;
   border: none;
   width: 42px;
   height: 42px;
 `;
- 
+
 class NewReservation extends Component {
   state = {
     queue: [],
@@ -84,27 +81,25 @@ class NewReservation extends Component {
       )
       .catch(err => console.log(err));
   };
-  
+
   constructor() {
     super();
- 
+
     this.state = {
       modalIsOpen: false
     };
- 
-    this.openModal = this.openModal.bind(this)
+
+    this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
   }
- 
+
   openModal() {
-    this.setState({modalIsOpen: true});
+    this.setState({ modalIsOpen: true });
   }
 
- 
   closeModal() {
-    this.setState({modalIsOpen: false});
+    this.setState({ modalIsOpen: false });
   }
-
 
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -130,37 +125,37 @@ class NewReservation extends Component {
         notes: this.state.notes,
         queuePosition: this.state.queue.length + 1
       })
+        .then(this.closeModal())
         .then(res => this.loadQueue())
         .catch(err => console.log(err));
     }
   };
- 
+
   render() {
     return (
       <div>
-        <Add onClick={this.openModal}></Add>
+        <Add onClick={this.openModal} />
         <Modal
           isOpen={this.state.modalIsOpen}
           onRequestClose={this.closeModal}
           style={{
             content: {
-            position: 'absolute',
-            height: '300px',
-            width: '550px',
-            top: '30px',
-            left: '30px',
-            right: '30px',
-            bottom: '30px',
-            border: '5px solid #ccc',
-            borderRadius: '4px',
-            outline: 'none',
-            padding: '20px'
+              position: 'absolute',
+              height: '300px',
+              width: '550px',
+              top: '30px',
+              left: '30px',
+              right: '30px',
+              bottom: '30px',
+              border: '5px solid #ccc',
+              borderRadius: '4px',
+              outline: 'none',
+              padding: '20px'
             }
           }}
           contentLabel="Example Modal"
         >
- 
-        <Container>
+          <Container>
             <Input
               value={this.state.firstName}
               onChange={this.handleInputChange}
@@ -200,7 +195,7 @@ class NewReservation extends Component {
                 )
               }
               onClick={this.handleFormSubmit}
-              >
+            >
               Reserve Table
             </Button>
           </Container>
