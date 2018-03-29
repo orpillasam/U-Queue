@@ -1,4 +1,5 @@
 import React from 'react';
+import Clock from 'react-live-clock';
 
 const Nav = () => (
   <nav className="navbar navbar-top">
@@ -18,7 +19,7 @@ const Nav = () => (
         <a href="/login" className="nav-link">
           Logout
         </a>
-        //Add Current Time //Add Our Logo //
+        <Clock format={'hh:mm:ss:A'} ticking={true} timezone={'US/Pacific'} />
       </div>
     </div>
   </nav>
