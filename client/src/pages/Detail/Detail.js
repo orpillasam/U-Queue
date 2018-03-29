@@ -1,8 +1,10 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import { Col, Row, Container } from "../../components/Grid";
-import Jumbotron from "../../components/Jumbotron";
-import API from "../../utils/API";
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { Col, Row } from '../../components/Grid';
+import Jumbotron from '../../components/Jumbotron';
+import API from '../../utils/API';
+import { Container, Logo } from '../../components/Styled/Styled.js';
+import Nav from '../../components/Nav';
 
 class Detail extends Component {
   state = {
@@ -20,6 +22,12 @@ class Detail extends Component {
     return (
       <Container fluid>
         <Row>
+          <a href="/queue">
+            <Logo src={require('../../assets/SVG/Asset 1.svg')} alt="logo" />
+          </a>
+          <Nav />
+        </Row>
+        <Row>
           <Col size="md-12">
             <Jumbotron>
               <h1>
@@ -32,9 +40,7 @@ class Detail extends Component {
           <Col size="md-10 md-offset-1">
             <article>
               <h1>Synopsis</h1>
-              <p>
-                {this.state.book.synopsis}
-              </p>
+              <p>{this.state.book.synopsis}</p>
             </article>
           </Col>
         </Row>

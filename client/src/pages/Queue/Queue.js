@@ -1,63 +1,21 @@
 import React, { Component } from 'react';
 import API from '../../utils/API';
+
 import styled from 'styled-components';
 import NewReservation from '../../components/NewReservation';
 import Counter from "../../components/Counter";
 import Icons from "../../components/Icons";
 import CustomerQueue from "../../components/CustomerQueue";
 
-const Wrapper = styled.div`
+const Container = styled.div`
   display: flex;
-  flex-direction: column;
   justify-content: space-around;
 `
+import { Col, Row } from '../../components/Grid';
+import { FormBtn } from '../../components/Form';
+import { Container, Input, Logo } from '../../components/Styled/Styled.js';
+import Nav from '../../components/Nav';
 
-const Container1 = styled.div`
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-`
-const Container2 = styled.div`
-  display: flex;
-`
-
-
-/*const Input = styled.input`
-    color: #8FBC8B;
-    font-size: 18px;
-    background: #EBEDEF;
-    margin-bottom: 15px;
-    border: none;
-    width: 500px;
-    height: 30px;
-    margin-left: 10px;
-`;
-
-const Button = styled.button`
-    display: block;
-    align: center;
-    border-radius: 4px;
-    height: 30px;
-    background-color: #FF6347;
-    border: none;
-    color: #FFFFFF;
-    text-align: center;
-    font-size: 12px;
-    width: 100px;
-    transition: all 0.5s;
-    cursor: pointer;
-    margin-top: 20px;
-`;
-
-const List = styled.li`
-  font-weight: bold;
-`
-const ListGroup = styled.li`
-`
-const Reservation = styled.div`
-`
-const CustomerQueue = styled.div`
-`
 
 class Queue extends Component {
   state = {
@@ -93,8 +51,8 @@ class Queue extends Component {
       .catch(err => console.log(err));
   };
 
-  deleteGuest = id => {
-    API.deleteGuest(id)
+  removeGuestFromQueue = id => {
+    API.removeGuestFromQueue(id)
       .then(res => this.loadQueue())
       .catch(err => console.log(err));
   };
@@ -131,6 +89,7 @@ class Queue extends Component {
 
   render() {
     return (
+
       <Container>
           <h2 className="text-center host-head">Reserve a Table</h2>
             <Input
@@ -191,7 +150,7 @@ class Queue extends Component {
                     </strong>
                     <Button
                       onClick={() => {
-                        this.deleteGuest(guest._id);
+                        this.removeGuestFromQueue(guest._id);
                       }}
                     />
                   </List>
@@ -209,16 +168,12 @@ class Queue extends Component {
 class Queue extends Component {
   render() {
     return (
-      <Wrapper>
-        <Container1>
-            <Counter />
-            <NewReservation />
-            <Icons />
-        </Container1>
-        <Container2>
-            <CustomerQueue />
-        </Container2>
-      </Wrapper>
+      <Container>
+          <Counter />
+          <NewReservation />
+          <Icons />
+          <CustomerQueue />
+      </Container>
     )
   }
 }

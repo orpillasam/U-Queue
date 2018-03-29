@@ -12,7 +12,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "installDeps": "yarn && cd client && yarn"
   },
-  "author": "Lauren Spinazze, Sam Orpilla, Brendan Kim, Elle Bang, Laurentius Tirtarahardja",
+  "author":
+    "Lauren Spinazze, Sam Orpilla, Brendan Kim, Elle Bang, Laurentius Tirtarahardja",
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^3.5.0",
@@ -26,6 +27,7 @@
     "npm": "^5.7.1",
     "react-bootstrap": "^0.32.1",
     "react-modal": "^3.3.2",
+    "react-live-clock": "^2.0.3",
     "styled-components": "^3.2.3",
     "twilio": "^3.13.0"
   }

@@ -1,17 +1,9 @@
 import React, { Component } from 'react';
-import DeleteBtn from '../../components/DeleteBtn';
-import {
-  Jumbotron,
-  ListGroup,
-  ListGroupItem,
-  Table,
-  thead,
-  tbody,
-  tr,
-  td
-} from 'react-bootstrap';
+import { Jumbotron, Table, thead, tbody, tr, td } from 'react-bootstrap';
 import API from '../../utils/API';
-import { Col, Row, Container } from '../../components/Grid';
+import { Col, Row } from '../../components/Grid';
+import { Container, Logo } from '../../components/Styled/Styled.js';
+import Nav from '../../components/Nav';
 
 class QueueHistoryTable extends Component {
   state = {
@@ -88,6 +80,12 @@ class QueueHistoryTable extends Component {
   render() {
     return (
       <Container fluid>
+        <Row>
+          <a href="/queue">
+            <Logo src={require('../../assets/SVG/Asset 1.svg')} alt="logo" />
+          </a>
+          <Nav />
+        </Row>
         <Row>
           <h1 className="text-center">History View</h1>
         </Row>

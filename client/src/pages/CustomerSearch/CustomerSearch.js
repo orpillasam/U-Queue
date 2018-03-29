@@ -1,15 +1,11 @@
 import React, { Component } from 'react';
-import DeleteBtn from '../../components/DeleteBtn';
-import { Jumbotron, ListGroup, ListGroupItem } from 'react-bootstrap';
 import API from '../../utils/API';
-import { Col, Row } from '../../components/Grid';
-import { FormBtn } from '../../components/Form';
-import { Container, Input, Logo } from '../../components/Styled/Styled.js';
-import Nav from '../../components/Nav';
+import { Col, Row, Container } from '../../components/Grid';
+import { Input, FormBtn } from '../../components/Form';
 
-class Twilio extends Component {
+class CustomerSearch extends Component {
   state = {
-    queue: [],
+    guest: [],
     firstName: '',
     lastName: '',
     phoneNumber: '',
@@ -18,9 +14,9 @@ class Twilio extends Component {
     queuePosition: ''
   };
 
-  componentDidMount() {
-    this.loadQueue();
-  }
+  //   componentDidMount() {
+  //     this.loadQueue();
+  //   }
 
   loadQueue = () => {
     API.getQueue()
@@ -56,20 +52,35 @@ class Twilio extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    if (
-      this.state.firstName &&
-      this.state.phoneNumber &&
-      this.state.partySize
-    ) {
-      API.saveGuest({
-        firstName: this.state.firstName,
-        lastName: this.state.lastName,
-        phoneNumber: this.state.phoneNumber,
-        partySize: this.state.partySize,
-        notes: this.state.notes
+    console.log(event);
+    console.log(this.state);
+    if (this.state.firstName) {
+      console.log('first request');
+      API.getGuest({
+        firstName: this.state.firstName
+        // lastName: this.state.lastName,
+        // phoneNumber: this.state.phoneNumber,
+        // partySize: this.state.partySize,
+        // notes: this.state.notes,
+        // queuePosition: this.state.queue.length + 1
       })
-        .then(res => this.loadQueue())
+        .then(res =>
+          this.setState({
+            guest: res.data,
+            firstName: '',
+            lastName: '',
+            phoneNumber: '',
+            notes: '',
+            partySize: '',
+            seated: Boolean,
+            moveUp: Boolean,
+            moveDown: Boolean,
+            queuePosition: ''
+          })
+        )
         .catch(err => console.log(err));
+      console.log(this.firstName);
+      console.log(this.guest);
     }
   };
 
@@ -77,19 +88,10 @@ class Twilio extends Component {
     return (
       <Container fluid>
         <Row>
-          <a href="/queue">
-            <Logo src={require('../../assets/SVG/Asset 1.svg')} alt="logo" />
-          </a>
-          <Nav />
-        </Row>
-        <Row>
-          <h1 className="text-center">Host/Hostess View</h1>
+          <h1 className="text-center host-head">Customer Search</h1>
         </Row>
         <Row>
           <Col size="md-6">
-            <Jumbotron>
-              <h2 className="text-center">Reserve a Table</h2>
-            </Jumbotron>
             <form>
               <Input
                 value={this.state.firstName}
@@ -109,45 +111,41 @@ class Twilio extends Component {
                 name="phoneNumber"
                 placeholder="Phone Number (required)"
               />
-              <Input
-                value={this.state.partySize}
-                onChange={this.handleInputChange}
-                name="partySize"
-                placeholder="Party Size (required)"
-              />
-              <Input
-                value={this.state.notes}
-                onChange={this.handleInputChange}
-                name="notes"
-                placeholder="Comments (optional)"
-              />
               <FormBtn
-                disabled={
-                  !(
-                    this.state.firstName &&
-                    this.state.phoneNumber &&
-                    this.state.partySize
-                  )
-                }
+                // disabled={
+                //   !(
+                //     this.state.firstName &&
+                //     this.state.phoneNumber &&
+                //     this.state.partySize
+                //   )
+                // }
                 onClick={this.handleFormSubmit}
               >
-                Reserve a Table
+                Search
               </FormBtn>
             </form>
           </Col>
-          <Col size="md-6 sm-12">
+        </Row>
+        {/* <Row>
+          <Col size="md- sm-12">
             <Jumbotron className="text-center">
-              <h2>Current Queue</h2>
+              <h2 className="host-head">
+                Current Queue: {this.state.queue.length}
+              </h2>
             </Jumbotron>
-            {this.state.queue.length ? (
+             {this.state.guest.length ? (
               <ListGroup>
-                {this.state.queue.map(guest => (
-                  <ListGroupItem key={guest._id}>
+                {this.state.guest.map(search => (
+                  <ListGroupItem key={search._id}>
                     <strong>
-                      {guest.firstName} {guest.lastName} Party of{' '}
-                      {guest.partySize}, {guest.notes}
+                      {search.firstName} {search.lastName}, Party of{' '}
+                      {search.partySize}, {search.notes}
                     </strong>
-                    <DeleteBtn onClick={() => this.deleteGuest(guest._id)} />
+                    <DeleteBtn
+                      onClick={() => {
+                        this.deleteGuest(search._id);
+                      }}
+                    />
                   </ListGroupItem>
                 ))}
               </ListGroup>
@@ -155,10 +153,10 @@ class Twilio extends Component {
               <h3>No Results to Display</h3>
             )}
           </Col>
-        </Row>
+        </Row> */}
       </Container>
     );
   }
 }
 
-export default Twilio;
+export default CustomerSearch;

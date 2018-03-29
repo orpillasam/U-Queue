@@ -1,9 +1,17 @@
-import React from "react";
-import { Col, Row, Container } from "../../components/Grid";
-import Jumbotron from "../../components/Jumbotron";
+import React from 'react';
+import { Col, Row } from '../../components/Grid';
+import Jumbotron from '../../components/Jumbotron';
+import { Container, Logo } from '../../components/Styled/Styled.js';
+import Nav from '../../components/Nav';
 
 const NoMatch = () => (
   <Container fluid>
+    <Row>
+      <a href="/queue">
+        <Logo src={require('../../assets/SVG/Asset 1.svg')} alt="logo" />
+      </a>
+      <Nav />
+    </Row>
     <Row>
       <Col size="md-12">
         <Jumbotron>

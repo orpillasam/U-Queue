@@ -13,8 +13,8 @@ export default {
     return axios.get('/api/queue/' + id);
   },
   // Deletes the book with the given id
-  deleteGuest: function(id) {
-    return axios.delete('/api/queue/' + id);
+  removeGuestFromQueue: function(id) {
+    return axios.put('/api/queue/' + id);
   },
   saveGuest: function(guestData) {
     return axios.post('/api/queue', guestData);

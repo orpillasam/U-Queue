@@ -1,8 +1,16 @@
 import React, { Component } from 'react';
-
 import API from '../../utils/API';
-import { Col, Row, Container } from '../../components/Grid';
-import { Input, FormBtn } from '../../components/Form';
+import { Row } from '../../components/Grid';
+import {
+  Container,
+  Label,
+  Input,
+  Logo,
+  Button,
+  SignUpSection,
+  ButtonSection
+} from '../../components/Styled/Styled.js';
+import Nav from '../../components/Nav';
 
 class Login extends Component {
   state = {
@@ -46,38 +54,56 @@ class Login extends Component {
 
   render() {
     return (
-      <Container fluid>
+      <Container>
         <Row>
-          <h1>Login</h1>
+          <a href="/queue">
+            <Logo src={require('../../assets/SVG/Asset 1.svg')} alt="logo" />
+          </a>
+          <Nav />
         </Row>
-        <Row>
-          <Col size="md-12">
-            <form>
-              <h4>*Email:</h4>
-              <Input
-                value={this.state.email}
-                onChange={this.handleInputChange}
-                name="email"
-                placeholder="Email (required)"
-              />
-              <h4>*Password:</h4>
-              <Input
-                value={this.state.password}
-                onChange={this.handleInputChange}
-                name="password"
-                placeholder="8 characters (required)"
-              />
-              <FormBtn>Cancel</FormBtn>
-              <FormBtn
-                disabled={!(this.state.email && this.state.password)}
-                onClick={this.handleFormSubmit}
-              >
-                Login
-              </FormBtn>
-              <a href="url">Forgot password?</a>
-            </form>
-          </Col>
-        </Row>
+
+        <SignUpSection>
+          <h1>Welcome Back! Please login.</h1>
+
+          <form>
+            <Label>Email:</Label>
+            <Input
+              value={this.state.email}
+              onChange={this.handleInputChange}
+              name="email"
+            />
+
+            <Label>Password:</Label>
+            <Input
+              value={this.state.password}
+              onChange={this.handleInputChange}
+              name="password"
+            />
+            {/* <FormBtn>
+
+                  Cancel
+                </FormBtn>
+                <FormBtn
+                  disabled={
+                    !(
+                      this.state.email &&
+                      this.state.password 
+                    )
+                  }
+                  onClick={this.handleFormSubmit}
+                >
+                  Login
+                </FormBtn>
+                <a href='url'>Forgot password?</a> */}
+            <ButtonSection>
+              <Button>
+                <span>
+                  <a href="./queue">Submit</a>
+                </span>
+              </Button>
+            </ButtonSection>
+          </form>
+        </SignUpSection>
       </Container>
     );
   }

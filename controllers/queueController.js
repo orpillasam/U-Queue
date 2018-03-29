@@ -13,13 +13,22 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
+  findOne: function(req, res) {
+    db.Guest.findOne(req.params.firstName)
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
   create: function(req, res) {
     db.Guest.create(req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   update: function(req, res) {
-    db.Guest.findOneAndUpdate({ _id: req.params.id }, req.body)
+    db.Guest.findOneAndUpdate(
+      { _id: req.params.id },
+      { $set: { inQueue: false } },
+      req.body
+    )
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
