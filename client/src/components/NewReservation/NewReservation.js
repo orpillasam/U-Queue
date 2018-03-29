@@ -1,31 +1,33 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+import Modal from 'react-modal';
 import API from '../../utils/API';
 import styled from 'styled-components';
-import NewReservation from '../../components/NewReservation';
-import Counter from "../../components/Counter";
-import Icons from "../../components/Icons";
-import CustomerQueue from "../../components/CustomerQueue";
 
-const Container = styled.div`
+//NEW RESERVATION MODAL
+//NEED TO ADD MODAL CODE
+
+const Container = styled.section`
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+`
+const Reservation = styled.div`
 `
 
-
-
-/*const Input = styled.input`
+const Input = styled.input`
     color: #8FBC8B;
     font-size: 18px;
     background: #EBEDEF;
+    padding-left: 30px;
     margin-bottom: 15px;
     border: none;
     width: 500px;
     height: 30px;
+    display: inline;
     margin-left: 10px;
 `;
 
 const Button = styled.button`
-    display: block;
     align: center;
     border-radius: 4px;
     height: 30px;
@@ -38,19 +40,18 @@ const Button = styled.button`
     transition: all 0.5s;
     cursor: pointer;
     margin-top: 20px;
+    margin-left: 50px;
 `;
 
-const List = styled.li`
-  font-weight: bold;
+const Add = styled.button`
+  background: url("https://s3-us-west-1.amazonaws.com/uqueue/assets/AddBtn.png");
+  background-repeat: no-repeat;
+  border: none;
+  width: 42px;
+  height: 42px;
 `
-const ListGroup = styled.li`
-`
-const Reservation = styled.div`
-`
-const CustomerQueue = styled.div`
-`
-
-class Queue extends Component {
+ 
+class NewReservation extends Component {
   state = {
     queue: [],
     firstName: '',
@@ -83,12 +84,27 @@ class Queue extends Component {
       )
       .catch(err => console.log(err));
   };
+  
+  constructor() {
+    super();
+ 
+    this.state = {
+      modalIsOpen: false
+    };
+ 
+    this.openModal = this.openModal.bind(this)
+    this.closeModal = this.closeModal.bind(this);
+  }
+ 
+  openModal() {
+    this.setState({modalIsOpen: true});
+  }
 
-  deleteGuest = id => {
-    API.deleteGuest(id)
-      .then(res => this.loadQueue())
-      .catch(err => console.log(err));
-  };
+ 
+  closeModal() {
+    this.setState({modalIsOpen: false});
+  }
+
 
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -118,12 +134,18 @@ class Queue extends Component {
         .catch(err => console.log(err));
     }
   };
-
-
+ 
   render() {
     return (
-      <Container>
-          <h2 className="text-center host-head">Reserve a Table</h2>
+      <div>
+        <Add onClick={this.openModal}></Add>
+        <Modal
+          isOpen={this.state.modalIsOpen}
+          onRequestClose={this.closeModal}
+          contentLabel="Example Modal"
+        >
+ 
+        <Container>
             <Input
               value={this.state.firstName}
               onChange={this.handleInputChange}
@@ -163,51 +185,14 @@ class Queue extends Component {
                 )
               }
               onClick={this.handleFormSubmit}
-            >
-              Reserve a Table
+              >
+              Reserve Table
             </Button>
-        </Reservation>
-        
-        <CustomerQueue>
-          <h2 className="host-head">
-            Current Queue: {this.state.queue.length}
-          </h2>
-            {this.state.queue.length ? (
-              <ListGroup>
-                {this.state.queue.map(guest => (
-                  <List key={guest._id}>
-                    <strong>
-                      {guest.firstName} {guest.lastName}, Party of{' '}
-                      {guest.partySize}, {guest.notes}
-                    </strong>
-                    <Button
-                      onClick={() => {
-                        this.deleteGuest(guest._id);
-                      }}
-                    />
-                  </List>
-                ))}
-              </ListGroup>
-            ) : (
-              <h3>No Results to Display</h3>
-            )}
-        </CustomerQueue>
-      </Container>
+          </Container>
+        </Modal>
+      </div>
     );
-  }*/
-
-
-class Queue extends Component {
-  render() {
-    return (
-      <Container>
-          <Counter />
-          <NewReservation />
-          <Icons />
-          <CustomerQueue />
-      </Container>
-    )
   }
 }
 
-export default Queue;
+export default NewReservation;
