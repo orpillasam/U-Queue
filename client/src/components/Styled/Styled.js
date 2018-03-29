@@ -132,3 +132,26 @@ export const SubHeader = styled.p `
     margin-bottom: 55px;
 `;
 
+export const NavBar = styled.div `
+    margin-left: 100px;
+    margin-top: 40px;
+    border-bottom: 5px #8FBC8B;
+    a {
+        font-size: 16px;
+        color: #8FBC8B;
+        font-family: 'Futura';
+        padding-left: 30px;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    li {
+        list-style-type: none;
+        display: inline;
+    }
+`;
+

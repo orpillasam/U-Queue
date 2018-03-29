@@ -13,6 +13,7 @@ import {
   ButtonSection
 } from '../../components/Styled/Styled.js';
 import Nav from '../../components/Nav';
+import Clock from 'react-live-clock';
 
 class Login extends Component {
   state = {
@@ -61,7 +62,7 @@ class Login extends Component {
           <a href="/queue">
             <Logo src={require('../../assets/SVG/Asset 1.svg')} alt="logo" />
           </a>
-          <Nav />
+
         </Row>
 
         <SignUpSection>

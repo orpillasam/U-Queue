@@ -4,6 +4,7 @@ import { Jumbotron, ListGroup, ListGroupItem } from 'react-bootstrap';
 import API from '../../utils/API';
 import { Col, Row } from '../../components/Grid';
 import {
+  NavBar,
   Container,
   Label,
   Input,
@@ -14,7 +15,7 @@ import {
   SignUpSection,
   ButtonSection
 } from '../../components/Styled/Styled.js';
-import Nav from '../../components/Nav';
+import indexCSS from '../index.css';
 
 class QueueHistory extends Component {
   state = {
@@ -89,6 +90,34 @@ class QueueHistory extends Component {
 
   render() {
     return (
+      <div>
+      <NavBar> 
+        <ul>
+          <li>
+          <Clock className="clock" format={'hh:mm:ss:A'} ticking={true} timezone={'US/Pacific'} /> 
+          </li>
+          <li>
+            <a href="/">
+            Home
+            </a>
+          </li>
+          <li>  
+            <a href="/queuehistory">
+            History
+            </a>
+          </li>
+          <li>
+            <a href="/newaccount">
+            Create Account
+            </a>
+          </li>
+          <li>
+            <a href="/login">
+            Log Out
+            </a>
+          </li>
+        </ul>
+      </NavBar>
       <Container fluid>
         <Row>
           <h1 className="text-center">History View</h1>
@@ -116,6 +145,7 @@ class QueueHistory extends Component {
           </Col>
         </Row>
       </Container>
+    </div>
     );
   }
 }
