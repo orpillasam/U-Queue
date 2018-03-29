@@ -4,17 +4,7 @@ import { Jumbotron, ListGroup, ListGroupItem } from 'react-bootstrap';
 import API from '../../utils/API';
 import { Col, Row } from '../../components/Grid';
 import { FormBtn } from '../../components/Form';
-import {
-  Container,
-  Label,
-  Input,
-  SubHeader,
-  Logo,
-  Button,
-  LoginButton,
-  SignUpSection,
-  ButtonSection
-} from '../../components/Styled/Styled.js';
+import { Container, Input, Logo } from '../../components/Styled/Styled.js';
 import Nav from '../../components/Nav';
 
 class Twilio extends Component {

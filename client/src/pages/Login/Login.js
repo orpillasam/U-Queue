@@ -5,10 +5,8 @@ import {
   Container,
   Label,
   Input,
-  SubHeader,
   Logo,
   Button,
-  LoginButton,
   SignUpSection,
   ButtonSection
 } from '../../components/Styled/Styled.js';

@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './pages/Home';
 import Queue from './pages/Queue';
 import Detail from './pages/Detail';
@@ -10,7 +10,6 @@ import Login from './pages/Login';
 import NoMatch from './pages/NoMatch';
 import QueueHistoryTable from './pages/QueueHistoryTable';
 import Twilio from './pages/Twilio';
-import Nav from './components/Nav';
 import CustomerSearch from './pages/CustomerSearch';
 
 const App = () => (

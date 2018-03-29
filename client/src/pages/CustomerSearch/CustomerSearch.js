@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import DeleteBtn from '../../components/DeleteBtn';
-import { Jumbotron, ListGroup, ListGroupItem } from 'react-bootstrap';
 import API from '../../utils/API';
 import { Col, Row, Container } from '../../components/Grid';
 import { Input, FormBtn } from '../../components/Form';
@@ -16,9 +14,9 @@ class CustomerSearch extends Component {
     queuePosition: ''
   };
 
-//   componentDidMount() {
-//     this.loadQueue();
-//   }
+  //   componentDidMount() {
+  //     this.loadQueue();
+  //   }
 
   loadQueue = () => {
     API.getQueue()
@@ -56,33 +54,31 @@ class CustomerSearch extends Component {
     event.preventDefault();
     console.log(event);
     console.log(this.state);
-    if (
-      this.state.firstName
-    ) {
+    if (this.state.firstName) {
       console.log('first request');
       API.getGuest({
-        firstName: this.state.firstName,
+        firstName: this.state.firstName
         // lastName: this.state.lastName,
         // phoneNumber: this.state.phoneNumber,
         // partySize: this.state.partySize,
         // notes: this.state.notes,
         // queuePosition: this.state.queue.length + 1
       })
-      .then(res =>
-        this.setState({
-          guest: res.data,
-          firstName: '',
-          lastName: '',
-          phoneNumber: '',
-          notes: '',
-          partySize: '',
-          seated: Boolean,
-          moveUp: Boolean,
-          moveDown: Boolean,
-          queuePosition: ''
-        })
-      )
-      .catch(err => console.log(err));
+        .then(res =>
+          this.setState({
+            guest: res.data,
+            firstName: '',
+            lastName: '',
+            phoneNumber: '',
+            notes: '',
+            partySize: '',
+            seated: Boolean,
+            moveUp: Boolean,
+            moveDown: Boolean,
+            queuePosition: ''
+          })
+        )
+        .catch(err => console.log(err));
       console.log(this.firstName);
       console.log(this.guest);
     }
@@ -128,9 +124,9 @@ class CustomerSearch extends Component {
                 Search
               </FormBtn>
             </form>
-          </Col> 
-          </Row>
-          {/* <Row>
+          </Col>
+        </Row>
+        {/* <Row>
           <Col size="md- sm-12">
             <Jumbotron className="text-center">
               <h2 className="host-head">

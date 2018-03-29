@@ -1,28 +1,8 @@
 import React, { Component } from 'react';
-import DeleteBtn from '../../components/DeleteBtn';
-import {
-  Jumbotron,
-  ListGroup,
-  ListGroupItem,
-  Table,
-  thead,
-  tbody,
-  tr,
-  td
-} from 'react-bootstrap';
+import { Jumbotron, Table, thead, tbody, tr, td } from 'react-bootstrap';
 import API from '../../utils/API';
 import { Col, Row } from '../../components/Grid';
-import {
-  Container,
-  Label,
-  Input,
-  SubHeader,
-  Logo,
-  Button,
-  LoginButton,
-  SignUpSection,
-  ButtonSection
-} from '../../components/Styled/Styled.js';
+import { Container, Logo } from '../../components/Styled/Styled.js';
 import Nav from '../../components/Nav';
 
 class QueueHistoryTable extends Component {
