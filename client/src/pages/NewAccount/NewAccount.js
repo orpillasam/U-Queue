@@ -73,6 +73,9 @@ class NewAccount extends Component {
     });
   };
 
+  handleFocus = event => {
+    event.target.select();
+  };
 
   handleFormSubmit = event => {
     event.preventDefault();
@@ -108,6 +111,11 @@ class NewAccount extends Component {
             <Input
               onChange={this.handleInputChange}
               value={this.state.businessName}
+              onFocus={this.handleFocus}
+              placeholder= "Business Name (Required)"
+              className='form-control'
+              required=''
+              autoFocus={true}
               name="businessName"
             />
 
@@ -115,6 +123,11 @@ class NewAccount extends Component {
             <Input
               onChange={this.handleInputChange}
               value={this.state.email}
+              onFocus={this.handleFocus}
+              placeholder= "Email (Required)"
+              className='form-control'
+              required=''
+              autoFocus={true}
               name="email"
             />
 
@@ -122,6 +135,11 @@ class NewAccount extends Component {
             <Input
               onChange={this.handleInputChange}
               value={this.state.password}
+              onFocus={this.handleFocus}
+              placeholder= "password (Minimum 8 characters required)"
+              className='form-control'
+              required=''
+              autoFocus={true}
               name="password"
             />
             
@@ -179,6 +197,9 @@ class NewAccount extends Component {
               value={this.state.logo}
               name="logo"
             />  */}
+            <div className="checkbox mb-3 text-danger">
+            {this.state.errorMessage}
+          </div>
           </form>
 
           <ButtonSection>
@@ -196,9 +217,7 @@ class NewAccount extends Component {
               }
               onClick={this.handleFormSubmit}
             >
-              <span>
-                <a href="./queue">Submit</a>
-              </span>
+              Signup
             </Button>
           </ButtonSection>
         </SignUpSection>
