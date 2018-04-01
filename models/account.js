@@ -5,23 +5,8 @@ const bcrypt = require('bcryptjs');
 const accountSchema = new Schema({
   businessName: {
     type: String,
-    required: 'Please enter your business name',
-    trim: true
-  },
-  website: {
-    type: String,
-    required: 'Please enter your website',
-    trim: true
-  },
-  phoneNumber: {
-    type: String,
-    required: 'Please enter your phone number',
-    trim: true,
-    // match: [
-    //   '^([0-9]{3}-[0-9]{3}-[0-9]{4}$',
-    //   'Please enter a valid phone number'
-    // ],
-    unique: true
+    required: 'Please enter your business name'
+    // trim: true
   },
   email: {
     type: String,
@@ -29,32 +14,47 @@ const accountSchema = new Schema({
   },
   password: {
     type: String,
-    required: 'Please enter your password',
-    trim: true
-  },
-  address: {
-    type: String,
-    required: 'Please enter your address',
-    trim: true
-  },
-  city: {
-    type: String,
-    required: 'Please enter your city',
-    trim: true
-  },
-  stateName: {
-    type: String,
-    required: 'Please enter your state',
-    trim: true
-  },
-  zipCode: {
-    type: String,
-    required: 'Please enter your zip code',
-    trim: true
-  },
-  logo: {
-    type: String
+    required: 'Please enter your password'
+    // trim: true
   }
+  // website: {
+  //   type: String,
+  //   required: 'Please enter your website'
+  //   // trim: true
+  // },
+  // phoneNumber: {
+  //   type: String,
+  //   required: 'Please enter your phone number',
+  //   // trim: true,
+  //   // match: [
+  //   //   '^([0-9]{3}-[0-9]{3}-[0-9]{4}$',
+  //   //   'Please enter a valid phone number'
+  //   // ],
+  //   unique: true
+  // },
+  // address: {
+  //   type: String,
+  //   required: 'Please enter your address'
+  //   // trim: true
+  // },
+  // city: {
+  //   type: String,
+  //   required: 'Please enter your city'
+  //   // trim: true
+  // },
+  // stateName: {
+  //   type: String,
+  //   required: 'Please enter your state'
+  //   // trim: true
+  // },
+  // zipCode: {
+  //   type: String,
+  //   required: 'Please enter your zip code'
+  //   // trim: true
+  // },
+  // logo: {
+  //   type: String
+  // }
 });
 
 

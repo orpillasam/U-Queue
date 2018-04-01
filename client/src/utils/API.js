@@ -40,6 +40,11 @@ export default {
   // Sign up a user
   signUp: function(userData) {
     return axios.post("/auth/signup", userData);
-  }
+  },
+  // Authenticates a user
+  authenticateUser: function(userData) {
+    return axios.post("/auth/login", userData);
+  },
 };
+
 

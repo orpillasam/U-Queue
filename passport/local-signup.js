@@ -13,7 +13,7 @@ module.exports = new PassportLocalStrategy({
   const userData = {
     email: email.trim(),
     password: password.trim(),
-    name: req.body.name.trim()
+    businessName: req.body.businessName.trim()
   };
 
   // db.User
@@ -21,8 +21,8 @@ module.exports = new PassportLocalStrategy({
   //   .then(dbModel => done(null))
   //   .catch(err => done(err));
 
-  const newUser = new db.User(userData);
-  newUser.save((err) => {
+  const newAccount = new db.Account(userData);
+  newAccount.save((err) => {
     if (err) { return done(err); }
 
     return done(null);

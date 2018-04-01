@@ -16,15 +16,16 @@ import Auth from '../../utils/Auth';
 class NewAccount extends Component {
   state = {
     businessName: '',
-    website: '',
-    phoneNumber: '',
     email: '',
     password: '',
-    address: '',
-    city: '',
-    stateName: '',
-    zipCode: '',
-    logo: '', 
+    // contactName: '',
+    // website: '',
+    // phoneNumber: '',
+    // address: '',
+    // city: '',
+    // stateName: '',
+    // zipCode: '',
+    // logo: '', 
     errorMessage: null
   };  
 
@@ -48,16 +49,16 @@ class NewAccount extends Component {
 
   signUp = () => {
     const userData = {
-      name: this.state.name,
+      businessName: this.state.businessName,
       email: this.state.email,
-      password: this.state.password,
-      userType: this.state.userType
+      password: this.state.password
     };
 
     API.signUp(userData)
       .then(res => {
         // clear error message
         this.setState({ errorMessage: null });
+        console.log("did the signup api hit?");
 
         // authenticate the user after successful sign up
         this.authenticate();
@@ -78,7 +79,7 @@ class NewAccount extends Component {
     console.log(event);
     if (
       this.state.businessName &&
-      this.state.phoneNumber &&
+      // this.state.phoneNumber &&
       this.state.email &&
       this.state.password &&
       this.state.password.length >= 8
@@ -110,14 +111,27 @@ class NewAccount extends Component {
               name="businessName"
             />
 
-            <Label>Contact Name:</Label>
+            <Label>Email: </Label>
+            <Input
+              onChange={this.handleInputChange}
+              value={this.state.email}
+              name="email"
+            />
+
+            <Label>Password:</Label>
+            <Input
+              onChange={this.handleInputChange}
+              value={this.state.password}
+              name="password"
+            />
+            
+            {/* <Label>Contact Name:</Label>
             <Input
               onChange={this.handleInputChange}
               value={this.state.ownerName}
               name="ownerName"
             />
-
-            <Label>Street Address: </Label>
+            /* <Label>Street Address: </Label>
             <Input
               onChange={this.handleInputChange}
               value={this.state.address}
@@ -159,19 +173,12 @@ class NewAccount extends Component {
               name="phoneNumber"
             />
 
-            <Label>Email: </Label>
-            <Input
-              onChange={this.handleInputChange}
-              value={this.state.email}
-              name="email"
-            />
-
             <Label>Logo: </Label>
             <Input
               onChange={this.handleInputChange}
               value={this.state.logo}
               name="logo"
-            />
+            />  */}
           </form>
 
           <ButtonSection>
@@ -179,12 +186,12 @@ class NewAccount extends Component {
               disabled={
                 !(
                   this.state.businessName &&
-                  this.state.phoneNumber &&
                   this.state.email &&
-                  this.state.password &&
-                  this.state.address &&
-                  this.state.stateName &&
-                  this.state.zipCode
+                  this.state.password 
+                  // this.state.phoneNumber &&
+                  // this.state.address &&
+                  // this.state.stateName &&
+                  // this.state.zipCode
                 )
               }
               onClick={this.handleFormSubmit}
