@@ -36,27 +36,10 @@ export default {
   },
   sendTwilio: function(id) {
     return axios.get('/api/twilio/' + id);
+  },
+  // Sign up a user
+  signUp: function(userData) {
+    return axios.post("/auth/signup", userData);
   }
 };
 
-// app.get("/api/all/users/:id", function (req, res) {
-//   var id = req.params.id;
-//   db.users.findById(id).then(data => {
-//     const name = data.get({
-//       plain: true
-//     }).name;
-//     let phone = data.get({
-//       plain: true
-//     }).phone;
-//    phone = '+1' + phone.replace(/-/g,'');
-//     //const phone data
-//     console.log(phone);
-//     client.messages.create({
-//       body: 'Thank you for using SchoolPool! You will be riding with ' + name + '. Please contact them at ' + phone + ' and set up a pick up location.',
-//       to: phone,  // Text this number
-//       from: '+19495569807' // From a valid Twilio number
-//   })
-//   .then((message) => console.log(message.sid));
-//    res.json(data);
-// });
-//  });

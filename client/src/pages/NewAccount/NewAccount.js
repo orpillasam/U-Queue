@@ -11,6 +11,7 @@ import {
 } from '../../components/Styled/Styled.js';
 import { Row } from '../../components/Grid';
 import Nav from '../../components/Nav';
+import Auth from '../../utils/Auth';
 
 class NewAccount extends Component {
   state = {
@@ -23,7 +24,45 @@ class NewAccount extends Component {
     city: '',
     stateName: '',
     zipCode: '',
-    logo: ''
+    logo: '', 
+    errorMessage: null
+  };  
+
+  authenticate = () => {
+    const userData = {
+      email: this.state.email,
+      password: this.state.password
+    };
+
+    API.authenticateUser(userData)
+      .then(res => {
+        // clear error message
+        this.setState({ errorMessage: null });
+        Auth.authenticateUser(res.data.token);
+
+        // hard redirect to / to reload all the state and nav
+        window.location.href = "/";
+      })
+      .catch(err => this.setState({ errorMessage: err.response.data.message }));
+  };
+
+  signUp = () => {
+    const userData = {
+      name: this.state.name,
+      email: this.state.email,
+      password: this.state.password,
+      userType: this.state.userType
+    };
+
+    API.signUp(userData)
+      .then(res => {
+        // clear error message
+        this.setState({ errorMessage: null });
+
+        // authenticate the user after successful sign up
+        this.authenticate();
+      })
+      .catch(err => this.setState({ errorMessage: err.response.data.message }));
   };
 
   handleInputChange = event => {
@@ -33,6 +72,7 @@ class NewAccount extends Component {
     });
   };
 
+
   handleFormSubmit = event => {
     event.preventDefault();
     console.log(event);
@@ -40,24 +80,17 @@ class NewAccount extends Component {
       this.state.businessName &&
       this.state.phoneNumber &&
       this.state.email &&
-      this.state.password
-    ) {
-      API.saveAccount({
-        businessName: this.state.businessName,
-        website: this.state.website,
-        phoneNumber: this.state.phoneNumber,
-        email: this.state.email,
-        password: this.state.password,
-        address: this.state.address,
-        city: this.state.city,
-        stateName: this.state.stateName,
-        zipCode: this.state.zipCode,
-        logo: this.state.logo
-      })
-        // .then(res => this.loadAccount())
-        .catch(err => console.log(err));
+      this.state.password &&
+      this.state.password.length >= 8
+        ) {
+      this.signUp();
+      }
+    else {
+      this.setState({ errorMessage: "Please enter all required fields to sign up."})
     }
   };
+
+
   render() {
     return (
       <Container>
