@@ -11,19 +11,59 @@ import {
 } from '../../components/Styled/Styled.js';
 import { Row } from '../../components/Grid';
 import Nav from '../../components/Nav';
+import Auth from '../../utils/Auth';
 
 class NewAccount extends Component {
   state = {
     businessName: '',
-    website: '',
-    phoneNumber: '',
     email: '',
     password: '',
-    address: '',
-    city: '',
-    stateName: '',
-    zipCode: '',
-    logo: ''
+    // contactName: '',
+    // website: '',
+    // phoneNumber: '',
+    // address: '',
+    // city: '',
+    // stateName: '',
+    // zipCode: '',
+    // logo: '', 
+    errorMessage: null
+  };  
+
+  authenticate = () => {
+    const userData = {
+      email: this.state.email,
+      password: this.state.password
+    };
+
+    API.authenticateUser(userData)
+      .then(res => {
+        // clear error message
+        this.setState({ errorMessage: null });
+        Auth.authenticateUser(res.data.token);
+
+        // hard redirect to / to reload all the state and nav
+        window.location.href = "/queue";
+      })
+      .catch(err => this.setState({ errorMessage: err.response.data.message }));
+  };
+
+  signUp = () => {
+    const userData = {
+      businessName: this.state.businessName,
+      email: this.state.email,
+      password: this.state.password
+    };
+
+    API.signUp(userData)
+      .then(res => {
+        // clear error message
+        this.setState({ errorMessage: null });
+        console.log("did the signup api hit?");
+
+        // authenticate the user after successful sign up
+        this.authenticate();
+      })
+      .catch(err => this.setState({ errorMessage: err.response.data.message }));
   };
 
   handleInputChange = event => {
@@ -33,31 +73,28 @@ class NewAccount extends Component {
     });
   };
 
+  handleFocus = event => {
+    event.target.select();
+  };
+
   handleFormSubmit = event => {
     event.preventDefault();
     console.log(event);
     if (
       this.state.businessName &&
-      this.state.phoneNumber &&
+      // this.state.phoneNumber &&
       this.state.email &&
-      this.state.password
-    ) {
-      API.saveAccount({
-        businessName: this.state.businessName,
-        website: this.state.website,
-        phoneNumber: this.state.phoneNumber,
-        email: this.state.email,
-        password: this.state.password,
-        address: this.state.address,
-        city: this.state.city,
-        stateName: this.state.stateName,
-        zipCode: this.state.zipCode,
-        logo: this.state.logo
-      })
-        // .then(res => this.loadAccount())
-        .catch(err => console.log(err));
+      this.state.password &&
+      this.state.password.length >= 8
+        ) {
+      this.signUp();
+      }
+    else {
+      this.setState({ errorMessage: "Please enter all required fields to sign up."})
     }
   };
+
+
   render() {
     return (
       <Container>
@@ -74,17 +111,46 @@ class NewAccount extends Component {
             <Input
               onChange={this.handleInputChange}
               value={this.state.businessName}
+              onFocus={this.handleFocus}
+              placeholder= "Business Name (Required)"
+              className='form-control'
+              required=''
+              autoFocus={true}
               name="businessName"
             />
 
-            <Label>Contact Name:</Label>
+            <Label>Email: </Label>
+            <Input
+              onChange={this.handleInputChange}
+              value={this.state.email}
+              onFocus={this.handleFocus}
+              placeholder= "Email (Required)"
+              className='form-control'
+              required=''
+              autoFocus={true}
+              name="email"
+            />
+
+            <Label>Password:</Label>
+            <Input
+              onChange={this.handleInputChange}
+              value={this.state.password}
+              onFocus={this.handleFocus}
+              placeholder= "password (Minimum 8 characters required)"
+              className='form-control'
+              required=''
+              type='password'
+              autoFocus={true}
+              name="password"
+            />
+            
+            {/* <Label>Contact Name:</Label>
             <Input
               onChange={this.handleInputChange}
               value={this.state.ownerName}
               name="ownerName"
             />
-
-            <Label>Street Address: </Label>
+            /* <Label>Street Address: </Label>
             <Input
               onChange={this.handleInputChange}
               value={this.state.address}
@@ -126,19 +192,15 @@ class NewAccount extends Component {
               name="phoneNumber"
             />
 
-            <Label>Email: </Label>
-            <Input
-              onChange={this.handleInputChange}
-              value={this.state.email}
-              name="email"
-            />
-
             <Label>Logo: </Label>
             <Input
               onChange={this.handleInputChange}
               value={this.state.logo}
               name="logo"
-            />
+            />  */}
+            <div className="checkbox mb-3 text-danger">
+            {this.state.errorMessage}
+          </div>
           </form>
 
           <ButtonSection>
@@ -146,19 +208,17 @@ class NewAccount extends Component {
               disabled={
                 !(
                   this.state.businessName &&
-                  this.state.phoneNumber &&
                   this.state.email &&
-                  this.state.password &&
-                  this.state.address &&
-                  this.state.stateName &&
-                  this.state.zipCode
+                  this.state.password 
+                  // this.state.phoneNumber &&
+                  // this.state.address &&
+                  // this.state.stateName &&
+                  // this.state.zipCode
                 )
               }
               onClick={this.handleFormSubmit}
             >
-              <span>
-                <a href="./queue">Submit</a>
-              </span>
+              Signup
             </Button>
           </ButtonSection>
         </SignUpSection>
