@@ -42,7 +42,7 @@ class NewAccount extends Component {
         Auth.authenticateUser(res.data.token);
 
         // hard redirect to / to reload all the state and nav
-        window.location.href = "/";
+        window.location.href = "/queue";
       })
       .catch(err => this.setState({ errorMessage: err.response.data.message }));
   };
@@ -139,6 +139,7 @@ class NewAccount extends Component {
               placeholder= "password (Minimum 8 characters required)"
               className='form-control'
               required=''
+              type='password'
               autoFocus={true}
               name="password"
             />

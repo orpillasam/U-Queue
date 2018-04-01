@@ -26,7 +26,7 @@ module.exports = (req, res, next) => {
     const userId = decoded.sub;
 
     // check if a user exists
-    return db.User.findById(userId, (userErr, user) => {
+    return db.Account.findById(userId, (userErr, user) => {
       if (userErr || !user) {
         return res.status(401).end();
       }
