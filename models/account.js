@@ -15,56 +15,9 @@ const accountSchema = new Schema({
   },
   password: {
     type: String,
-    required: 'Please enter your password',
-    trim: true
-  },
-  local: {
-		username: { type: String, unique: false, required: false },
-		password: { type: String, unique: false, required: false }
-	}
-	// google: {
-	// 	googleId: { type: String, required: false }
-	// },
-  // website: {
-  //   type: String,
-  //   required: 'Please enter your website'
-  //   // trim: true
-  // },
-  // phoneNumber: {
-  //   type: String,
-  //   required: 'Please enter your phone number',
-  //   // trim: true,
-  //   // match: [
-  //   //   '^([0-9]{3}-[0-9]{3}-[0-9]{4}$',
-  //   //   'Please enter a valid phone number'
-  //   // ],
-  //   unique: true
-  // },
-  // address: {
-  //   type: String,
-  //   required: 'Please enter your address'
-  //   // trim: true
-  // },
-  // city: {
-  //   type: String,
-  //   required: 'Please enter your city'
-  //   // trim: true
-  // },
-  // stateName: {
-  //   type: String,
-  //   required: 'Please enter your state'
-  //   // trim: true
-  // },
-  // zipCode: {
-  //   type: String,
-  //   required: 'Please enter your zip code'
-  //   // trim: true
-  // },
-  // logo: {
-  //   type: String
-  // }
+    required: 'Please enter your password'
+  }
 });
-
 
 /**
  * Compare the passed password with the value in the database. A model method.
@@ -72,7 +25,10 @@ const accountSchema = new Schema({
  * @param {string} password
  * @returns {object} callback
  */
-accountSchema.methods.comparePassword = function comparePassword(password, callback) {
+accountSchema.methods.comparePassword = function comparePassword(
+  password,
+  callback
+) {
   bcrypt.compare(password, this.password, callback);
 };
 
@@ -85,12 +41,15 @@ accountSchema.pre('save', function saveHook(next) {
   // proceed further only if the password is modified or the user is new
   if (!account.isModified('password')) return next();
 
-
   return bcrypt.genSalt((saltError, salt) => {
-    if (saltError) { return next(saltError); }
+    if (saltError) {
+      return next(saltError);
+    }
 
     return bcrypt.hash(account.password, salt, (hashError, hash) => {
-      if (hashError) { return next(hashError); }
+      if (hashError) {
+        return next(hashError);
+      }
 
       // replace a password string with hash value
       account.password = hash;
@@ -99,7 +58,6 @@ accountSchema.pre('save', function saveHook(next) {
     });
   });
 });
-
 
 const Account = mongoose.model('Account', accountSchema);
 
