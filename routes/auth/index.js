@@ -164,7 +164,7 @@ router.post('/login', (req, res, next) => {
 // this route is just used to get the user basic info
 router.get('/account', (req, res, next) => {
 	console.log('===== user!!======')
-	console.log(req.user)
+	console.log(res.body)
 	if (req.user) {
 		return res.json({ user: req.user })
 	} else {
