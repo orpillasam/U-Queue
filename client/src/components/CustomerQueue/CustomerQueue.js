@@ -1,21 +1,11 @@
 import React, { Component } from 'react';
-import { Table, thead, tbody, tr, td } from 'react-bootstrap';
 import API from '../../utils/API';
 import styled from 'styled-components';
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-`;
-
-const Header = styled.h2`
-  font-family: Assistant;
-`;
-
-const MenuBackground = styled.div`
-  height: 100px;
-  background-color: #708090;
-  flex: 0 0 100px;
+  margin-top: 20px;
 `;
 
 const Delete = styled.button`
@@ -26,16 +16,35 @@ const Delete = styled.button`
   height: 29px;
 `;
 
-const List = styled.li`
-  padding-left: 20px;
-  font-family: Assistant;
-  font-weight: bold;
-  list-style-type: none;
-`;
 
-const ListGroup = styled.div`
-  flex: 0 0 500px;
-`;
+const Table = styled.table`
+  border-collapse: collapse;
+  border-spacing: 2px;
+  border-color: grey;
+`
+
+const Thead = styled.thead`
+  height: 100px;
+  background-color: #708090;
+  color: white;
+  font-family: Assistant;
+`
+
+const Th = styled.th`
+  height: 100px;
+`
+
+const Tbody = styled.tbody`
+  text-align: center;
+  font-family: Assistant;
+`
+
+const Td = styled.td`
+  background-color: #ebedef;
+  border-top: 30px solid white;  
+  border-bottom: 30px solid white;
+
+`
 
 class CustomerQueue extends Component {
   state = {
@@ -109,41 +118,40 @@ class CustomerQueue extends Component {
   render() {
     return (
       <Container>
-        <MenuBackground />
-        <Table striped bordered hover>
-          <thead>
+        <Table>
+          <Thead>
             <tr>
-              <th>First Name</th>
-              <th>Last Name</th>
-              <th>Party Size</th>
-              <th>Phone</th>
-              <th>Seated</th>
-              <th>Notify</th>
-              <th>Notes</th>
-              <th>Remove</th>
+              <Th>First Name</Th>
+              <Th>Last Name</Th>
+              <Th>Party Size</Th>
+              <Th>Phone</Th>
+              <Th>Seated</Th>
+              <Th>Notify</Th>
+              <Th>Notes</Th>
+              <Th>Remove</Th>
             </tr>
-          </thead>
+          </Thead>
           {this.state.queue.length ? (
-            <tbody>
+            <Tbody>
               {this.state.queue.map(guest => (
                 <tr>
-                  <td>{guest.firstName}</td>
-                  <td>{guest.lastName}</td>
-                  <td>{guest.partySize}</td>
-                  <td>{guest.phoneNumber}</td>
-                  <td>{guest.seated}</td>
-                  <td> placeholder</td>
-                  <td>{guest.notes}</td>
-                  <td>
+                  <Td>{guest.firstName}</Td>
+                  <Td>{guest.lastName}</Td>
+                  <Td>{guest.partySize}</Td>
+                  <Td>{guest.phoneNumber}</Td>
+                  <Td>{guest.seated}</Td>
+                  <Td> placeholder</Td>
+                  <Td>{guest.notes}</Td>
+                  <Td>
                     <Delete
                       onClick={() => {
                         this.removeGuest(guest._id);
                       }}
                     />
-                  </td>
+                  </Td>
                 </tr>
               ))}
-            </tbody>
+            </Tbody>
           ) : (
             <h3>No Results to Display</h3>
           )}
