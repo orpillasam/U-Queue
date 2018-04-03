@@ -1,6 +1,7 @@
 const express = require('express');
 const validator = require('validator');
 const passport = require('passport');
+const Account = require('../../models/account');
 
 const router = require("express").Router();
 
@@ -149,6 +150,23 @@ router.post('/login', (req, res, next) => {
     });
   })(req, res, next);
 });
+
+// this route is just used to get the user basic info
+router.get('/account', (req, res, next) => {
+	console.log('===== user!!======')
+	console.log(res.body)
+	if (req.body) {
+		return res.json({ account: req.account })
+	} else {
+		return res.json({ account: null })
+	}
+});
+// findAll: function(req, res) {
+//   db.Guest.find({ inQueue: true }, req.query)
+//     .sort({ queuePosition: 1 })
+//     .then(dbModel => res.json(dbModel))
+//     .catch(err => res.status(422).json(err));
+// },
 
 module.exports = router;
 

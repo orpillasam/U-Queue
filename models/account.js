@@ -5,12 +5,13 @@ const bcrypt = require('bcryptjs');
 const accountSchema = new Schema({
   businessName: {
     type: String,
-    required: 'Please enter your business name'
-    // trim: true
+    required: 'Please enter your business name',
+    trim: true
   },
   email: {
     type: String,
-    match: [/.+\@.+\..+/, 'Please enter a valid e-mail address']
+    match: [/.+\@.+\..+/, 'Please enter a valid e-mail address'],
+    trim: true
   },
   password: {
     type: String,
