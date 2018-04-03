@@ -16,7 +16,7 @@ const MenuBackground = styled.div`
   height: 100px;
   background-color: #708090;
   flex: 0 0 100px;
-`
+`;
 
 const Delete = styled.button`
   background: url('https://s3-us-west-1.amazonaws.com/uqueue/assets/delete-1.png');
@@ -34,7 +34,7 @@ const List = styled.li`
 `;
 
 const ListGroup = styled.div`
-flex: 0 0 500px;
+  flex: 0 0 500px;
 `;
 
 class CustomerQueue extends Component {
@@ -110,7 +110,6 @@ class CustomerQueue extends Component {
     return (
       <Container>
         <MenuBackground />
-        <Header>Current Queue: {this.state.queue.length} </Header>
         <Table striped bordered hover>
           <thead>
             <tr>
@@ -133,7 +132,7 @@ class CustomerQueue extends Component {
                   <td>{guest.partySize}</td>
                   <td>{guest.phoneNumber}</td>
                   <td>{guest.seated}</td>
-                  <td>placeholder</td>
+                  <td> placeholder</td>
                   <td>{guest.notes}</td>
                   <td>
                     <Delete
