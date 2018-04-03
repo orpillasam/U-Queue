@@ -25,6 +25,14 @@ const Delete = styled.button`
   width: 29px;
   height: 29px;
 `;
+const Notify = styled.button`
+  background: url('https://s3-us-west-1.amazonaws.com/uqueue/assets/3-layers.png');
+  background-repeat: no-repeat;
+  background-color: grey;
+  border: none;
+  width: 30px;
+  height: 30px;
+`;
 
 const List = styled.li`
   padding-left: 20px;
@@ -132,7 +140,9 @@ class CustomerQueue extends Component {
                   <td>{guest.partySize}</td>
                   <td>{guest.phoneNumber}</td>
                   <td>{guest.seated}</td>
-                  <td> placeholder</td>
+                  <td>
+                    <Notify />
+                  </td>
                   <td>{guest.notes}</td>
                   <td>
                     <Delete
