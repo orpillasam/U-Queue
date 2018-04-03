@@ -91,7 +91,11 @@ class CustomerQueue extends Component {
       [name]: value
     });
   };
-
+  notifyGuest = id => {
+    API.getGuest(id)
+      .then(res => this.loadQueue())
+      .catch(err => console.log(err));
+  };
   handleFormSubmit = event => {
     event.preventDefault();
     console.log(event);
@@ -141,7 +145,11 @@ class CustomerQueue extends Component {
                   <td>{guest.phoneNumber}</td>
                   <td>{guest.seated}</td>
                   <td>
-                    <Notify />
+                    <Notify
+                      onClick={() => {
+                        this.notifyGuest(guest._id);
+                      }}
+                    />
                   </td>
                   <td>{guest.notes}</td>
                   <td>
