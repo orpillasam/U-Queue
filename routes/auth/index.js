@@ -152,21 +152,25 @@ router.post('/login', (req, res, next) => {
 });
 
 // this route is just used to get the user basic info
+// router.get('/account', (req, res, next) => {
+// 	console.log('===== user!!======')
+// 	console.log(res.body)
+// 	if (req.body) {
+// 		return res.json({ account: req.account })
+// 	} else {
+// 		return res.json({ account: null })
+// 	}
+// });
+// this route is just used to get the user basic info
 router.get('/account', (req, res, next) => {
 	console.log('===== user!!======')
-	console.log(res.body)
-	if (req.body) {
-		return res.json({ account: req.account })
+	console.log(req.user)
+	if (req.user) {
+		return res.json({ user: req.user })
 	} else {
-		return res.json({ account: null })
+		return res.json({ user: null })
 	}
-});
-// findAll: function(req, res) {
-//   db.Guest.find({ inQueue: true }, req.query)
-//     .sort({ queuePosition: 1 })
-//     .then(dbModel => res.json(dbModel))
-//     .catch(err => res.status(422).json(err));
-// },
+})
 
 module.exports = router;
 
