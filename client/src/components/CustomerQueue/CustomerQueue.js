@@ -2,14 +2,20 @@ import React, { Component } from 'react';
 import API from '../../utils/API';
 import styled from 'styled-components';
 
-const Container = styled.section`
+const Container = styled.div`
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
 `;
+
 const Header = styled.h2`
   font-family: Assistant;
 `;
+
+const MenuBackground = styled.div`
+  height: 100px;
+  background-color: #708090;
+  flex: 0 0 100px;
+`
 
 const Delete = styled.button`
   background: url('https://s3-us-west-1.amazonaws.com/uqueue/assets/delete-1.png');
@@ -25,7 +31,10 @@ const List = styled.li`
   font-weight: bold;
   list-style-type: none;
 `;
-const ListGroup = styled.div``;
+
+const ListGroup = styled.div`
+flex: 0 0 500px;
+`;
 
 class CustomerQueue extends Component {
   state = {
@@ -61,8 +70,8 @@ class CustomerQueue extends Component {
       .catch(err => console.log(err));
   };
 
-  deleteGuest = id => {
-    API.deleteGuest(id)
+  removeGuestFromQueue = id => {
+    API.removeGuestFromQueue(id)
       .then(res => this.loadQueue())
       .catch(err => console.log(err));
   };
@@ -99,7 +108,7 @@ class CustomerQueue extends Component {
   render() {
     return (
       <Container>
-        <Header>Current Queue: {this.state.queue.length} </Header>
+        <MenuBackground />
         {this.state.queue.length ? (
           <ListGroup>
             {this.state.queue.map(guest => (
@@ -110,7 +119,7 @@ class CustomerQueue extends Component {
                 </strong>
                 <Delete
                   onClick={() => {
-                    this.deleteGuest(guest._id);
+                    this.removeGuestFromQueue(guest._id);
                   }}
                 />
               </List>
