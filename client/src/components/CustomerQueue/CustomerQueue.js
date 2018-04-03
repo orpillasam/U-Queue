@@ -15,6 +15,14 @@ const Delete = styled.button`
   width: 29px;
   height: 29px;
 `;
+const Notify = styled.button`
+  background: url('https://s3-us-west-1.amazonaws.com/uqueue/assets/3-layers.png');
+  background-repeat: no-repeat;
+  background-color: grey;
+  border: none;
+  width: 30px;
+  height: 30px;
+`;
 
 
 const Table = styled.table`
@@ -135,14 +143,16 @@ class CustomerQueue extends Component {
             <Tbody>
               {this.state.queue.map(guest => (
                 <tr>
-                  <Td>{guest.firstName}</Td>
-                  <Td>{guest.lastName}</Td>
-                  <Td>{guest.partySize}</Td>
-                  <Td>{guest.phoneNumber}</Td>
-                  <Td>{guest.seated}</Td>
-                  <Td> placeholder</Td>
-                  <Td>{guest.notes}</Td>
-                  <Td>
+                  <td>{guest.firstName}</td>
+                  <td>{guest.lastName}</td>
+                  <td>{guest.partySize}</td>
+                  <td>{guest.phoneNumber}</td>
+                  <td>{guest.seated}</td>
+                  <td>
+                    <Notify />
+                  </td>
+                  <td>{guest.notes}</td>
+                  <td>
                     <Delete
                       onClick={() => {
                         this.removeGuest(guest._id);
