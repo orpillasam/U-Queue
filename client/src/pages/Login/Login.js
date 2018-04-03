@@ -12,8 +12,7 @@ import {
 } from '../../components/Styled/Styled.js';
 import Nav from '../../components/Nav';
 import Auth from '../../utils/Auth';
-import { Link } from "react-router-dom";
-
+import { Link } from 'react-router-dom';
 
 class Login extends Component {
   state = {
@@ -38,7 +37,7 @@ class Login extends Component {
         Auth.authenticateUser(res.data.token);
 
         // hard redirect to / to reload all the state and nav
-        window.location.href = "/queue";
+        window.location.href = '/queue';
       })
       .catch(err => this.setState({ errorMessage: err.response.data.message }));
   };
@@ -56,10 +55,16 @@ class Login extends Component {
 
   handleLogin = event => {
     event.preventDefault();
-    if (this.state.email && this.state.password && this.state.password.length >= 8) {
+    if (
+      this.state.email &&
+      this.state.password &&
+      this.state.password.length >= 8
+    ) {
       this.authenticate();
     } else {
-      this.setState({ errorMessage: "Please enter valid username and password to sign in."})
+      this.setState({
+        errorMessage: 'Please enter valid username and password to sign in.'
+      });
     }
   };
 
@@ -104,15 +109,17 @@ class Login extends Component {
             <Input
               value={this.state.password}
               onChange={this.handleInputChange}
+              type="password"
               name="password"
+              autoFocus={true}
               placeholder="Password (required)"
               className="form-control"
               required=""
             />
             <div className="checkbox mb-3">
-            <label>
-              <input type="checkbox" value="remember-me"/> Remember me
-            </label>
+              <label>
+                <input type="checkbox" value="remember-me" /> Remember me
+              </label>
             </div>
             <div className="checkbox mb-3 text-danger">
               {this.state.errorMessage}
@@ -135,17 +142,22 @@ class Login extends Component {
                 <a href='url'>Forgot password?</a> */}
             <ButtonSection>
               <Button
-                disabled={!(this.state.email && this.state.password && this.state.password.length >= 8)}
+                disabled={
+                  !(
+                    this.state.email &&
+                    this.state.password &&
+                    this.state.password.length >= 8
+                  )
+                }
                 onClick={this.handleLogin}
               >
-               Login
+                Login
               </Button>
             </ButtonSection>
             <p className="mt-5 mb-3">
-            Don't have an account?&nbsp;&nbsp;
-            <Link to={"/signup"}>Sign Up</Link>
+              Don't have an account?&nbsp;&nbsp;
+              <Link to={'/signup'}>Sign Up</Link>
             </p>
-       
           </form>
         </SignUpSection>
       </Container>
