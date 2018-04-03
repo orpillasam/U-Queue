@@ -28,9 +28,9 @@ export default {
   saveAccountEdit: function(accountData) {
     return axios.post('/api/accountedit', accountData);
   },
-  getAccount: function(id) {
-    return axios.get('/api/account/' + id);
-  },
+  // getAccount: function(id) {
+  //   return axios.get('/api/account/' + id);
+  // },
   validateAccount: function(accountData) {
     return axios.post('/api/account', accountData);
   },
@@ -45,6 +45,10 @@ export default {
   authenticateUser: function(userData) {
     return axios.post("/auth/login", userData);
   },
+  getUserAccount: function() {
+    return axios.get('/auth/account');
+  }
+  
 };
 
 
