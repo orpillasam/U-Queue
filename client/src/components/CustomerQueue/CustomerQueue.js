@@ -61,8 +61,8 @@ class CustomerQueue extends Component {
       .catch(err => console.log(err));
   };
 
-  deleteGuest = id => {
-    API.deleteGuest(id)
+  removeGuest = id => {
+    API.removeGuestFromQueue(id)
       .then(res => this.loadQueue())
       .catch(err => console.log(err));
   };
@@ -110,7 +110,7 @@ class CustomerQueue extends Component {
                 </strong>
                 <Delete
                   onClick={() => {
-                    this.deleteGuest(guest._id);
+                    this.removeGuest(guest._id);
                   }}
                 />
               </List>
