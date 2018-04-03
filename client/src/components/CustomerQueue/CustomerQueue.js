@@ -24,35 +24,33 @@ const Notify = styled.button`
   height: 30px;
 `;
 
-
 const Table = styled.table`
   border-collapse: collapse;
   border-spacing: 2px;
   border-color: grey;
-`
+`;
 
 const Thead = styled.thead`
   height: 100px;
   background-color: #708090;
   color: white;
   font-family: Assistant;
-`
+`;
 
 const Th = styled.th`
   height: 100px;
-`
+`;
 
 const Tbody = styled.tbody`
   text-align: center;
   font-family: Assistant;
-`
+`;
 
 const Td = styled.td`
   background-color: #ebedef;
-  border-top: 30px solid white;  
+  border-top: 30px solid white;
   border-bottom: 30px solid white;
-
-`
+`;
 
 class CustomerQueue extends Component {
   state = {
@@ -166,7 +164,7 @@ class CustomerQueue extends Component {
                         this.removeGuest(guest._id);
                       }}
                     />
-                  </Td>
+                  </td>
                 </tr>
               ))}
             </Tbody>
