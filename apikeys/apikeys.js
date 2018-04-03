@@ -1,8 +1,8 @@
 
 const apiKeys = {
-    accountSid: 'AC2857cf2eea07fbef8e9aa03560e2aade',
-    authToken: 'dbb0757d4ca2f8495e5ed9171f7af836',
-    myPhoneNumber: '+19495369535'
+    accountSid: 'AC2a7cd8e1c9740fb5ccf6930b089f114e',
+    authToken: 'c6af2a5f553616ba251cc70cdc5d093d',
+    myPhoneNumber: '+19495367823'
 };
 
 module.exports = apiKeys;
