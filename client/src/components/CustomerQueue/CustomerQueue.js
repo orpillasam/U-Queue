@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Table, thead, tbody, tr, td } from 'react-bootstrap';
 import API from '../../utils/API';
 import styled from 'styled-components';
 
@@ -70,7 +71,7 @@ class CustomerQueue extends Component {
       .catch(err => console.log(err));
   };
 
-  removeGuestFromQueue = id => {
+  removeGuest = id => {
     API.removeGuestFromQueue(id)
       .then(res => this.loadQueue())
       .catch(err => console.log(err));
@@ -109,25 +110,45 @@ class CustomerQueue extends Component {
     return (
       <Container>
         <MenuBackground />
-        {this.state.queue.length ? (
-          <ListGroup>
-            {this.state.queue.map(guest => (
-              <List key={guest._id}>
-                <strong>
-                  {guest.firstName} {guest.lastName}, Party of {guest.partySize},{' '}
-                  {guest.notes}
-                </strong>
-                <Delete
-                  onClick={() => {
-                    this.removeGuestFromQueue(guest._id);
-                  }}
-                />
-              </List>
-            ))}
-          </ListGroup>
-        ) : (
-          <Header> No Results to Display</Header>
-        )}
+        <Header>Current Queue: {this.state.queue.length} </Header>
+        <Table striped bordered hover>
+          <thead>
+            <tr>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Party Size</th>
+              <th>Phone</th>
+              <th>Seated</th>
+              <th>Notify</th>
+              <th>Notes</th>
+              <th>Remove</th>
+            </tr>
+          </thead>
+          {this.state.queue.length ? (
+            <tbody>
+              {this.state.queue.map(guest => (
+                <tr>
+                  <td>{guest.firstName}</td>
+                  <td>{guest.lastName}</td>
+                  <td>{guest.partySize}</td>
+                  <td>{guest.phoneNumber}</td>
+                  <td>{guest.seated}</td>
+                  <td>placeholder</td>
+                  <td>{guest.notes}</td>
+                  <td>
+                    <Delete
+                      onClick={() => {
+                        this.removeGuest(guest._id);
+                      }}
+                    />
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          ) : (
+            <h3>No Results to Display</h3>
+          )}
+        </Table>
       </Container>
     );
   }

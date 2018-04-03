@@ -27,6 +27,7 @@ module.exports = {
     db.Guest.create(req.body)    
       .then(data => {
         let name = data.firstName;
+        console.log(data.firstName);
         let phone = data.phoneNumber;
         phone = '+1' + phone;
         console.log(phone);
