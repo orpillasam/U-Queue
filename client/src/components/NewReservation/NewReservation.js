@@ -5,6 +5,10 @@ import styled from 'styled-components';
 
 //NEW RESERVATION MODAL
 //NEED TO ADD MODAL CODE
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`;
 
 const Container = styled.section`
   display: flex;
@@ -42,6 +46,14 @@ const Button = styled.button`
 
 const Add = styled.button`
   background: url('https://s3-us-west-1.amazonaws.com/uqueue/assets/AddBtn.png');
+  background-repeat: no-repeat;
+  border: none;
+  width: 42px;
+  height: 42px;
+`;
+
+const Search = styled.button`
+  background: url('https://s3-us-west-1.amazonaws.com/uqueue/assets/search.png');
   background-repeat: no-repeat;
   border: none;
   width: 42px;
@@ -133,7 +145,7 @@ class NewReservation extends Component {
 
   render() {
     return (
-      <div>
+      <Wrapper>
         <Add onClick={this.openModal} />
         <Modal
           isOpen={this.state.modalIsOpen}
@@ -200,7 +212,8 @@ class NewReservation extends Component {
             </Button>
           </Container>
         </Modal>
-      </div>
+        <Search />
+      </Wrapper>
     );
   }
 }

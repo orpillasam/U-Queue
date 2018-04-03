@@ -1,28 +1,72 @@
-import React from 'react';
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import Clock from 'react-live-clock';
+import styled from 'styled-components';
+
+const NavBar = styled.div`
+    margin-left: 105px;
+    margin-top: 40px;
+    border-bottom: 5px #8FBC8B;
+    a {
+        font-size: 16px;
+        color: #8FBC8B;
+        font-family: 'Futura';
+        padding-left: 30px;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    li {
+        list-style-type: none;
+        display: inline;
+    }
+`;
+
+const Link = styled.a`
+  font-size: 16px;
+  color: #8FBC8B;
+  font-family: 'Futura';
+  padding-left: 30px;
+  text-decoration: none;
+  font-weight: bold;
+`
+
+const Button = styled.button`
+  align: center;
+  border-radius: 4px;
+  height: 30px;
+  background-color: #ff6347;
+  border: none;
+  color: #ffffff;
+  text-align: center;
+  font-size: 12px;
+  width: 100px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-left: 20px;
+`;
+
 
 const Nav = () => (
-  <nav className="navbar navbar-top">
-    <div className="container-fluid">
-      <div className="navbar-header">
-        <button type="button" className="collapsed navbar-toggle">
-          <span className="sr-only">Toggle navigation</span>
-          <span className="icon-bar" /> <span className="icon-bar" />
-          <span className="icon-bar" />
-        </button>
-        <a href="/queuehistory" className="nav-link">
+    <NavBar>
+        <Button> Toggle navigation</Button>
+        <Link href="/queuehistory">
           History
-        </a>
-        <a href="/newaccount" className="nav-link">
+        </Link>
+        <Link href="/newaccount">
           Create an Account
-        </a>
-        <a href="/login" className="nav-link">
+        </Link>
+        <Link href="/login">
           Logout
-        </a>
-        <Clock format={'hh:mm:ss A'} ticking={true} timezone={'US/Pacific'} />
-      </div>
-    </div>
-  </nav>
+        </Link>
+        <Clock style="font-size: 16px; color: #8FBC8B; font-family: 'Futura'; padding-left: 30px"
+        format={'hh:mm:ss A'} ticking={true} timezone={'US/Pacific'} />
+    </NavBar>
 );
 
 export default Nav;
