@@ -10,8 +10,8 @@ router
 // Matches with "/api/queue/:id"
 router
   .route('/queue/:id')
-  // .get(queueController.findById)
-  .get(queueController.findOne)
+  .get(queueController.findById)
+  //.get(queueController.findOne)
   .put(queueController.update)
   .delete(queueController.remove);
 
