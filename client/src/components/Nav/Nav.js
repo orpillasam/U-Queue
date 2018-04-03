@@ -27,30 +27,40 @@ const NavBar = styled.div`
 `;
 
 const Link = styled.a`
-  font-size: 16px;
-  color: #8FBC8B;
-  font-family: 'Futura';
-  padding-left: 30px;
-  text-decoration: none;
-  font-weight: bold;
-`
-
-const Button = styled.button`
-  align: center;
-  border-radius: 4px;
-  height: 30px;
-  background-color: #ff6347;
-  border: none;
-  color: #ffffff;
-  text-align: center;
-  font-size: 12px;
-  width: 100px;
-  transition: all 0.5s;
-  cursor: pointer;
-  margin-top: 10px;
-  margin-left: 20px;
+    font-size: 16px;
+    color: #8FBC8B;
+    font-family: 'Futura';
+    padding-left: 30px;
+    text-decoration: none;
+    font-weight: bold;
 `;
 
+const Button = styled.button`
+    align: center;
+    border-radius: 4px;
+    height: 30px;
+    background-color: #ff6347;
+    border: none;
+    color: #ffffff;
+    text-align: center;
+    font-size: 12px;
+    width: 100px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: 20px;
+`;
+
+
+const Time = styled.div`
+    display: inline;
+    font-size: 16px; 
+    color: #8FBC8B; 
+    font-family: 'Futura'; 
+    margin: 30px;
+    padding: 5px;
+    border: solid #8FBC8B 2px;
+`;
 
 const Nav = () => (
     <NavBar>
@@ -64,8 +74,7 @@ const Nav = () => (
         <Link href="/login">
           Logout
         </Link>
-        <Clock style="font-size: 16px; color: #8FBC8B; font-family: 'Futura'; padding-left: 30px"
-        format={'hh:mm:ss A'} ticking={true} timezone={'US/Pacific'} />
+        <Time><Clock format={'hh:mm:ss A'} ticking={true} timezone={'US/Pacific'} /></Time>
     </NavBar>
 );
 
