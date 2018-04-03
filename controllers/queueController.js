@@ -15,8 +15,21 @@ module.exports = {
   },
   findById: function(req, res) {
     db.Guest.findById(req.params.id)
-      .then(dbModel => res.json(dbModel))
+      .then(data => {
+        let name = data.firstName;
+        console.log(data.firstName);
+        let phone = data.phoneNumber;
+        phone = '+1' + phone;
+        console.log(phone);
+        client.messages.create({
+            body: name + ', Your table is almost ready! Please check in with the host.',
+            to: phone,  // Text this number
+            from: myPhoneNumber // From a valid Twilio number
+      })
+      .then((message) => console.log(message.sid)) 
       .catch(err => res.status(422).json(err));
+      })
+      .then(data => res.json(data));
   },
   findOne: function(req, res) {
     db.Guest.findOne(req.params.firstName)
