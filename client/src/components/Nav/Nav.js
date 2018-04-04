@@ -64,7 +64,6 @@ const Time = styled.div`
 
 const Nav = () => (
     <NavBar>
-        <Button> Toggle navigation</Button>
         <Link href="/queuehistory">
           History
         </Link>
