@@ -34,7 +34,9 @@ const Link = styled.a`
   padding-left: 30px;
   text-decoration: none;
   font-weight: bold;
+    margin-top: 10px;
 `;
+
 
 const Button = styled.button`
   align: center;
