@@ -1,7 +1,7 @@
 # U-Queue
-![U-Queue Logo](https://github.com/orpillasam/U-Queue/blob/master/client/src/assets/2x/Asset%201%402x.png)
-
 Welcome to U-Queue!
+
+![U-Queue Logo](https://github.com/orpillasam/U-Queue/blob/master/client/src/assets/2x/Asset%201%402x.png)
 
 ## Line Management Made Easy :hourglass:
 
@@ -17,6 +17,12 @@ Please begin by:
 * Creating an account and filling out the basic information on the sign up page
     * Customers can then sign themselves up onto the waitlist without having to bother the hosts/hostesses
     * Hosts/Hostesses will click the notify function from the app that will send a notification to the customer via SMS when table is ready
+
+## Deployment
+Hosted on Heroku: 
+
+
+* Feel free to clone this repository and locally host it on your own! 
 
 ## Built With :nut_and_bolt:
 U-Queue is a Full Stack MERN application that is supported by the following technologies:
