@@ -18,28 +18,28 @@ const Delete = styled.button`
 `;
 
 const Seated = styled.button`
-  background: url('https://s3-us-west-1.amazonaws.com/uqueue/assets/rectangle-path.svg');
+  background: url('https://s3-us-west-1.amazonaws.com/uqueue/assets/rectangle.png');
   background-repeat: no-repeat;
   border: none;
-  width: 31px;
-  height: 31px;
+  width: 33px;
+  height: 33px;
   margin-top: -5px;
 `
 
 const Notify = styled.button`
-  background: url('https://s3-us-west-1.amazonaws.com/uqueue/assets/3-layers.png');
+  background: url('https://s3-us-west-1.amazonaws.com/uqueue/assets/Notify2.png');
   background-repeat: no-repeat;
   border: none;
   width: 30px;
   height: 35px;
-  margin-top: -8px;
+  margin-top: -6px;
 `;
 
 const Menu = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  height: 90px;
+  height: 80px;
   background-color: #708090;
 `;
 
@@ -51,23 +51,33 @@ const MenuItem = styled.div`
 
 const QueueBody = styled.div`
   font-family: Assistant;
-  color: white;
+  color: #4A4A4A;
+  div:hover{
+    background-color: rgba(231, 231, 231, 0.95);
+  }
 `;
 
 const QueueRow = styled.div`
-  background-color: #708090;
+  border-style: solid;
+  border-color: #708090;
   display: flex;
   justify-content: space-between;
-  border-radius: 10px;
+  border-radius: 15px;
   margin: 15px;
+  div:hover{
+    box-shadow: none;
+  }
 `;
 
 const QueueItem = styled.div`
   font-size: 15px;
   text-align: center;
-  padding-top: 15px;
+  padding-top: 10px;
   flex: 0 1 50px;
-  height: 35px;
+  height: 25px;
+  div:hover{
+    box-shadow: none;
+  }
 `;
 
 const FirstName= styled.div`
@@ -82,8 +92,9 @@ const LastName = styled.div`
   font-size: 15px;
   text-align: center;
   padding-top: 15px;
-  flex: 0 1 150px;
+  flex: 0 1 140px;
   height: 35px;
+  margin-left: -10px;
 `
 
 const PartySize = styled.div`
@@ -92,7 +103,7 @@ const PartySize = styled.div`
   padding-top: 15px;
   flex: 0 0 30px;
   height: 35px;
-  margin-left: 20px;
+  margin-left: 30px;
 `
 const PhoneNumber = styled.div`
   font-size: 15px;
@@ -109,6 +120,7 @@ const SeatedQueueItem = styled.div`
   padding-top: 15px;
   flex: 0 1 50px;
   height: 35px;
+  margin-left: -5px;
 `;
 
 const NotifyQueueItem = styled.div`
@@ -126,7 +138,7 @@ const DeleteQueueItem = styled.div`
   padding-top: 15px;
   flex: 0 1 50px;
   height: 35px;
-  margin-right: 30px;
+  margin-right: 20px;
 `;
 
 const Notes = styled.div`
