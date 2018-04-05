@@ -35,7 +35,7 @@ U-Queue is a Full Stack MERN application that is supported by the following tech
 * Twilio  
 
 ## Check Out The Customer Mobile App
-[U-Queue Mobile App (Customer Version)](https://github.com/orpillasam/U-Queue-Mobile) -- Built on React Native!
+[U-Queue Mobile App (Customer View)](https://github.com/orpillasam/U-Queue-Mobile) -- Built on React Native!
 
 ## Check Out The Mobile Version!
 [U-Queue Mobile]() -- Built on React Native!
