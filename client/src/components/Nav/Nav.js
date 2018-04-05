@@ -4,28 +4,37 @@ import Clock from 'react-live-clock';
 import styled from 'styled-components';
 
 const NavBar = styled.div`
-  display: flex;
-  justify-content: center;
-  margin-left: 105px;
-  margin-top: 40px;
-  border-bottom: 5px #8fbc8b;
-  a {
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 20px;
+    margin-top: 40px;
+    border-bottom: 5px #8FBC8B;
+    a {
+        font-size: 16px;
+        color: #8FBC8B;
+        font-family: 'Futura';
+        padding-left: 30px;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    li {
+        list-style-type: none;
+    }
+`;
+
+const Link = styled.a`
     font-size: 16px;
     color: #8fbc8b;
     font-family: 'Futura';
     padding-left: 30px;
     text-decoration: none;
     font-weight: bold;
-  }
-
-  a:hover {
-    text-decoration: underline;
-  }
-
-  li {
-    list-style-type: none;
-  }
-`;
+    margin-top: 10px;
 
 const Link = styled.a`
   font-size: 16px;
@@ -54,20 +63,31 @@ const Button = styled.button`
 
 const Time = styled.div`
     font-size: 16px; 
-    color: #8FBC8B; 
+    color: #FF6347; 
     font-family: 'Futura'; 
-    margin-top: -5px;
-    margin-left: 25px;
-    border: solid #8FBC8B 2px;
+    margin-top: 5px;
+    margin-left: 20px;
     padding: 5px;
 
 `;
 
+
+const NavLogo = styled.img`
+height: 45px;
+`;
+
 const Nav = () => (
-  <NavBar>
-    <Link href="/queuehistory">History</Link>
-    <Link href="/newaccount">Create an Account</Link>
-    <Link href="/login">Logout</Link>
+    <NavBar>
+        <NavLogo src={require('../../assets/SVG/Asset 1.svg')} alt="logo" />
+        <Link href="/queuehistory">
+          History
+        </Link>
+        <Link href="/newaccount">
+          Create an Account
+        </Link>
+        <Link href="/login">
+          Logout
+        </Link>
     <Time>
       <Clock
         format={'MMMM Do, YYYY hh:mm:ss A'}

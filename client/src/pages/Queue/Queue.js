@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import {
+  SampleLogo,
+} from '../../components/Styled/Styled.js';
 import NewReservation from '../../components/NewReservation';
 import CustomerQueue from '../../components/CustomerQueue';
 import Nav from '../../components/Nav';
@@ -10,12 +13,12 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  font-family: 'Assistant', sans-serif;
+  font-size: 20px;
 `;
 
 const Container1 = styled.div`
-  
 `;
-
 
 class Queue extends Component {
 
@@ -41,12 +44,15 @@ class Queue extends Component {
     return (
       <Wrapper>
         <Nav />
+        <SampleLogo src={require('../../assets/samplelogo.svg')} alt="sample restuarant logo" />
         <Counter />
         <Container1>
-        <p>
-				Welcome back, <strong>sam </strong>
-			</p>
-          <NewReservation onClick={this.handleFormSubmit} />
+        <NewReservation onClick={this.handleFormSubmit} />
+          <p>
+          Welcome back, <strong> Sam </strong>
+          </p>
+       
+           
         </Container1>
         <CustomerQueue />
       </Wrapper>
