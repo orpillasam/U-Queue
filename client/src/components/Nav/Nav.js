@@ -28,6 +28,12 @@ const NavBar = styled.div`
 `;
 
 const Link = styled.a`
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 20px;
+  margin-top: 40px;
+  border-bottom: 5px #8fbc8b;
+  a {
     font-size: 16px;
     color: #8fbc8b;
     font-family: 'Futura';
@@ -35,7 +41,9 @@ const Link = styled.a`
     text-decoration: none;
     font-weight: bold;
     margin-top: 10px;
+}
 `;
+
 
 const Button = styled.button`
   align: center;
@@ -54,17 +62,16 @@ const Button = styled.button`
 `;
 
 const Time = styled.div`
-    font-size: 16px; 
-    color: #FF6347; 
-    font-family: 'Futura'; 
-    margin-top: 5px;
-    margin-left: 20px;
-    padding: 5px;
-
+  font-size: 16px;
+  color: #ff6347;
+  font-family: 'Futura';
+  margin-top: 5px;
+  margin-left: 20px;
+  padding: 5px;
 `;
 
-
 const NavLogo = styled.img`
+
     height: 45px;
 `;
 

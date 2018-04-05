@@ -52,6 +52,7 @@ export const ButtonSection = styled.section`
     flex-direction: row;
     width: 500px;
     justify-content: space-around;
+    margin: 0;
 `;
 
 export const Button = styled.button`
@@ -67,7 +68,8 @@ export const Button = styled.button`
     width: 100px;
     transition: all 0.5s;
     cursor: pointer;
-    margin-top: 50px;
+    margin-top: 30px;
+    margin-bottom: 5px;
 
     span {
         cursor: pointer;
