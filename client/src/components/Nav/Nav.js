@@ -29,30 +29,37 @@ const NavBar = styled.div`
 
 const Link = styled.a`
     font-size: 16px;
-    color: #8FBC8B;
+    color: #8fbc8b;
     font-family: 'Futura';
     padding-left: 30px;
     text-decoration: none;
     font-weight: bold;
     margin-top: 10px;
+
+const Link = styled.a`
+  font-size: 16px;
+  color: #8fbc8b;
+  font-family: 'Futura';
+  padding-left: 30px;
+  text-decoration: none;
+  font-weight: bold;
 `;
 
 const Button = styled.button`
-    align: center;
-    border-radius: 4px;
-    height: 30px;
-    background-color: #ff6347;
-    border: none;
-    color: #ffffff;
-    text-align: center;
-    font-size: 12px;
-    width: 100px;
-    transition: all 0.5s;
-    cursor: pointer;
-    margin-top: 10px;
-    margin-left: 20px;
+  align: center;
+  border-radius: 4px;
+  height: 30px;
+  background-color: #ff6347;
+  border: none;
+  color: #ffffff;
+  text-align: center;
+  font-size: 12px;
+  width: 100px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-left: 20px;
 `;
-
 
 const Time = styled.div`
     font-size: 16px; 
@@ -61,6 +68,7 @@ const Time = styled.div`
     margin-top: 5px;
     margin-left: 20px;
     padding: 5px;
+
 `;
 
 
@@ -80,8 +88,14 @@ const Nav = () => (
         <Link href="/login">
           Logout
         </Link>
-        <Time><Clock format={'hh:mm:ss A'} ticking={true} timezone={'US/Pacific'} /></Time>
-    </NavBar>
+    <Time>
+      <Clock
+        format={'MMMM Do, YYYY hh:mm:ss A'}
+        ticking={true}
+        timezone={'US/Pacific'}
+      />
+    </Time>
+  </NavBar>
 );
 
 export default Nav;
