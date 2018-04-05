@@ -4,6 +4,8 @@ import Clock from 'react-live-clock';
 import styled from 'styled-components';
 
 const NavBar = styled.div`
+    display: flex;
+    justify-content: center;
     margin-left: 105px;
     margin-top: 40px;
     border-bottom: 5px #8FBC8B;
@@ -22,7 +24,6 @@ const NavBar = styled.div`
 
     li {
         list-style-type: none;
-        display: inline;
     }
 `;
 
@@ -53,13 +54,13 @@ const Button = styled.button`
 
 
 const Time = styled.div`
-    display: inline;
     font-size: 16px; 
     color: #8FBC8B; 
     font-family: 'Futura'; 
-    margin: 30px;
-    padding: 5px;
+    margin-top: -5px;
+    margin-left: 20px;
     border: solid #8FBC8B 2px;
+    padding: 5px;
 `;
 
 const Nav = () => (

@@ -14,16 +14,26 @@ const Delete = styled.button`
   border: none;
   width: 29px;
   height: 29px;
+  margin-top: -4px;
 `;
+
+const Seated = styled.button`
+  background: url('https://s3-us-west-1.amazonaws.com/uqueue/assets/rectangle-path.svg');
+  background-repeat: no-repeat;
+  border: none;
+  width: 31px;
+  height: 31px;
+  margin-top: -5px;
+`
+
 const Notify = styled.button`
   background: url('https://s3-us-west-1.amazonaws.com/uqueue/assets/3-layers.png');
   background-repeat: no-repeat;
-  background-color: grey;
   border: none;
   width: 30px;
-  height: 30px;
+  height: 35px;
+  margin-top: -8px;
 `;
-
 
 const Menu = styled.div`
   display: flex;
@@ -53,7 +63,11 @@ const QueueRow = styled.div`
 `;
 
 const QueueItem = styled.div`
-  height: 40px;
+  font-size: 15px;
+  text-align: center;
+  padding-top: 15px;
+  flex: 0 0 100px;
+  height: 35px;
 `
 
 const NoResults = styled.h3`
@@ -155,7 +169,13 @@ class CustomerQueue extends Component {
                   <QueueItem>{guest.lastName}</QueueItem>
                   <QueueItem>{guest.partySize}</QueueItem>
                   <QueueItem>{guest.phoneNumber}</QueueItem>
-                  <QueueItem>{guest.seated}</QueueItem>
+                  <QueueItem>
+                    <Seated
+                        onClick={() => {
+                          this.notifyGuest(guest._id);
+                        }}
+                      />
+                  </QueueItem>
                   <QueueItem>
                     <Notify
                       onClick={() => {

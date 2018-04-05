@@ -50,6 +50,7 @@ const Add = styled.button`
   border: none;
   width: 42px;
   height: 42px;
+  margin-right: 7px;
 `;
 
 const Search = styled.button`
