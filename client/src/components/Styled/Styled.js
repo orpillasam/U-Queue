@@ -10,13 +10,17 @@ export const Logo = styled.img`
     padding: 50px;
 `;
 
+export const SampleLogo = styled.img`
+height: 200px;
+`;
+
 export const SignUpSection = styled.section`
     padding-top: 50px;
     padding-left: 100px;
     font-family: 'Assistant', sans-serif;
     color: #708090;
     h1 {
-        font-family: 'Julius-Sans-One', sans-serif;
+        font-family: 'Julius Sans One', sans-serif;
         color: #FF6347;
         font-size: 24px;
     }

@@ -5,8 +5,8 @@ import styled from 'styled-components';
 
 const NavBar = styled.div`
     display: flex;
-    justify-content: center;
-    margin-left: 105px;
+    justify-content: flex-start;
+    margin-left: 20px;
     margin-top: 40px;
     border-bottom: 5px #8FBC8B;
     a {
@@ -34,6 +34,7 @@ const Link = styled.a`
     padding-left: 30px;
     text-decoration: none;
     font-weight: bold;
+    margin-top: 10px;
 `;
 
 const Button = styled.button`
@@ -55,16 +56,21 @@ const Button = styled.button`
 
 const Time = styled.div`
     font-size: 16px; 
-    color: #8FBC8B; 
+    color: #FF6347; 
     font-family: 'Futura'; 
-    margin-top: -5px;
+    margin-top: 5px;
     margin-left: 20px;
-    border: solid #8FBC8B 2px;
     padding: 5px;
+`;
+
+
+const NavLogo = styled.img`
+height: 45px;
 `;
 
 const Nav = () => (
     <NavBar>
+        <NavLogo src={require('../../assets/SVG/Asset 1.svg')} alt="logo" />
         <Link href="/queuehistory">
           History
         </Link>

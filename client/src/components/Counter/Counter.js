@@ -4,28 +4,42 @@ import API from '../../utils/API';
 import styled from 'styled-components';
 
 
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 20px;
+  margin-bottom: 20px;
+`
+
 const Container = styled.section`
   display: flex;
-  flex-direction: row;
-  height: 125px;
-  justify-content: flex-end;
+  flex-direction: column;
   align-items: center;
-`;
-
-
-const Header = styled.h2`
-  font-family: Assistant;
-  text-align: center;
-  padding-top: 10px;
-  color: #66cdaa;
-  font-size: 23px;
-  font-weight: 400;
-  border: 1px solid #969696;
-  width: 136px;
-  height: 80px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  border: solid #FFD700 4px;
   border-radius: 10px;
+  padding: 25px 15px;
+  width: 200px;
 `;
+
+const QueueNumber = styled.h2`
+  font-family: 'Quicksand', sans-serif;
+  background-color: #FF6347;
+  text-align: center;
+  color: white;
+  font-size: 52px;
+  border: none;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin: 0;
+`;
+
+const Header = styled.h1`
+  font-family: 'Quicksand', sans-serif;
+  font-size: 24px;
+  margin-top: 5px;
+  margin-bottom: 0;
+`
 
 class Counter extends Component {
   state = {
@@ -98,9 +112,12 @@ class Counter extends Component {
 
   render() {
     return (
+      <Wrapper>
       <Container>
-        <Header>{this.state.queue.length} Guests in Queue </Header>
+        <QueueNumber>{this.state.queue.length}</QueueNumber>
+        <Header>Guests in Queue</Header>
       </Container>
+      </Wrapper>
     );
   }
 }
