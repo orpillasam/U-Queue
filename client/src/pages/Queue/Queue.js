@@ -20,6 +20,13 @@ const Wrapper = styled.div`
 const Container1 = styled.div`
 `;
 
+const Container2 = styled.div`
+display: flex;
+margin-top: 50px;
+margin-bottom: 10px;
+justify-content: space-between;
+`;
+
 class Queue extends Component {
 
   componentDidMount() {
@@ -44,15 +51,12 @@ class Queue extends Component {
     return (
       <Wrapper>
         <Nav />
-        <SampleLogo src={require('../../assets/samplelogo.svg')} alt="sample restuarant logo" />
-        <Counter />
+        <Container2>
+          <SampleLogo src={require('../../assets/samplelogo.svg')} alt="sample restuarant logo" />
+          <Counter />
+        </Container2>
         <Container1>
         <NewReservation onClick={this.handleFormSubmit} />
-          <p>
-          Welcome back, <strong> Sam </strong>
-          </p>
-       
-           
         </Container1>
         <CustomerQueue />
       </Wrapper>
