@@ -9,8 +9,12 @@ U-Queue is a simple and easy solution to all of your restaurant waitlist needs. 
 
 ### Are you tired of hungry customers constantly asking you when they will be seated? :sleepy:
 
+Fear no more. We have the answer to your problems.
 
-
+Please begin by: 
+* Creating an account and filling out the basic information on the sign up page
+    * Customers can then sign themselves up onto the waitlist without having to bother the hosts/hostesses
+    * Hosts/Hostesses will click the notify function from the app that will send a notification to the customer via SMS when table is ready
 
 ## Built With :nut_and_bolt:
 U-Queue is a Full Stack MERN application that is supported by the following technologies:
