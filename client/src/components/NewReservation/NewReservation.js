@@ -50,6 +50,7 @@ const Add = styled.button`
   border: none;
   width: 42px;
   height: 42px;
+  margin-right: 7px;
 `;
 
 const Search = styled.button`
@@ -152,11 +153,11 @@ class NewReservation extends Component {
           onRequestClose={this.closeModal}
           style={{
             content: {
-              position: 'absolute',
+              position: 'relative',
               height: '300px',
               width: '550px',
-              top: '30px',
-              left: '30px',
+              top: '200px',
+              left: '300px',
               right: '30px',
               bottom: '30px',
               border: '5px solid #ccc',
@@ -165,7 +166,7 @@ class NewReservation extends Component {
               padding: '20px'
             }
           }}
-          contentLabel="Example Modal"
+          contentLabel="Reservation Modal"
         >
           <Container>
             <Input

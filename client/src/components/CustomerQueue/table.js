@@ -14,66 +14,46 @@ const Delete = styled.button`
   border: none;
   width: 29px;
   height: 29px;
-  margin-top: -4px;
 `;
-
-const Seated = styled.button`
-  background: url('https://s3-us-west-1.amazonaws.com/uqueue/assets/rectangle-path.svg');
-  background-repeat: no-repeat;
-  border: none;
-  width: 31px;
-  height: 31px;
-  margin-top: -5px;
-`
-
 const Notify = styled.button`
   background: url('https://s3-us-west-1.amazonaws.com/uqueue/assets/3-layers.png');
   background-repeat: no-repeat;
+  background-color: grey;
   border: none;
   width: 30px;
-  height: 35px;
-  margin-top: -8px;
+  height: 30px;
 `;
 
-const Menu = styled.div`
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+const Table = styled.table`
+  border-collapse: collapse;
+  border-spacing: 2px;
+  border-color: grey;
+`;
+
+const Thead = styled.thead`
   height: 90px;
   background-color: #708090;
-`;
-
-const MenuItem = styled.div`
   color: white;
   font-family: Assistant;
   font-size: 18px;
+  text-align: center;
 `;
 
-const QueueBody = styled.div`
+const Th = styled.th`
+  height: 100px;
+`;
+
+const Tbody = styled.tbody`
+  text-align: center;
   font-family: Assistant;
   color: white;
 `;
 
-const QueueRow = styled.div`
-  background-color: #708090;
-  display: flex;
-  justify-content: space-around;
-  border-radius: 10px;
-  margin: 15px;
+const Td = styled.td`
+  background-color: #ebedef;
+  border-top: 30px solid white;
+  border-bottom: 30px solid white;
 `;
-
-const QueueItem = styled.div`
-  font-size: 15px;
-  text-align: center;
-  padding-top: 15px;
-  flex: 0 0 100px;
-  height: 35px;
-`
-
-const NoResults = styled.h3`
-  font-family: Assistant;
-  text-align: center;
-`
 
 class CustomerQueue extends Component {
   state = {
@@ -151,52 +131,50 @@ class CustomerQueue extends Component {
   render() {
     return (
       <Container>
-        <Menu>
-              <MenuItem>First Name</MenuItem>
-              <MenuItem>Last Name</MenuItem>
-              <MenuItem>Party Size</MenuItem>
-              <MenuItem>Phone</MenuItem>
-              <MenuItem>Seated</MenuItem>
-              <MenuItem>Notify</MenuItem>
-              <MenuItem>Notes</MenuItem>
-              <MenuItem>Remove</MenuItem>
-        </Menu>
+        <Table>
+          <Thead>
+            <tr>
+              <Th>First Name</Th>
+              <Th>Last Name</Th>
+              <Th>Party Size</Th>
+              <Th>Phone</Th>
+              <Th>Seated</Th>
+              <Th>Notify</Th>
+              <Th>Notes</Th>
+              <Th>Remove</Th>
+            </tr>
+          </Thead>
           {this.state.queue.length ? (
-            <QueueBody>
+            <Tbody>
               {this.state.queue.map(guest => (
-                <QueueRow>
-                  <QueueItem>{guest.firstName}</QueueItem>
-                  <QueueItem>{guest.lastName}</QueueItem>
-                  <QueueItem>{guest.partySize}</QueueItem>
-                  <QueueItem>{guest.phoneNumber}</QueueItem>
-                  <QueueItem>
-                    <Seated
-                        onClick={() => {
-                          this.notifyGuest(guest._id);
-                        }}
-                      />
-                  </QueueItem>
-                  <QueueItem>
+                <tr>
+                  <Td>{guest.firstName}</Td>
+                  <Td>{guest.lastName}</Td>
+                  <Td>{guest.partySize}</Td>
+                  <Td>{guest.phoneNumber}</Td>
+                  <Td>{guest.seated}</Td>
+                  <Td>
                     <Notify
                       onClick={() => {
                         this.notifyGuest(guest._id);
                       }}
                     />
-                  </QueueItem>
-                  <QueueItem>{guest.notes}</QueueItem>
-                  <QueueItem>
+                  </Td>
+                  <Td>{guest.notes}</Td>
+                  <Td>
                     <Delete
                       onClick={() => {
                         this.removeGuest(guest._id);
                       }}
                     />
-                  </QueueItem>
-                </QueueRow>
+                  </Td>
+                </tr>
               ))}
-            </QueueBody>
+            </Tbody>
           ) : (
-            <NoResults>No Results to Display</NoResults>
+            <h3>No Results to Display</h3>
           )}
+        </Table>
       </Container>
     );
   }
