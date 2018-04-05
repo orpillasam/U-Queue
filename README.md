@@ -24,6 +24,10 @@ Hosted on Heroku:
 
 * Feel free to clone this repository and locally host it on your own! 
 
+## Check Out The Mobile Version!
+U-Queue Mobile
+[U-Queue Mobile](https://github.com/orpillasam/U-Queue-Mobile)
+
 ## Built With :nut_and_bolt:
 U-Queue is a Full Stack MERN application that is supported by the following technologies:
 * MongoDB
