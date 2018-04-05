@@ -35,15 +35,7 @@ const Link = styled.a`
     text-decoration: none;
     font-weight: bold;
     margin-top: 10px;
-
-const Link = styled.a`
-  font-size: 16px;
-  color: #8fbc8b;
-  font-family: 'Futura';
-  padding-left: 30px;
-  text-decoration: none;
-  font-weight: bold;
-`;
+`
 
 const Button = styled.button`
   align: center;

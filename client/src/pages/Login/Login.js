@@ -8,7 +8,7 @@ import {
   Logo,
   Button,
   SignUpSection,
-  ButtonSection
+  ButtonSection,
 } from '../../components/Styled/Styled.js';
 import Nav from '../../components/Nav';
 import Auth from '../../utils/Auth';
@@ -89,12 +89,9 @@ class Login extends Component {
   render() {
     return (
       <Container>
-        <Row>
-          <a href="/queue">
+          <a href="/">
             <Logo src={require('../../assets/SVG/Asset 1.svg')} alt="logo" />
           </a>
-          <Nav />
-        </Row>
 
         <SignUpSection>
           <h1>Welcome Back! Please login.</h1>
@@ -105,7 +102,6 @@ class Login extends Component {
               value={this.state.email}
               onChange={this.handleInputChange}
               onFocus={this.handleFocus}
-              placeholder="Email (required)"
               className="form-control"
               required=""
               name="email"
@@ -118,10 +114,10 @@ class Login extends Component {
               type="password"
               name="password"
               autoFocus={true}
-              placeholder="Password (required)"
               className="form-control"
               required=""
             />
+        
             <div className="checkbox mb-3">
               <label>
                 <input type="checkbox" value="remember-me" /> Remember me
@@ -130,6 +126,7 @@ class Login extends Component {
             <div className="checkbox mb-3 text-danger">
               {this.state.errorMessage}
             </div>
+
             {/* <FormBtn>
 
                   Cancel
@@ -157,13 +154,14 @@ class Login extends Component {
                 }
                 onClick={this.handleLogin}
               >
-                Login
+              <span>Login</span>
               </Button>
             </ButtonSection>
             <p className="mt-5 mb-3">
               Don't have an account?&nbsp;&nbsp;
-              <Link to={'/signup'}>Sign Up</Link>
+              <Link to={'/newaccount'}>Sign Up</Link>
             </p>
+      
           </form>
         </SignUpSection>
       </Container>
