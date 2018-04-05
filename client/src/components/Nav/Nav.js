@@ -53,13 +53,14 @@ const Button = styled.button`
 `;
 
 const Time = styled.div`
-  font-size: 16px;
-  color: #8fbc8b;
-  font-family: 'Futura';
-  margin-top: -5px;
-  margin-left: 20px;
-  border: solid #8fbc8b 2px;
-  padding: 5px;
+    font-size: 16px; 
+    color: #8FBC8B; 
+    font-family: 'Futura'; 
+    margin-top: -5px;
+    margin-left: 25px;
+    border: solid #8FBC8B 2px;
+    padding: 5px;
+
 `;
 
 const Nav = () => (
