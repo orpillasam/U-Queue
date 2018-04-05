@@ -98,12 +98,11 @@ class NewAccount extends Component {
   render() {
     return (
       <Container>
-        <Row>
-          <a href="/queue">
+      
+          <a href="/">
             <Logo src={require('../../assets/SVG/Asset 1.svg')} alt="logo" />
           </a>
-          <Nav />
-        </Row>
+
         <SignUpSection>
           <h1>New Account</h1>
           <form>
@@ -112,7 +111,7 @@ class NewAccount extends Component {
               onChange={this.handleInputChange}
               value={this.state.businessName}
               onFocus={this.handleFocus}
-              placeholder= "Business Name (Required)"
+              placeholder= "Required"
               className='form-control'
               required=''
               autoFocus={true}
@@ -124,7 +123,7 @@ class NewAccount extends Component {
               onChange={this.handleInputChange}
               value={this.state.email}
               onFocus={this.handleFocus}
-              placeholder= "Email (Required)"
+              placeholder= "Required"
               className='form-control'
               required=''
               autoFocus={true}
@@ -136,7 +135,7 @@ class NewAccount extends Component {
               onChange={this.handleInputChange}
               value={this.state.password}
               onFocus={this.handleFocus}
-              placeholder= "password (Minimum 8 characters required)"
+              placeholder= "Minimum 8 characters required"
               className='form-control'
               required=''
               type='password'
@@ -218,7 +217,7 @@ class NewAccount extends Component {
               }
               onClick={this.handleFormSubmit}
             >
-              Signup
+              <span>Signup</span>
             </Button>
           </ButtonSection>
         </SignUpSection>
