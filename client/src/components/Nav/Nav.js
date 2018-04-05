@@ -58,7 +58,7 @@ const Time = styled.div`
     color: #8FBC8B; 
     font-family: 'Futura'; 
     margin-top: -5px;
-    margin-left: 20px;
+    margin-left: 25px;
     border: solid #8FBC8B 2px;
     padding: 5px;
 `;

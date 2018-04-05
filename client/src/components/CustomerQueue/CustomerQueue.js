@@ -57,7 +57,7 @@ const QueueBody = styled.div`
 const QueueRow = styled.div`
   background-color: #708090;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   border-radius: 10px;
   margin: 15px;
 `;
@@ -66,7 +66,74 @@ const QueueItem = styled.div`
   font-size: 15px;
   text-align: center;
   padding-top: 15px;
-  flex: 0 0 100px;
+  flex: 0 1 50px;
+  height: 35px;
+`;
+
+const FirstName= styled.div`
+  font-size: 15px;
+  text-align: center;
+  padding-top: 15px;
+  flex: 0 1 115px;
+  height: 35px;
+`;
+
+const LastName = styled.div`
+  font-size: 15px;
+  text-align: center;
+  padding-top: 15px;
+  flex: 0 1 150px;
+  height: 35px;
+`
+
+const PartySize = styled.div`
+  font-size: 15px;
+  text-align: center;
+  padding-top: 15px;
+  flex: 0 0 30px;
+  height: 35px;
+  margin-left: 20px;
+`
+const PhoneNumber = styled.div`
+  font-size: 15px;
+  text-align: center;
+  padding-top: 15px;
+  flex: 0 0 125px;
+  height: 35px;
+  margin-left: 25px;
+`
+
+const SeatedQueueItem = styled.div`
+  font-size: 15px;
+  text-align: center;
+  padding-top: 15px;
+  flex: 0 1 50px;
+  height: 35px;
+`;
+
+const NotifyQueueItem = styled.div`
+  font-size: 15px;
+  text-align: center;
+  padding-top: 15px;
+  flex: 0 1 50px;
+  height: 35px;
+  margin-left: 40px;
+`;
+
+const DeleteQueueItem = styled.div`
+  font-size: 15px;
+  text-align: center;
+  padding-top: 15px;
+  flex: 0 1 50px;
+  height: 35px;
+  margin-right: 30px;
+`;
+
+const Notes = styled.div`
+  font-size: 15px;
+  text-align: center;
+  padding-top: 15px;
+  flex: 0 0 120px;
   height: 35px;
 `
 
@@ -165,32 +232,32 @@ class CustomerQueue extends Component {
             <QueueBody>
               {this.state.queue.map(guest => (
                 <QueueRow>
-                  <QueueItem>{guest.firstName}</QueueItem>
-                  <QueueItem>{guest.lastName}</QueueItem>
-                  <QueueItem>{guest.partySize}</QueueItem>
-                  <QueueItem>{guest.phoneNumber}</QueueItem>
-                  <QueueItem>
+                  <FirstName>{guest.firstName}</FirstName>
+                  <LastName>{guest.lastName}</LastName>
+                  <PartySize>{guest.partySize}</PartySize>
+                  <PhoneNumber>{guest.phoneNumber}</PhoneNumber>
+                  <SeatedQueueItem>
                     <Seated
                         onClick={() => {
                           this.notifyGuest(guest._id);
                         }}
                       />
-                  </QueueItem>
-                  <QueueItem>
+                  </SeatedQueueItem>
+                  <NotifyQueueItem>
                     <Notify
                       onClick={() => {
                         this.notifyGuest(guest._id);
                       }}
                     />
-                  </QueueItem>
-                  <QueueItem>{guest.notes}</QueueItem>
-                  <QueueItem>
+                  </NotifyQueueItem>
+                  <Notes>{guest.notes}</Notes>
+                  <DeleteQueueItem>
                     <Delete
                       onClick={() => {
                         this.removeGuest(guest._id);
                       }}
                     />
-                  </QueueItem>
+                  </DeleteQueueItem>
                 </QueueRow>
               ))}
             </QueueBody>
