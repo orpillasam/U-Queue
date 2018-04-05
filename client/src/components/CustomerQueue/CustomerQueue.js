@@ -24,7 +24,7 @@ const Seated = styled.button`
   width: 33px;
   height: 33px;
   margin-top: -5px;
-`
+`;
 
 const Notify = styled.button`
   background: url('https://s3-us-west-1.amazonaws.com/uqueue/assets/Notify2.png');
@@ -51,8 +51,8 @@ const MenuItem = styled.div`
 
 const QueueBody = styled.div`
   font-family: Assistant;
-  color: #4A4A4A;
-  div:hover{
+  color: #4a4a4a;
+  div:hover {
     background-color: rgba(231, 231, 231, 0.95);
   }
 `;
@@ -64,7 +64,7 @@ const QueueRow = styled.div`
   justify-content: space-between;
   border-radius: 15px;
   margin: 15px;
-  div:hover{
+  div:hover {
     box-shadow: none;
   }
 `;
@@ -75,12 +75,12 @@ const QueueItem = styled.div`
   padding-top: 10px;
   flex: 0 1 50px;
   height: 25px;
-  div:hover{
+  div:hover {
     box-shadow: none;
   }
 `;
 
-const FirstName= styled.div`
+const FirstName = styled.div`
   font-size: 15px;
   text-align: center;
   padding-top: 15px;
@@ -95,7 +95,7 @@ const LastName = styled.div`
   flex: 0 1 140px;
   height: 35px;
   margin-left: -10px;
-`
+`;
 
 const PartySize = styled.div`
   font-size: 15px;
@@ -104,7 +104,7 @@ const PartySize = styled.div`
   flex: 0 0 30px;
   height: 35px;
   margin-left: 30px;
-`
+`;
 const PhoneNumber = styled.div`
   font-size: 15px;
   text-align: center;
@@ -112,7 +112,7 @@ const PhoneNumber = styled.div`
   flex: 0 0 125px;
   height: 35px;
   margin-left: 25px;
-`
+`;
 
 const SeatedQueueItem = styled.div`
   font-size: 15px;
@@ -147,12 +147,12 @@ const Notes = styled.div`
   padding-top: 15px;
   flex: 0 0 120px;
   height: 35px;
-`
+`;
 
 const NoResults = styled.h3`
   font-family: Assistant;
   text-align: center;
-`
+`;
 
 class CustomerQueue extends Component {
   state = {
@@ -231,51 +231,51 @@ class CustomerQueue extends Component {
     return (
       <Container>
         <Menu>
-              <MenuItem>First Name</MenuItem>
-              <MenuItem>Last Name</MenuItem>
-              <MenuItem>Party Size</MenuItem>
-              <MenuItem>Phone</MenuItem>
-              <MenuItem>Seated</MenuItem>
-              <MenuItem>Notify</MenuItem>
-              <MenuItem>Notes</MenuItem>
-              <MenuItem>Remove</MenuItem>
+          <MenuItem>First Name</MenuItem>
+          <MenuItem>Last Name</MenuItem>
+          <MenuItem>Party Size</MenuItem>
+          <MenuItem>Phone</MenuItem>
+          <MenuItem>Seated</MenuItem>
+          <MenuItem>Notify</MenuItem>
+          <MenuItem>Notes</MenuItem>
+          <MenuItem>Remove</MenuItem>
         </Menu>
-          {this.state.queue.length ? (
-            <QueueBody>
-              {this.state.queue.map(guest => (
-                <QueueRow>
-                  <FirstName>{guest.firstName}</FirstName>
-                  <LastName>{guest.lastName}</LastName>
-                  <PartySize>{guest.partySize}</PartySize>
-                  <PhoneNumber>{guest.phoneNumber}</PhoneNumber>
-                  <SeatedQueueItem>
-                    <Seated
-                        onClick={() => {
-                          this.notifyGuest(guest._id);
-                        }}
-                      />
-                  </SeatedQueueItem>
-                  <NotifyQueueItem>
-                    <Notify
-                      onClick={() => {
-                        this.notifyGuest(guest._id);
-                      }}
-                    />
-                  </NotifyQueueItem>
-                  <Notes>{guest.notes}</Notes>
-                  <DeleteQueueItem>
-                    <Delete
-                      onClick={() => {
-                        this.removeGuest(guest._id);
-                      }}
-                    />
-                  </DeleteQueueItem>
-                </QueueRow>
-              ))}
-            </QueueBody>
-          ) : (
-            <NoResults>No Results to Display</NoResults>
-          )}
+        {this.state.queue.length ? (
+          <QueueBody>
+            {this.state.queue.map(guest => (
+              <QueueRow>
+                <FirstName>{guest.firstName}</FirstName>
+                <LastName>{guest.lastName}</LastName>
+                <PartySize>{guest.partySize}</PartySize>
+                <PhoneNumber>{guest.phoneNumber}</PhoneNumber>
+                <SeatedQueueItem>
+                  <Seated
+                    onClick={() => {
+                      this.removeGuest(guest._id);
+                    }}
+                  />
+                </SeatedQueueItem>
+                <NotifyQueueItem>
+                  <Notify
+                    onClick={() => {
+                      this.notifyGuest(guest._id);
+                    }}
+                  />
+                </NotifyQueueItem>
+                <Notes>{guest.notes}</Notes>
+                <DeleteQueueItem>
+                  <Delete
+                    onClick={() => {
+                      this.removeGuest(guest._id);
+                    }}
+                  />
+                </DeleteQueueItem>
+              </QueueRow>
+            ))}
+          </QueueBody>
+        ) : (
+          <NoResults>No Results to Display</NoResults>
+        )}
       </Container>
     );
   }
