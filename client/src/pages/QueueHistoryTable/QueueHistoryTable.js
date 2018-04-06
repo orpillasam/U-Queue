@@ -220,7 +220,7 @@ class QueueHistoryTable extends Component {
         {this.state.queue.length ? (
           <QueueBody>
             {this.state.queue.map(guest => (
-              <QueueRow>
+              <QueueRow key={guest._id}>
                 <FirstName>{guest.firstName}</FirstName>
                 <LastName>{guest.lastName}</LastName>
                 <PartySize>{guest.partySize}</PartySize>
