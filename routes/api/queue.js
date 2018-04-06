@@ -11,7 +11,11 @@ router
 router
   .route('/queue/:id')
   .get(queueController.findById)
+<<<<<<< HEAD
+  // .get(queueController.findOne)
+=======
   //.get(queueController.findOne)
+>>>>>>> 880c4b0cae5d7eaa15e31e75add7c762eed58b2a
   .put(queueController.update)
   .delete(queueController.remove);
 
