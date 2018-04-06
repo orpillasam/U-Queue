@@ -12,7 +12,7 @@ export const Logo = styled.img`
 
 export const SampleLogo = styled.img`
 height: 200px;
-margin-left: 150px;
+margin-left: 80px;
 `;
 
 export const SignUpSection = styled.section`

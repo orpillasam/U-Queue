@@ -22,9 +22,12 @@ const Container1 = styled.div`
 
 const Container2 = styled.div`
 display: flex;
-margin-top: 50px;
+margin-top: 40px;
 margin-bottom: 10px;
+padding-top: 50px;
 justify-content: space-between;
+height: 250px;
+background: url('https://s3-us-west-1.amazonaws.com/uqueue/assets/Screen+Shot+2018-04-05+at+9.19.00+PM.png');
 `;
 
 class Queue extends Component {
