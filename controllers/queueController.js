@@ -21,13 +21,16 @@ module.exports = {
         let phone = data.phoneNumber;
         phone = '+1' + phone;
         console.log(phone);
-        client.messages.create({
-            body: name + ', Your table is almost ready! Please check in with the host.',
-            to: phone,  // Text this number
+        client.messages
+          .create({
+            body:
+              name +
+              ', Your table is almost ready! Please check in with the host.',
+            to: phone, // Text this number
             from: myPhoneNumber // From a valid Twilio number
-      })
-      .then((message) => console.log(message.sid)) 
-      .catch(err => res.status(422).json(err));
+          })
+          .then(message => console.log(message.sid))
+          .catch(err => res.status(422).json(err));
       })
       .then(data => res.json(data));
   },
@@ -37,20 +40,23 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
-    db.Guest.create(req.body)    
+    db.Guest.create(req.body)
       .then(data => {
         let name = data.firstName;
         console.log(data.firstName);
         let phone = data.phoneNumber;
         phone = '+1' + phone;
         console.log(phone);
-        client.messages.create({
-            body: name + ', Thank you! You are now in the queue for Shore. Download the app at ... .',
-            to: phone,  // Text this number
+        client.messages
+          .create({
+            body:
+              name +
+              ', Thank you! You are now in the queue for South. We will text you again when your table is almost ready.',
+            to: phone, // Text this number
             from: myPhoneNumber // From a valid Twilio number
-      })
-      .then((message) => console.log(message.sid)) 
-      .catch(err => res.status(422).json(err));
+          })
+          .then(message => console.log(message.sid))
+          .catch(err => res.status(422).json(err));
       })
       .then(data => res.json(data));
   },

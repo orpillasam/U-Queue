@@ -1,24 +1,30 @@
 import axios from 'axios';
 
 export default {
-  // Gets all books
+  // Gets all guests
   getQueue: function() {
     return axios.get('/api/queue');
   },
   getQueueHistory: function() {
     return axios.get('/api/queuehistory');
   },
-  // Gets the book with the given id
+  // Gets the guest with the given id
   getGuest: function(id) {
     return axios.get('/api/queue/' + id);
   },
-  // Deletes the book with the given id
+  // Moves guest with the given id from waiting to not
   removeGuestFromQueue: function(id) {
     return axios.put('/api/queue/' + id);
   },
+  // Moves guest from history back to waiting
+  moveGuest: function(id) {
+    return axios.put('/api/queuehistory/' + id);
+  },
+  // Creates new guest
   saveGuest: function(guestData) {
     return axios.post('/api/queue', guestData);
   },
+  // Creates restaurant account
   saveAccount: function(accountData) {
     return axios.post('/api/account', accountData);
   },

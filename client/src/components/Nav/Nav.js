@@ -4,28 +4,28 @@ import Clock from 'react-live-clock';
 import styled from 'styled-components';
 
 const NavBar = styled.div`
-    display: flex;
-    justify-content: space-around;
-    align-content: center;
-    margin-left: 20px;
-    margin-top: 20px;
-    border-bottom: 5px #8FBC8B;
-    a {
-        font-size: 16px;
-        color: #8FBC8B;
-        font-family: 'Futura';
-        padding-left: 30px;
-        text-decoration: none;
-        font-weight: bold;
-    }
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  margin-left: 20px;
+  margin-top: 20px;
+  border-bottom: 5px #8fbc8b;
+  a {
+    font-size: 16px;
+    color: #8fbc8b;
+    font-family: 'Futura';
+    padding-left: 30px;
+    text-decoration: none;
+    font-weight: bold;
+  }
 
-    a:hover {
-        text-decoration: underline;
-    }
+  a:hover {
+    text-decoration: underline;
+  }
 
-    li {
-        list-style-type: none;
-    }
+  li {
+    list-style-type: none;
+  }
 `;
 
 const Link = styled.a`
@@ -42,9 +42,8 @@ const Link = styled.a`
     text-decoration: none;
     font-weight: bold;
     margin-top: 10px;
-}
+  }
 `;
-
 
 const Button = styled.button`
   align: center;
@@ -72,30 +71,26 @@ const Time = styled.div`
 `;
 
 const NavLogo = styled.img`
-    margin-top: 30px;
-    height: 45px;
+  margin-top: -10px;
+  height: 45px;
 `;
 
 const Nav = () => (
-    <NavBar>
-        <NavLogo src={require('../../assets/SVG/Asset 1.svg')} alt="logo" />
-        <Link href="/queuehistory">
-          History
-        </Link>
-        <Link href="/newaccount">
-          Create an Account
-        </Link>
-        <Link href="/login">
-          Logout
-        </Link>
-        <Time>
-            <Clock
-                format={'MMMM Do, YYYY hh:mm:ss A'}
-                ticking={true}
-                timezone={'US/Pacific'}
-            />
-        </Time>
-    </NavBar>
+  <NavBar>
+    <Link href="/queue">
+      <NavLogo src={require('../../assets/SVG/Asset 1.svg')} alt="logo" />
+    </Link>
+    <Link href="/queuehistory">History</Link>
+    <Link href="/newaccount">Create an Account</Link>
+    <Link href="/login">Logout</Link>
+    <Time>
+      <Clock
+        format={'MMMM Do, YYYY hh:mm:ss A'}
+        ticking={true}
+        timezone={'US/Pacific'}
+      />
+    </Time>
+  </NavBar>
 );
 
 export default Nav;
