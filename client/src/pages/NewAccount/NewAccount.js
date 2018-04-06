@@ -9,8 +9,6 @@ import {
   Button,
   ButtonSection
 } from '../../components/Styled/Styled.js';
-import { Row } from '../../components/Grid';
-import Nav from '../../components/Nav';
 import Auth from '../../utils/Auth';
 
 class NewAccount extends Component {
@@ -25,9 +23,9 @@ class NewAccount extends Component {
     // city: '',
     // stateName: '',
     // zipCode: '',
-    // logo: '', 
+    // logo: '',
     errorMessage: null
-  };  
+  };
 
   authenticate = () => {
     const userData = {
@@ -42,7 +40,7 @@ class NewAccount extends Component {
         Auth.authenticateUser(res.data.token);
 
         // hard redirect to / to reload all the state and nav
-        window.location.href = "/queue";
+        window.location.href = '/queue';
       })
       .catch(err => this.setState({ errorMessage: err.response.data.message }));
   };
@@ -58,7 +56,7 @@ class NewAccount extends Component {
       .then(res => {
         // clear error message
         this.setState({ errorMessage: null });
-        console.log("did the signup api hit?");
+        console.log('did the signup api hit?');
 
         // authenticate the user after successful sign up
         this.authenticate();
@@ -86,22 +84,21 @@ class NewAccount extends Component {
       this.state.email &&
       this.state.password &&
       this.state.password.length >= 8
-        ) {
+    ) {
       this.signUp();
-      }
-    else {
-      this.setState({ errorMessage: "Please enter all required fields to sign up."})
+    } else {
+      this.setState({
+        errorMessage: 'Please enter all required fields to sign up.'
+      });
     }
   };
-
 
   render() {
     return (
       <Container>
-      
-          <a href="/">
-            <Logo src={require('../../assets/SVG/Asset 1.svg')} alt="logo" />
-          </a>
+        <a href="/">
+          <Logo src={require('../../assets/SVG/Asset 1.svg')} alt="logo" />
+        </a>
 
         <SignUpSection>
           <h1>New Account</h1>
@@ -111,9 +108,9 @@ class NewAccount extends Component {
               onChange={this.handleInputChange}
               value={this.state.businessName}
               onFocus={this.handleFocus}
-              placeholder= "Required"
-              className='form-control'
-              required=''
+              placeholder="Required"
+              className="form-control"
+              required=""
               autoFocus={true}
               name="businessName"
             />
@@ -123,9 +120,9 @@ class NewAccount extends Component {
               onChange={this.handleInputChange}
               value={this.state.email}
               onFocus={this.handleFocus}
-              placeholder= "Required"
-              className='form-control'
-              required=''
+              placeholder="Required"
+              className="form-control"
+              required=""
               autoFocus={true}
               name="email"
             />
@@ -135,14 +132,14 @@ class NewAccount extends Component {
               onChange={this.handleInputChange}
               value={this.state.password}
               onFocus={this.handleFocus}
-              placeholder= "Minimum 8 characters required"
-              className='form-control'
-              required=''
-              type='password'
+              placeholder="Minimum 8 characters required"
+              className="form-control"
+              required=""
+              type="password"
               autoFocus={true}
               name="password"
             />
-            
+
             {/* <Label>Contact Name:</Label>
             <Input
               onChange={this.handleInputChange}
@@ -198,8 +195,8 @@ class NewAccount extends Component {
               name="logo"
             />  */}
             <div className="checkbox mb-3 text-danger">
-            {this.state.errorMessage}
-          </div>
+              {this.state.errorMessage}
+            </div>
           </form>
 
           <ButtonSection>
@@ -208,12 +205,12 @@ class NewAccount extends Component {
                 !(
                   this.state.businessName &&
                   this.state.email &&
-                  this.state.password 
-                  // this.state.phoneNumber &&
-                  // this.state.address &&
-                  // this.state.stateName &&
-                  // this.state.zipCode
+                  this.state.password
                 )
+                // this.state.phoneNumber &&
+                // this.state.address &&
+                // this.state.stateName &&
+                // this.state.zipCode
               }
               onClick={this.handleFormSubmit}
             >

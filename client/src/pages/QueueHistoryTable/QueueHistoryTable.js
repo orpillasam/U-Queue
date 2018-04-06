@@ -72,16 +72,16 @@ const QueueRow = styled.div`
   }
 `;
 
-const QueueItem = styled.div`
-  font-size: 15px;
-  text-align: center;
-  padding-top: 10px;
-  flex: 0 1 50px;
-  height: 25px;
-  div:hover {
-    box-shadow: none;
-  }
-`;
+// const QueueItem = styled.div`
+//   font-size: 15px;
+//   text-align: center;
+//   padding-top: 10px;
+//   flex: 0 1 50px;
+//   height: 25px;
+//   div:hover {
+//     box-shadow: none;
+//   }
+// `;
 
 const FirstName = styled.div`
   font-size: 15px;
