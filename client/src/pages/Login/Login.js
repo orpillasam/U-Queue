@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import API from '../../utils/API';
-import { Row } from '../../components/Grid';
 import {
   Container,
   Label,
@@ -8,24 +7,23 @@ import {
   Logo,
   Button,
   SignUpSection,
-  ButtonSection,
+  ButtonSection
 } from '../../components/Styled/Styled.js';
-import Nav from '../../components/Nav';
 import Auth from '../../utils/Auth';
 import { Link } from 'react-router-dom';
 
 class Login extends Component {
   constructor() {
-    super()
+    super();
     this.state = {
       email: '',
       password: '',
       errorMessage: null
-    }
+    };
     // this.googleSignin = this.googleSignin.bind(this)
-		// this.handleSubmit = this.handleSubmit.bind(this)
-		// this.handleChange = this.handleChange.bind(this)
-	}
+    // this.handleSubmit = this.handleSubmit.bind(this)
+    // this.handleChange = this.handleChange.bind(this)
+  }
 
   //   componentDidMount() {
   //     this.loadQueue();
@@ -89,9 +87,9 @@ class Login extends Component {
   render() {
     return (
       <Container>
-          <a href="/">
-            <Logo src={require('../../assets/SVG/Asset 1.svg')} alt="logo" />
-          </a>
+        <a href="/">
+          <Logo src={require('../../assets/SVG/Asset 1.svg')} alt="logo" />
+        </a>
 
         <SignUpSection>
           <h1>Welcome Back! Please login.</h1>
@@ -117,7 +115,7 @@ class Login extends Component {
               className="form-control"
               required=""
             />
-        
+
             <div className="checkbox mb-3">
               <label>
                 <input type="checkbox" value="remember-me" /> Remember me
@@ -154,14 +152,13 @@ class Login extends Component {
                 }
                 onClick={this.handleLogin}
               >
-              <span>Login</span>
+                <span>Login</span>
               </Button>
             </ButtonSection>
             <p className="mt-5 mb-3">
               Don't have an account?&nbsp;&nbsp;
               <Link to={'/newaccount'}>Sign Up</Link>
             </p>
-      
           </form>
         </SignUpSection>
       </Container>

@@ -51,13 +51,13 @@ const Add = styled.button`
   margin-right: 7px;
 `;
 
-const Search = styled.button`
-  background: url('https://s3-us-west-1.amazonaws.com/uqueue/assets/search.png');
-  background-repeat: no-repeat;
-  border: none;
-  width: 42px;
-  height: 42px;
-`;
+// const Search = styled.button`
+//   background: url('https://s3-us-west-1.amazonaws.com/uqueue/assets/search.png');
+//   background-repeat: no-repeat;
+//   border: none;
+//   width: 42px;
+//   height: 42px;
+// `;
 
 class NewReservation extends Component {
   state = {

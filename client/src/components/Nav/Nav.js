@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react';
 import Clock from 'react-live-clock';
 import styled from 'styled-components';
 
@@ -45,21 +44,21 @@ const Link = styled.a`
   }
 `;
 
-const Button = styled.button`
-  align: center;
-  border-radius: 4px;
-  height: 30px;
-  background-color: #ff6347;
-  border: none;
-  color: #ffffff;
-  text-align: center;
-  font-size: 12px;
-  width: 100px;
-  transition: all 0.5s;
-  cursor: pointer;
-  margin-top: 10px;
-  margin-left: 20px;
-`;
+// const Button = styled.button`
+//   align: center;
+//   border-radius: 4px;
+//   height: 30px;
+//   background-color: #ff6347;
+//   border: none;
+//   color: #ffffff;
+//   text-align: center;
+//   font-size: 12px;
+//   width: 100px;
+//   transition: all 0.5s;
+//   cursor: pointer;
+//   margin-top: 10px;
+//   margin-left: 20px;
+// `;
 
 const Time = styled.div`
   font-size: 16px;
