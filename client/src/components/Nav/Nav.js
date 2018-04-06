@@ -6,8 +6,9 @@ import styled from 'styled-components';
 const NavBar = styled.div`
     display: flex;
     justify-content: space-around;
+    align-content: center;
     margin-left: 20px;
-    margin-top: 40px;
+    margin-top: 20px;
     border-bottom: 5px #8FBC8B;
     a {
         font-size: 16px;
@@ -65,13 +66,13 @@ const Time = styled.div`
   font-size: 16px;
   color: #ff6347;
   font-family: 'Futura';
-  margin-top: 5px;
+  margin-top: 35px;
   margin-left: 20px;
   padding: 5px;
 `;
 
 const NavLogo = styled.img`
-
+    margin-top: 30px;
     height: 45px;
 `;
 

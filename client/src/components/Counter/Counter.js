@@ -7,17 +7,17 @@ import styled from 'styled-components';
 const Wrapper = styled.div`
   display: flex;
   justify-content: flex-end;
-  margin-right: 20px;
-  margin-bottom: 20px;
+  margin-right: 80px;
+  margin-bottom: 50px;
 `
 
-const Container = styled.section`
+const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: solid #FFD700 4px;
+  border: solid #66CDAA 4px;
   border-radius: 10px;
-  padding: 25px 15px;
+  padding: 20px;
   width: 200px;
 `;
 
@@ -32,13 +32,13 @@ const QueueNumber = styled.h2`
   height: 100px;
   border-radius: 50%;
   margin: 0;
+  vertical-align: middle;
 `;
 
 const Header = styled.h1`
   font-family: 'Quicksand', sans-serif;
   font-size: 24px;
   margin-top: 5px;
-  margin-bottom: 0;
 `
 
 class Counter extends Component {
