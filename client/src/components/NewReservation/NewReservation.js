@@ -3,8 +3,6 @@ import Modal from 'react-modal';
 import API from '../../utils/API';
 import styled from 'styled-components';
 
-//NEW RESERVATION MODAL
-//NEED TO ADD MODAL CODE
 const Wrapper = styled.div`
   display: flex;
   justify-content: flex-end;
@@ -151,6 +149,7 @@ class NewReservation extends Component {
         <Modal
           isOpen={this.state.modalIsOpen}
           onRequestClose={this.closeModal}
+          {...this.loadQueue}
           style={{
             content: {
               position: 'relative',
@@ -213,7 +212,6 @@ class NewReservation extends Component {
             </Button>
           </Container>
         </Modal>
-        <Search />
       </Wrapper>
     );
   }

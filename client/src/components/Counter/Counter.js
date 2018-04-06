@@ -3,43 +3,48 @@ import ReactDOM from 'react-dom';
 import API from '../../utils/API';
 import styled from 'styled-components';
 
-
 const Wrapper = styled.div`
   display: flex;
   justify-content: flex-end;
   margin-right: 80px;
   margin-bottom: 50px;
-`
+`;
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: solid #66CDAA 4px;
+  border: solid #66cdaa 4px;
   border-radius: 10px;
-  padding: 20px;
+  padding-top: 20%;
+  padding-bottom: 20%;
   width: 200px;
 `;
 
-const QueueNumber = styled.h2`
-  font-family: 'Quicksand', sans-serif;
-  background-color: #FF6347;
-  text-align: center;
-  color: white;
-  font-size: 52px;
-  border: none;
-  width: 100px;
-  height: 100px;
+const QueueNumberCircle = styled.span`
+  display: inline-block;
+  line-height: 0px;
+  background-color: #ff6347;
   border-radius: 50%;
-  margin: 0;
-  vertical-align: middle;
+  border: 2px solid #FF6347
+  font-family: 'Quicksand', sans-serif;
+  font-size:52px
+  `;
+
+const QueueNumberSpan = styled.span`
+  font-family: 'Quicksand', sans-serif;
+  display: inline-block;
+  padding-top: 50%;
+  padding-bottom: 50%;
+  margin-left: 20px;
+  margin-right: 20px;
 `;
 
 const Header = styled.h1`
   font-family: 'Quicksand', sans-serif;
   font-size: 24px;
   margin-top: 5px;
-`
+`;
 
 class Counter extends Component {
   state = {
@@ -113,10 +118,12 @@ class Counter extends Component {
   render() {
     return (
       <Wrapper>
-      <Container>
-        <QueueNumber>{this.state.queue.length}</QueueNumber>
-        <Header>Guests in Queue</Header>
-      </Container>
+        <Container>
+          <QueueNumberCircle>
+            <QueueNumberSpan>{this.state.queue.length}</QueueNumberSpan>
+          </QueueNumberCircle>
+          <Header>Guests in Queue</Header>
+        </Container>
       </Wrapper>
     );
   }
