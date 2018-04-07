@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import API from '../../utils/API';
 import {
   Container,
-  Logo,
+  SideLogo,
   SignUpSection,
   Label,
   Input,
@@ -97,7 +97,7 @@ class NewAccount extends Component {
     return (
       <Container>
         <a href="/">
-          <Logo src={require('../../assets/SVG/Asset 1.svg')} alt="logo" />
+          <SideLogo src={require('../../assets/SVG/Asset 1.svg')} alt="logo" />
         </a>
 
         <SignUpSection>
