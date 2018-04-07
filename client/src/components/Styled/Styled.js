@@ -12,7 +12,6 @@ export const Container = styled.div`
     @media (max-width: 450px) {
         height: 200px;
     }
-
 `;
 
 export const Logo = styled.img`
@@ -45,7 +44,7 @@ padding: 50px;
 `;
 
 export const SampleLogo = styled.img`
-    height: 200px;
+    height: 250px;
     margin-left: 80px;
 `;
 

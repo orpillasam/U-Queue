@@ -5,7 +5,6 @@ import styled from 'styled-components';
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 20px;
   padding-bottom: 400px;
 `;
 
@@ -40,7 +39,7 @@ const Menu = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  height: 80px;
+  height: 60px;
   background-color: #708090;
 `;
 
