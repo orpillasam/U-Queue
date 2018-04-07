@@ -5,8 +5,6 @@ import styled from 'styled-components';
 const Wrapper = styled.div`
   display: flex;
   justify-content: flex-end;
-  margin-right: 80px;
-  margin-bottom: 50px;
 `;
 
 const Container = styled.div`
@@ -15,19 +13,24 @@ const Container = styled.div`
   align-items: center;
   border: solid #66cdaa 4px;
   border-radius: 10px;
-  padding-top: 20%;
-  padding-bottom: 20%;
-  width: 200px;
+  padding-top: 25px;
+  width: 225px;
+  height: 165px;
+  background-color: black;;
 `;
 
 const QueueNumberCircle = styled.span`
   display: inline-block;
   line-height: 0px;
-  background-color: #ff6347;
+  background-color: white;
+  height: 95px;
+  width: 95px;
+  margin-bottom: 15px;
   border-radius: 50%;
-  border: 2px solid #FF6347
   font-family: 'Quicksand', sans-serif;
   font-size:52px
+  color: #ff6347;
+  text-align: center;
   `;
 
 const QueueNumberSpan = styled.span`
@@ -43,6 +46,8 @@ const Header = styled.h1`
   font-family: 'Quicksand', sans-serif;
   font-size: 24px;
   margin-top: 5px;
+  margin-bottom: 15px;
+  color: #66cdaa;
 `;
 
 class Counter extends Component {

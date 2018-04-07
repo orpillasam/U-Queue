@@ -6,20 +6,20 @@ const NavBar = styled.div`
   display: flex;
   justify-content: space-around;
   align-content: center;
-  margin-left: 20px;
-  margin-top: 20px;
-  border-bottom: 5px #8fbc8b;
+  align-items: center;
+  background-color: #66CDAA; 
+  padding: 20px;
   a {
-    font-size: 16px;
-    color: #8fbc8b;
-    font-family: 'Futura';
-    padding-left: 30px;
+    font-size: 22px;
+    color: white;
+    font-family: 'Assistant', sans-serif;
     text-decoration: none;
     font-weight: bold;
   }
 
   a:hover {
-    text-decoration: underline;
+    color: #708090;
+    text-decoration: none;
   }
 
   li {
@@ -30,16 +30,13 @@ const NavBar = styled.div`
 const Link = styled.a`
   display: flex;
   justify-content: flex-start;
-  margin-left: 20px;
-  margin-top: 40px;
   border-bottom: 5px #8fbc8b;
   a {
     font-size: 16px;
     color: #8fbc8b;
-    font-family: 'Futura';
+    font-family: 'Assistant', sans-serif;
     padding-left: 30px;
     text-decoration: none;
-    font-weight: bold;
     margin-top: 10px;
   }
 `;
@@ -61,17 +58,16 @@ const Link = styled.a`
 // `;
 
 const Time = styled.div`
-  font-size: 16px;
+  font-size: 20px;
   color: #ff6347;
   font-family: 'Futura';
-  margin-top: 35px;
-  margin-left: 20px;
-  padding: 5px;
 `;
 
 const NavLogo = styled.img`
-  margin-top: -10px;
-  height: 45px;
+  height: 60px;
+  background-color: white;
+  padding: 10px;
+  border-radius: 10px;
 `;
 
 const Nav = () => (
@@ -79,12 +75,12 @@ const Nav = () => (
     <Link href="/queue">
       <NavLogo src={require('../../assets/SVG/Asset 1.svg')} alt="logo" />
     </Link>
-    <Link href="/queuehistory">History</Link>
-    <Link href="/newaccount">Create an Account</Link>
-    <Link href="/login">Logout</Link>
+    <Link href="/queuehistory">HISTORY</Link>
+    <Link href="/newaccount">ACCOUNT</Link>
+    <Link href="/login">GOODBYE</Link>
     <Time>
       <Clock
-        format={'MMMM Do, YYYY hh:mm:ss A'}
+        format={'MMMM Do, YYYY   hh:mm:ss A'}
         ticking={true}
         timezone={'US/Pacific'}
       />

@@ -5,12 +5,33 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div`
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
 `;
 
 const Container = styled.section`
   display: flex;
   flex-direction: column;
+`;
+
+const AddContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: solid #66cdaa 4px;
+  border-radius: 10px;
+  padding-top: 75px;
+  width: 225px;
+  height: 117px;
+  background-color: black;
+  margin-right: 80px;
+`;
+
+const Header = styled.h1`
+  font-family: 'Quicksand', sans-serif;
+  font-size: 24px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: #66cdaa;
 `;
 
 const Input = styled.input`
@@ -46,9 +67,9 @@ const Add = styled.button`
   background: url('https://s3-us-west-1.amazonaws.com/uqueue/assets/AddBtn.png');
   background-repeat: no-repeat;
   border: none;
-  width: 42px;
-  height: 42px;
-  margin-right: 7px;
+  width: 45px;
+  height: 45px;
+  margin-bottom: 10px;
 `;
 
 // const Search = styled.button`
@@ -145,7 +166,10 @@ class NewReservation extends Component {
   render() {
     return (
       <Wrapper>
-        <Add onClick={this.openModal} />
+        <AddContainer>
+          <Add onClick={this.openModal}></Add>
+          <Header>Add Guests</Header>
+        </AddContainer>
         <Modal
           isOpen={this.state.modalIsOpen}
           onRequestClose={this.closeModal}
