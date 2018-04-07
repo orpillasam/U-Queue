@@ -13,20 +13,18 @@ const Container = styled.div`
   align-items: center;
   border: solid #66cdaa 4px;
   border-radius: 10px;
-  padding-top: 25px;
   width: 225px;
   height: 165px;
   background-color: black;;
+  padding-top: 35px;
+  margin-left: 370px;
+  margin-right: 40px;
 `;
 
 const QueueNumberCircle = styled.span`
   display: inline-block;
   line-height: 0px;
-  background-color: white;
-  height: 95px;
-  width: 95px;
   margin-bottom: 15px;
-  border-radius: 50%;
   font-family: 'Quicksand', sans-serif;
   font-size:52px
   color: #ff6347;
@@ -46,7 +44,6 @@ const Header = styled.h1`
   font-family: 'Quicksand', sans-serif;
   font-size: 24px;
   margin-top: 5px;
-  margin-bottom: 15px;
   color: #66cdaa;
 `;
 

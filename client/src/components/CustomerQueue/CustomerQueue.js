@@ -37,16 +37,17 @@ const Notify = styled.button`
 
 const Menu = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  height: 60px;
+  height: 70px;
   background-color: #708090;
 `;
 
 const MenuItem = styled.div`
   color: white;
   font-family: Assistant;
-  font-size: 18px;
+  font-size: 20px;
+  padding: 35px;
 `;
 
 const QueueBody = styled.div`
@@ -60,10 +61,13 @@ const QueueBody = styled.div`
 const QueueRow = styled.div`
   border-style: solid;
   border-color: #708090;
+  margin: 5px 0;
+  border-radius: 5px;
   display: flex;
+  font-size: 18px;
   justify-content: space-between;
-  border-radius: 15px;
-  margin: 15px;
+  padding: 10px;
+  text-align: center;
   div:hover {
     box-shadow: none;
   }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import API from '../../utils/API';
 import styled from 'styled-components';
-import Nav from '../../components/Nav';
+import NavHistory from '../../components/NavHistory';
 
 const Container = styled.div`
   display: flex;
@@ -39,17 +39,17 @@ const Return = styled.button`
 
 const Menu = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  margin-top: 50px;
-  height: 80px;
+  height: 70px;
   background-color: #708090;
 `;
 
 const MenuItem = styled.div`
   color: white;
   font-family: Assistant;
-  font-size: 18px;
+  font-size: 20px;
+  padding: 35px;
 `;
 
 const QueueBody = styled.div`
@@ -57,19 +57,22 @@ const QueueBody = styled.div`
   color: #4a4a4a;
   div:hover {
     background-color: rgba(231, 231, 231, 0.95);
-  }
+}
 `;
 
 const QueueRow = styled.div`
   border-style: solid;
   border-color: #708090;
+  margin: 5px 0;
+  border-radius: 5px;
   display: flex;
+  font-size: 18px;
   justify-content: space-between;
-  border-radius: 15px;
-  margin: 15px;
+  padding: 10px;
+  text-align: center;
   div:hover {
     box-shadow: none;
-  }
+}
 `;
 
 // const QueueItem = styled.div`
@@ -204,7 +207,7 @@ class QueueHistoryTable extends Component {
   render() {
     return (
       <Container>
-        <Nav />
+        <NavHistory />
         <Menu>
           <MenuItem>First Name</MenuItem>
           <MenuItem>Last Name</MenuItem>
