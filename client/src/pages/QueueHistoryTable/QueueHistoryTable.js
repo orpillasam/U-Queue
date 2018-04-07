@@ -41,7 +41,7 @@ const Menu = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin-top: 30px;
+  margin-top: 50px;
   height: 80px;
   background-color: #708090;
 `;
@@ -95,9 +95,9 @@ const LastName = styled.div`
   font-size: 15px;
   text-align: center;
   padding-top: 15px;
-  flex: 0 1 140px;
+  flex: 0 1 125px;
   height: 35px;
-  margin-left: -10px;
+  margin-left: -25px;
 `;
 
 const PartySize = styled.div`
@@ -106,15 +106,13 @@ const PartySize = styled.div`
   padding-top: 15px;
   flex: 0 0 30px;
   height: 35px;
-  margin-left: 30px;
 `;
 const PhoneNumber = styled.div`
   font-size: 15px;
   text-align: center;
   padding-top: 15px;
-  flex: 0 0 125px;
+  flex: 0 0 100px;
   height: 35px;
-  margin-left: 25px;
 `;
 
 const SeatedQueueItem = styled.div`
@@ -123,7 +121,6 @@ const SeatedQueueItem = styled.div`
   padding-top: 15px;
   flex: 0 1 50px;
   height: 35px;
-  margin-left: -5px;
 `;
 
 const ReturnQueueItem = styled.div`
@@ -132,7 +129,7 @@ const ReturnQueueItem = styled.div`
   padding-top: 15px;
   flex: 0 1 50px;
   height: 35px;
-  margin-left: 40px;
+  margin-left: 30px;
 `;
 
 const DeleteQueueItem = styled.div`
@@ -141,7 +138,7 @@ const DeleteQueueItem = styled.div`
   padding-top: 15px;
   flex: 0 1 50px;
   height: 35px;
-  margin-right: 20px;
+  margin-right: 30px;
 `;
 
 const Notes = styled.div`
@@ -150,6 +147,7 @@ const Notes = styled.div`
   padding-top: 15px;
   flex: 0 0 120px;
   height: 35px;
+  margin-right: -20px;
 `;
 
 const NoResults = styled.h3`
