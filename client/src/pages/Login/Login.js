@@ -4,7 +4,7 @@ import {
   Container,
   Label,
   Input,
-  Logo,
+  SideLogo,
   Button,
   SignUpSection,
   ButtonSection
@@ -88,7 +88,7 @@ class Login extends Component {
     return (
       <Container>
         <a href="/">
-          <Logo src={require('../../assets/SVG/Asset 1.svg')} alt="logo" />
+          <SideLogo src={require('../../assets/SVG/Asset 1.svg')} alt="logo" />
         </a>
 
         <SignUpSection>

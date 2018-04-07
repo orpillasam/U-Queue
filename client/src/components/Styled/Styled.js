@@ -3,16 +3,50 @@ import styled from 'styled-components';
 export const Container = styled.div`
     display: flex;
     margin: 0;
+
+    @media (max-width: 800px) {
+        display: flex;
+        flex-direction: column;
+    }
+
+    @media (max-width: 450px) {
+        height: 200px;
+    }
+
 `;
 
 export const Logo = styled.img`
     height: ${props => props.home ? '450px' : '200px'};
     padding: 50px;
+
+    @media (max-width: 800px) {
+        height:300px;
+    }
+
+    @media (max-width: 450px) {
+        height: 200px;
+    }
+`;
+
+export const SideLogo = styled.img`
+height: ${props => props.home ? '450px' : '200px'};
+padding: 50px;
+
+@media (max-width: 800px) {
+    padding-left: 100px;
+    padding-bottom: 10px;
+    height:100px;
+}
+
+@media (max-width: 450px) {
+    height: 75px;
+    padding-left: 15px;
+}
 `;
 
 export const SampleLogo = styled.img`
-height: 200px;
-margin-left: 80px;
+    height: 200px;
+    margin-left: 80px;
 `;
 
 export const SignUpSection = styled.section`
@@ -24,6 +58,15 @@ export const SignUpSection = styled.section`
         font-family: 'Julius Sans One', sans-serif;
         color: #FF6347;
         font-size: 24px;
+    }
+
+    @media (max-width: 800px) {
+        padding-top: 10px;
+    }
+
+    @media (max-width: 450px) {
+        padding-top: 5px;
+        padding-left: 15px;
     }
 `;
 
@@ -44,6 +87,11 @@ export const Input = styled.input`
     height: 30px;
     display: inline;
     margin-left: 10px;
+
+    @media (max-width: 450px) {
+        width: 300px;
+    }
+
 `;
 
 
@@ -53,6 +101,12 @@ export const ButtonSection = styled.section`
     width: 500px;
     justify-content: space-around;
     margin: 0;
+
+    @media (max-width: 450px) {
+        display: flex;
+        flex-direction: column;
+        width: auto;
+    }
 `;
 
 export const Button = styled.button`
@@ -121,6 +175,11 @@ export const HomeSection = styled.section`
     justify-content: center;
     align-items: center;
     margin-top: 25px;
+
+    @media (max-width: 800px) {
+        margin: 0px;
+        text-align: center;
+    }
 `;
 
 export const Title = styled.p`
@@ -130,6 +189,16 @@ export const Title = styled.p`
     letter-spacing: 20px;
     margin-top: 20px;
     margin-bottom: 10px;
+
+    @media (max-width: 800px) {
+        font-size: 52px;
+        letter-spacing: 10px;
+    }
+
+    @media (max-width: 450px) {
+        font-size: 28px;
+        letter-spacing: 5px;
+    }
 `;
 
 export const SubHeader = styled.p `
@@ -137,6 +206,13 @@ export const SubHeader = styled.p `
     font-size: 32px;
     color: #708090;
     margin-bottom: 55px;
+
+    @media (max-width: 450px) {
+        font-size: 16px;
+        letter-spacing: 0px;
+        margin-bottom: 20px;
+    }
+
 `;
 
 export const NavBar = styled.div `
