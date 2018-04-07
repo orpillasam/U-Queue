@@ -62,4 +62,4 @@ This project is licensed under the MIT license
 
 * Thank you to the UCI Coding Bootcamp and our wonderful instructor Drew!
 
-Copyright :copy: 2018 Laurentius tirtarahardja, Elle Bang, Lauren Spinazze, Brendan Kim, Sam Orpilla
+_Copyright &copy; 2018 Laurentius tirtarahardja, Elle Bang, Lauren Spinazze, Brendan Kim, Sam Orpilla_
