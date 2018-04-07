@@ -1,4 +1,5 @@
 # U-Queue
+
 Welcome to U-Queue!
 
 ![U-Queue Logo](https://github.com/orpillasam/U-Queue/blob/master/client/src/assets/2x/Asset%201%402x.png)
@@ -13,42 +14,52 @@ Fear no more. We have the answer to your problems.
 
 ![We Deserve Answers](https://media.giphy.com/media/l0MYrqEXDfPtrgLXG/giphy.gif)
 
-Please begin by: 
+Please begin by:
+
 * Creating an account and filling out the basic information on the sign up page
-    * Customers can then sign themselves up onto the waitlist without having to bother the hosts/hostesses
-    * Hosts/Hostesses will click the notify function from the app that will send a notification to the customer via SMS when table is ready
+  * Customers can then sign themselves up onto the waitlist without having to bother the hosts/hostesses
+  * Hosts/Hostesses will click the notify function from the app that will send a notification to the customer via SMS when table is ready
 
 ## Deployment
-Hosted on Heroku: 
 
+Hosted on Heroku:
 
-* Feel free to clone this repository and locally host it on your own! 
+* Feel free to clone this repository and locally host it on your own!
 
 ## Built With :nut_and_bolt:
+
 U-Queue is a Full Stack MERN application that is supported by the following technologies:
+
 * MongoDB
 * Express
 * React.js
 * Node.js
-* Materialize (CSS) 
+* Materialize (CSS)
 * Styled Components
-* Twilio  
+* Twilio
 
 ## Check Out The Customer Mobile App
+
 [U-Queue Mobile App (Customer View)](https://github.com/orpillasam/U-Queue-Mobile) -- Built on React Native!
 
 ## Check Out The Mobile Version!
+
 [U-Queue Mobile]() -- Built on React Native!
 
 ## Authors :books:
-* **Sam Orpilla** - *Back-End/Mobile Development*
-* **Laurentius Tirtarahardja** - *Back-End Development*
-* **Elle Bang** - *Front-End Development*
-* **Lauren Spinazze** - *Front-End Development*
-* **Brendan Kim** - *Front-End/Back-End Development*
+
+* **Sam Orpilla** - _Back-End/Mobile Development_
+* **Laurentius Tirtarahardja** - _Back-End Development_
+* **Elle Bang** - _Front-End Development_
+* **Lauren Spinazze** - _Front-End Development_
+* **Brendan Kim** - _Front-End/Back-End Development_
 
 ## License
-This project is licensed under the MIT license 
+
+This project is licensed under the MIT license
 
 ## Acknowledgements
-* Thank you to the UCI Coding Bootcamp and our wonderful instructor Drew! 
+
+* Thank you to the UCI Coding Bootcamp and our wonderful instructor Drew!
+
+Copyright :copy: 2018 Laurentius tirtarahardja, Elle Bang, Lauren Spinazze, Brendan Kim, Sam Orpilla

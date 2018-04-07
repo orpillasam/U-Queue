@@ -16,6 +16,10 @@ export default {
   removeGuestFromQueue: function(id) {
     return axios.put('/api/queue/' + id);
   },
+  // Removes guest from database entirely
+  removeGuest: function(id) {
+    return axios.delete('/api/queuehistory/' + id);
+  },
   // Moves guest from history back to waiting
   moveGuest: function(id) {
     return axios.put('/api/queuehistory/' + id);

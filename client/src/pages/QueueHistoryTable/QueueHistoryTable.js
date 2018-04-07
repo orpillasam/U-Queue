@@ -198,7 +198,7 @@ class QueueHistoryTable extends Component {
       .catch(err => console.log(err));
   };
   deleteGuest = id => {
-    API.deleteGuest(id)
+    API.removeGuest(id)
       .then(res => this.loadQueueHistory())
       .catch(err => console.log(err));
   };
@@ -239,7 +239,7 @@ class QueueHistoryTable extends Component {
                 <DeleteQueueItem>
                   <Delete
                     onClick={() => {
-                      this.removeGuest(guest._id);
+                      this.deleteGuest(guest._id);
                     }}
                   />
                 </DeleteQueueItem>
