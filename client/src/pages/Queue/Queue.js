@@ -23,7 +23,6 @@ const Container1 = styled.div`
 const Container2 = styled.div`
 display: flex;
 margin: 0;
-justify-content: space-between;
 align-items: center;
 height: 380px;
 background: url('https://s3-us-west-1.amazonaws.com/uqueue/assets/Screen+Shot+2018-04-05+at+9.19.00+PM.png');

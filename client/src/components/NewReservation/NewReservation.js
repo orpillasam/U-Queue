@@ -19,9 +19,9 @@ const AddContainer = styled.div`
   align-items: center;
   border: solid #66cdaa 4px;
   border-radius: 10px;
-  padding-top: 75px;
+  padding-top: 50px;
   width: 225px;
-  height: 117px;
+  height: 148px;
   background-color: black;
   margin-right: 80px;
 `;
