@@ -5,12 +5,15 @@ import styled from 'styled-components';
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  padding-bottom: 400px;
+  margin-left: 15px;
+  margin-top: 10px;
+  flex: 1 1 1000px;
 `;
 
 const Delete = styled.button`
-  background: url('https://s3-us-west-1.amazonaws.com/uqueue/assets/delete-1.png');
+  background: url('https://s3-us-west-1.amazonaws.com/uqueue/assets/Delete+1.png');
   background-repeat: no-repeat;
+  background-size: 20px;
   border: none;
   width: 29px;
   height: 29px;
@@ -20,6 +23,7 @@ const Delete = styled.button`
 const Seated = styled.button`
   background: url('https://s3-us-west-1.amazonaws.com/uqueue/assets/rectangle.png');
   background-repeat: no-repeat;
+  background-size: 20px;
   border: none;
   width: 33px;
   height: 33px;
@@ -29,6 +33,7 @@ const Seated = styled.button`
 const Notify = styled.button`
   background: url('https://s3-us-west-1.amazonaws.com/uqueue/assets/Notify2.png');
   background-repeat: no-repeat;
+  background-size: 14px;
   border: none;
   width: 30px;
   height: 35px;
@@ -37,17 +42,19 @@ const Notify = styled.button`
 
 const Menu = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  height: 70px;
-  background-color: #708090;
+  height: 80px;
+  background-color: #66CDAA;
+  border: 1px solid #b5b7b6;
+  box-shadow: 0 0 4px 0 rgba(0,0,0,0.50);
 `;
 
-const MenuItem = styled.div`
+const MenuItem = styled.span`
   color: white;
   font-family: Assistant;
-  font-size: 20px;
-  padding: 35px;
+  font-size: 16px;
+  display: inline;
 `;
 
 const QueueBody = styled.div`
@@ -59,32 +66,22 @@ const QueueBody = styled.div`
 `;
 
 const QueueRow = styled.div`
+  background: white;
   border-style: solid;
+  border-width: 0 0 1px;
   border-color: #708090;
-  margin: 5px 0;
-  border-radius: 5px;
   display: flex;
   font-size: 18px;
   justify-content: space-between;
-  padding: 10px;
+  padding: 5px;
   text-align: center;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
   div:hover {
     box-shadow: none;
   }
 `;
 
-// const QueueItem = styled.div`
-//   font-size: 15px;
-//   text-align: center;
-//   padding-top: 10px;
-//   flex: 0 1 50px;
-//   height: 25px;
-//   div:hover {
-//     box-shadow: none;
-//   }
-// `;
-
-const FirstName = styled.div`
+const FirstName = styled.span`
   font-size: 15px;
   text-align: center;
   padding-top: 15px;
@@ -92,7 +89,7 @@ const FirstName = styled.div`
   height: 35px;
 `;
 
-const LastName = styled.div`
+const LastName = styled.span`
   font-size: 15px;
   text-align: center;
   padding-top: 15px;
@@ -101,7 +98,7 @@ const LastName = styled.div`
   margin-left: -10px;
 `;
 
-const PartySize = styled.div`
+const PartySize = styled.span`
   font-size: 15px;
   text-align: center;
   padding-top: 15px;
@@ -109,7 +106,7 @@ const PartySize = styled.div`
   height: 35px;
   margin-left: 30px;
 `;
-const PhoneNumber = styled.div`
+const PhoneNumber = styled.span`
   font-size: 15px;
   text-align: center;
   padding-top: 15px;
@@ -118,7 +115,7 @@ const PhoneNumber = styled.div`
   margin-left: 25px;
 `;
 
-const SeatedQueueItem = styled.div`
+const SeatedQueueItem = styled.span`
   font-size: 15px;
   text-align: center;
   padding-top: 15px;
@@ -127,7 +124,7 @@ const SeatedQueueItem = styled.div`
   margin-left: -5px;
 `;
 
-const NotifyQueueItem = styled.div`
+const NotifyQueueItem = styled.span`
   font-size: 15px;
   text-align: center;
   padding-top: 15px;
@@ -136,7 +133,7 @@ const NotifyQueueItem = styled.div`
   margin-left: 40px;
 `;
 
-const DeleteQueueItem = styled.div`
+const DeleteQueueItem = styled.span`
   font-size: 15px;
   text-align: center;
   padding-top: 15px;
@@ -145,12 +142,13 @@ const DeleteQueueItem = styled.div`
   margin-right: 20px;
 `;
 
-const Notes = styled.div`
+const Notes = styled.span`
   font-size: 15px;
   text-align: center;
   padding-top: 15px;
   flex: 0 0 120px;
   height: 35px;
+  color: #8366CF;
 `;
 
 const NoResults = styled.h3`
@@ -235,14 +233,14 @@ class CustomerQueue extends Component {
     return (
       <Container>
         <Menu>
-          <MenuItem>First Name</MenuItem>
-          <MenuItem>Last Name</MenuItem>
-          <MenuItem>Party Size</MenuItem>
-          <MenuItem>Phone</MenuItem>
-          <MenuItem>Seated</MenuItem>
-          <MenuItem>Notify</MenuItem>
-          <MenuItem>Notes</MenuItem>
-          <MenuItem>Remove</MenuItem>
+          <MenuItem>FIRST NAME</MenuItem>
+          <MenuItem>LAST NAME</MenuItem>
+          <MenuItem>PARTY SIZE</MenuItem>
+          <MenuItem>PHONE</MenuItem>
+          <MenuItem>SEATED</MenuItem>
+          <MenuItem>NOTIFY</MenuItem>
+          <MenuItem>NOTES</MenuItem>
+          <MenuItem>REMOVE</MenuItem>
         </Menu>
         {this.state.queue.length ? (
           <QueueBody>

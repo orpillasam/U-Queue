@@ -1,64 +1,23 @@
 import React, { Component } from 'react';
-import API from '../../utils/API';
 import styled from 'styled-components';
+import Counter from '../../components/Counter';
+import API from '../../utils/API';
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  flex: 0 1 300px;
-  justify-content: space-evenly;
-  margin-top: 70px;
-  div:hover {
-    background-color: #66CDAA;
-  }
+  background: #37383a;
+  margin-left: -5px;
+  flex: 1 0 275px;
 `;
 
-const QueueNumber = styled.div`
-  font-family: 'Assistant', sans-serif;
-  font-size: 20px;
-  color: white;
-  div:hover {
-    background-color: #66CDAA;
-  }
-  font-weight: 100;
-  padding-left: 20px;
-  height: 50px;
-  padding-top: 20px;
+const SampleLogo = styled.img`
+    height: 70px;
+    margin-top: 80px;
 `;
 
-const WaitTime = styled.div`
-  font-family: 'Assistant', sans-serif;
-  font-size: 20px;
-  color: white;
-  font-weight: 100;
-  padding-left: 20px;
-  height: 50px;
-  padding-top: 20px;
-  div:hover {
-    background-color: #66CDAA;
-  }
-`
-const Seated = styled.div`
-  font-family: 'Assistant', sans-serif;
-  font-size: 20px;
-  color: white;
-  font-weight: 100;
-  padding-left: 20px;
-  height: 50px;
-  padding-top: 20px;
-`
 
-const Turnover = styled.div`
-  font-family: 'Assistant', sans-serif;
-  font-size: 20px;
-  color: white;
-  font-weight: 100;
-  padding-left: 20px;
-  height: 50px;
-  padding-top: 20px;
-`
-
-class Counter extends Component {
+class Sidebar extends Component {
   state = {
     queue: [],
     firstName: '',
@@ -130,13 +89,11 @@ class Counter extends Component {
   render() {
     return (
       <Container>
-        <QueueNumber>GUESTS IN QUEUE: {this.state.queue.length}</QueueNumber>
-        <WaitTime>CURRENT WAIT: 35 mins </WaitTime>
-        <Seated>GUESTS SEATED: 13 </Seated>
-        <Turnover>AVG. TURNOVER: 85 mins</Turnover>
+        <SampleLogo src={require('../../assets/samplelogo.svg')} alt="sample restuarant logo" />
+        <Counter />
       </Container>
     );
   }
 }
 
-export default Counter;
+export default Sidebar;

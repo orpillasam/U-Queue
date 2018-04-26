@@ -1,32 +1,27 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import {
-  SampleLogo,
-} from '../../components/Styled/Styled.js';
 import NewReservation from '../../components/NewReservation';
 import CustomerQueue from '../../components/CustomerQueue';
 import Nav from '../../components/Nav';
+import Sidebar from '../../components/Sidebar';
 import Counter from '../../components/Counter';
 import API from '../../utils/API';
 
 const Wrapper = styled.div`
   display: flex;
+  flex: 1 1 auto;
   flex-direction: column;
-  justify-content: space-around;
   font-family: 'Assistant', sans-serif;
   font-size: 20px;
 `;
 
 const Container1 = styled.div`
+  display: flex;
+  flex: 1 1 800px;
+  justify-content: space-between;
+  background: #f7f7f7;
 `;
 
-const Container2 = styled.div`
-display: flex;
-margin: 0;
-align-items: center;
-height: 380px;
-background: url('https://s3-us-west-1.amazonaws.com/uqueue/assets/Screen+Shot+2018-04-05+at+9.19.00+PM.png');
-`;
 
 class Queue extends Component {
 
@@ -52,14 +47,11 @@ class Queue extends Component {
     return (
       <Wrapper>
         <Nav />
-        <Container2>
-          <SampleLogo src={require('../../assets/samplelogo.svg')} alt="sample restuarant logo" />
-          <Counter />
-          <Container1>
-            <NewReservation onClick={this.handleFormSubmit} />
-          </Container1>
-        </Container2>
-        <CustomerQueue />
+        <Container1>
+          <Sidebar />
+          <CustomerQueue />
+          <NewReservation onClick={this.handleFormSubmit} />
+        </Container1>
       </Wrapper>
     );
   }

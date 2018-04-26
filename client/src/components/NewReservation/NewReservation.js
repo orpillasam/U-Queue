@@ -5,33 +5,14 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div`
   display: flex;
-  justify-content: flex-start;
+  margin-top: 35px;
+  margin-left: 10px;
+  margin-right: 10px;
 `;
 
 const Container = styled.section`
   display: flex;
   flex-direction: column;
-`;
-
-const AddContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border: solid #66cdaa 4px;
-  border-radius: 10px;
-  padding-top: 50px;
-  width: 225px;
-  height: 148px;
-  background-color: black;
-  margin-right: 80px;
-`;
-
-const Header = styled.h1`
-  font-family: 'Quicksand', sans-serif;
-  font-size: 24px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  color: #66cdaa;
 `;
 
 const Input = styled.input`
@@ -64,11 +45,12 @@ const Button = styled.button`
 `;
 
 const Add = styled.button`
-  background: url('https://s3-us-west-1.amazonaws.com/uqueue/assets/AddBtn.png');
+  background: url('https://s3-us-west-1.amazonaws.com/uqueue/assets/plus-square.png');
+  background-size: 40px;
   background-repeat: no-repeat;
   border: none;
-  width: 45px;
-  height: 45px;
+  width: 40px;
+  height: 40px;
   margin-bottom: 10px;
 `;
 
@@ -166,10 +148,7 @@ class NewReservation extends Component {
   render() {
     return (
       <Wrapper>
-        <AddContainer>
-          <Add onClick={this.openModal}></Add>
-          <Header>Add Guests</Header>
-        </AddContainer>
+        <Add onClick={this.openModal}></Add>
         <Modal
           isOpen={this.state.modalIsOpen}
           onRequestClose={this.closeModal}
