@@ -17,9 +17,6 @@ const QueueNumber = styled.div`
   font-family: 'Assistant', sans-serif;
   font-size: 20px;
   color: white;
-  div:hover {
-    background-color: #66CDAA;
-  }
   font-weight: 100;
   padding-left: 20px;
   height: 50px;
@@ -34,9 +31,6 @@ const WaitTime = styled.div`
   padding-left: 20px;
   height: 50px;
   padding-top: 20px;
-  div:hover {
-    background-color: #66CDAA;
-  }
 `
 const Seated = styled.div`
   font-family: 'Assistant', sans-serif;

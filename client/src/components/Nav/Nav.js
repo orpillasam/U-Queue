@@ -3,6 +3,12 @@ import Clock from 'react-live-clock';
 import styled from 'styled-components';
 
 const NavBar = styled.div`
+  /*position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;*/
+  background: white;
   display: flex;
   justify-content: space-around;
   align-content: center;
