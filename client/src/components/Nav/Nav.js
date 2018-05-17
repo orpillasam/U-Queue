@@ -3,34 +3,34 @@ import Clock from 'react-live-clock';
 import styled from 'styled-components';
 
 const NavBar = styled.div`
+  /*position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;*/
+  background: white;
   display: flex;
   justify-content: space-around;
   align-content: center;
   align-items: center;
-  background-color: #66CDAA; 
-  padding: 20px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #DFDCE3;
   a {
-    font-size: 22px;
-    color: white;
+    font-size: 18px;
+    color: black;
     font-family: 'Assistant', sans-serif;
     text-decoration: none;
-    font-weight: bold;
   }
 
   a:hover {
-    color: #708090;
+    color: #DFDCE3;
     text-decoration: none;
-  }
-
-  li {
-    list-style-type: none;
   }
 `;
 
 const Link = styled.a`
   display: flex;
   justify-content: flex-start;
-  border-bottom: 5px #8fbc8b;
   a {
     font-size: 16px;
     color: #8fbc8b;
@@ -41,30 +41,14 @@ const Link = styled.a`
   }
 `;
 
-// const Button = styled.button`
-//   align: center;
-//   border-radius: 4px;
-//   height: 30px;
-//   background-color: #ff6347;
-//   border: none;
-//   color: #ffffff;
-//   text-align: center;
-//   font-size: 12px;
-//   width: 100px;
-//   transition: all 0.5s;
-//   cursor: pointer;
-//   margin-top: 10px;
-//   margin-left: 20px;
-// `;
-
 const Time = styled.div`
-  font-size: 20px;
-  color: #ff6347;
+  font-size: 18px;
+  color: #CF667E;
   font-family: 'Futura';
 `;
 
 const NavLogo = styled.img`
-  height: 60px;
+  height: 40px;
   background-color: white;
   padding: 10px;
   border-radius: 10px;
@@ -75,9 +59,9 @@ const Nav = () => (
     <Link href="/queue">
       <NavLogo src={require('../../assets/SVG/Asset 1.svg')} alt="logo" />
     </Link>
-    <Link href="/queuehistory">HISTORY</Link>
-    <Link href="/newaccount">ACCOUNT</Link>
-    <Link href="/login">GOODBYE</Link>
+    <Link href="/queuehistory">History</Link>
+    <Link href="/newaccount">Account</Link>
+    <Link href="/login">Logout</Link>
     <Time>
       <Clock
         format={'MMMM Do, YYYY   hh:mm:ss A'}

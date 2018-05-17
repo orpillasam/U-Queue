@@ -43,11 +43,6 @@ padding: 50px;
 }
 `;
 
-export const SampleLogo = styled.img`
-    height: 250px;
-    margin-left: 80px;
-`;
-
 export const SignUpSection = styled.section`
     padding-top: 50px;
     padding-left: 100px;
